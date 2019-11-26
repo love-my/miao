@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0px;
+    }
+    header{
+      margin: 0px;
+      background-color: black;
+      color: white;
+    }
+    .h{
+      margin-top: 0px;
+    }
+    p,.h,.a,.b,.d{
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .a>div{
+      border:solid black 3px;
+      box-sizing: border-box;
+      width: 180px;
+      height: 40px;
+      background-color: pink;
+      margin-left: 0px;
+      text-align: center;
+      line-height: 34px;
+      margin-top: 15px;
+    }
+    .a>div:hover{
+      background-color: red;
+    }
+
+    .a>div:nth-child(3n+2){
+      margin-left: 210px;
+      margin-top: -40px;
+    }
+
+    .a>div:nth-child(3n+3){
+      margin-left: 420px;
+      margin-top: -40px;
+    }
+
+    .b>div:nth-child(n):nth-child(-n+4){
+      border-bottom: dotted 1px black;
+    }
+
+    .c{
+      text-align: center;
+      background-color:rgb(238,138,238);
+      margin: 0px;
+    }
+
+    .d{
+      width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <header><p class="h">hello world 请调整浏览器窗口大小查看效果</p></header>
+  <p>页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px</p>
+  <div class="a">
+    <div>宽180高40(包含边框)</div>
+    <div>产品</div>
+    <div>产品</div>
+    <div>水平间隙30px</div>
+    <div>产品</div>
+    <div>产品</div>
+    <div>垂直间隙15px</div>
+    <div>产品</div>
+    <div>产品</div>
+    <div>边框宽度3px</div>
+    <div>产品</div>
+    <div>产品</div>
+  </div>
+  <br>
+  <div class="b">
+    <div>link</div>
+    <div>link</div>
+    <div>link</div>
+    <div>link</div>
+    <div>link</div>
+  </div>
+  <br>
+  <div class="c">
+    <p class="d">©版权所有</p>
+    <p class="d">本页所有布局均使用块元素</p>
+  </div>
+</body>
+</html>
