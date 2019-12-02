@@ -11,44 +11,33 @@ body{
 	background-color: black;
 }
 
-div{
-	margin-left: auto;
-	margin-right: auto;
-}
-div>div{
-
-  font-size:0;
+.icon{
   background-image: url(https://www.google.com/images/nav_logo242_hr.webp);
+  border: 1px solid;
 }
-div:first-child{
+.icon-google-logo{
   width:250px;
   height:80px;
-  border:1px solid black;
-	background-position: -45px 0;
+  background-position: -45px 0;
 }
-div:nth-child(2){
+.icon-search{
   width:40px;
   height:40px;
-  border:1px solid black;
-  margin-top:10px;
-	background-position: -218px -115px;
+  background-position: -218px -115px;
 }
-div:nth-child(3){
+.icon-play{
   width:45px;
   height:45px;
-  border:1px solid black;
-  margin-top:10px;
-	background-position: -280px -87px;
+  background-position: -280px -87px;
 }
 </style>
 
 </head>
 <body>
   <div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div class="icon icon-google-logo"></div>
+    <div class="icon icon-search"></div>
+    <div class="icon icon-play"></div>
   </div>
-
 </body>
 </html>
