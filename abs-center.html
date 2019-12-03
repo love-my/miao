@@ -6,63 +6,86 @@
   <title>JS Bin</title>
 
 <style>
-body{
-	margin: 10px;
-}
 .a{
+	height: 200px;
+	width: 300px;
+	border:2px solid;
+	text-align: center;
+	line-height: 200px;
+	font-size:0;
+}
+.aa{
+	font-size:16px;
+	display: inline-block;
+	width: 200px;
+	height: 100px;
+	background-color: red;
+	border:1px solid;
+	text-align: center;
+	line-height: 100px;
+	vertical-align: middle;
+}
+.b{
 	background-color: pink;
 	border:3px solid black;
 	padding: 50px;
+	position: relative;
 }
-
-header{
-	background-color: red;
-	border:2px solid black;
-	text-align:center;
-	width:200px;
-	padding: 40px;
-	margin:auto;
-}
-
-    .b{
-	background-color: pink;
-	border:3px solid black;
-	height:300px;
-	position:relative;
-	padding:30px;
-	font-size:0;
-	line-height: 20px;
-}
-span{
-	display:block;
+.bb{
 	background-color: red;
 	border:2px solid black;
 	position:absolute;
 	width:200px;
-	height: 50px;
-	line-height: 50px;
+	height: 40px;
 	top:0;
 	bottom:0;
 	left:0;
 	right:0;
 	margin: auto;
-	padding: 0;
 	text-align:center;
 	vertical-align: middle;
 	font-size:16px;
+	line-height: 36px;
 }
+.c{
+	display: table-cell;
+	border:3px solid;
+	background-color: pink;
+	width: 300px;
+	height: 200px;
+	vertical-align: middle;
+}
+.cc{
+	display: block;
+	border:3px solid;
+	padding: 20px;
+	background-color: red;
+	width: 50%;
+	margin: auto;
+	text-align: center;
+}
+
 </style>
 
 </head>
 <body>
-  <div class="a">
-			<header>绝对居中</header>
-  </div>
+	<div class="a">
+	  <span class="aa">
+		绝对居中
+	  </span>
+	</div>
 	<br>
 	<div class="b">
-			<span>
+			<span class="bb">
 				绝对居中
 			</span>
   </div>
+	<br>
+	<div class="c">
+		<span class="cc">
+			绝对居中
+		</span>
+	</div>
+
 </body>
 </html>

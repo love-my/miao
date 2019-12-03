@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+
+  <style>
+  ul{
+	list-style:none;
+	padding-left: 20px;
+}
+
+ul.menu{
+	margin:0px;
+	border:1px solid;
+	font-size:16px;
+	position: relative;
+	background-color: rgba(60,60,60);
+	color: rgba(186,186,186);
+}
+ul ul{
+	display: none;
+	position:absolute;
+	top:100%;
+	left:0;
+	padding: 0px;
+	margin-left:-20px;
+}
+ul ul ul{
+	position: absolute;
+	top:0;
+	left:100%;
+	padding: 0px;
+	margin-left:0px;
+}
+ul.menu>li{
+	display: inline-block;
+	position: relative;
+	white-space:nowrap;
+	padding: 10px;
+}
+
+ul ul li{
+	display: block;
+	padding: 10px;
+	padding-left:30px;
+	background-color: rgba(37,37,38);
+	position: relative;
+}
+
+ul ul li:hover{
+	background-color: rgba(9,71,113);
+}
+
+li:hover > ul{
+	display: block;
+}
+  </style>
+
+</head>
+<body>
+	<div>
+		<ul class="menu">
+			<li>File
+				<ul>
+					<li>New File</li>
+					<li>New Window</li>
+					<li>Open Rencent
+						<ul>
+							<li>Reopen Closed Editor</li>
+							<li>More...</li>
+							<li>Clear Recently Opened</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Edit</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	
+	</div>
+</body>
+</html>

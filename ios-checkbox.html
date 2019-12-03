@@ -4,8 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
-  <style>
-      label{
+
+<style>
+body{
+	margin: 20px;
+}
+input{
+	display: none;
+}
+input#a + label{
 	box-sizing:border-box;
 	display: inline-block;
 	width: 270px;
@@ -13,40 +20,107 @@
 	background-color: white;
 	border-radius:75px;
 	transition:0.5s;
-	border: solid rgba(0,0,0,0.2)	 5px;
+	border: solid rgba(0,0,0,0.2)	 4px;
 	position: relative;
+	box-shadow: 0 0 0 0 inset;
 }
-span{
-	position: relative;
-	display: inline-block;
+input#a + label::before{
+	content: "";
+	position: absolute;
+	display: block;
 	width: 130px;
 	height: 130px;
 	box-shadow:0 0 25px rgba(204,204,204);
 	background-color:white;
-	border-radius:68px;
+	border-radius:70px;
 	transition:0.5s;
-	top: 5px;
-	left: 5px;
+	top: 6px;
+	left: 6px;
+	z-index: 2;
 }
-label:active{
-	background-color: rgba(44,231,69);
-	border: solid 5px rgba(44,231,69);
+input#a:checked + label{
+	box-shadow: 0 0 0 80px inset rgba(44,231,69);
+	border: solid 4px rgba(44,231,69);
 	transition:0.5s;
-	position: relative;
 }
-span:active{
-	position:relative;
+input#a:checked + label::before{
+	position: absolute;
 	left: 125px;
 	transition:0.5s;
 }
 
 
-  </style>
+
+label.b{
+	display: inline-block;
+	vertical-align: middle;
+	padding-left:50px;
+	position: relative;
+	font-size:30px;
+}
+input + label.b::before{
+	display: inline-block;
+	content: " ";
+	width: 40px;
+	height: 40px;
+	border-radius:30px;
+	box-sizing: border-box;
+	border: 5px solid rgba(33,33,33);
+	padding: 15px;
+	background-color: rgba(5,189,95);
+	background-clip: content-box;
+	transition:0.3s;
+	position: absolute;
+	left:0px;
+}
+input + label.b::after{
+	display: inline-block;
+	content:" ";
+	width: 0;
+	height: 0;
+	background-color: rgba(162,220,189);
+	border-radius:50px;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	z-index:-1;
+	transition:0.3s;
+}
+
+
+input:checked + label.b::before{
+	content: " ";
+	border: 5px solid rgba(5,189,95);
+	padding: 6px;
+	
+}
+input:active + label.b::after{
+	content:" ";
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	left:-10px;
+	top:-10px;
+}
+</style>
+
 </head>
 <body>
-  <div>
-   <input type="checkbox" id="a" hidden>
-		<label for="a"><span></span></label>
+	  <div>
+   <input type="checkbox" id="a">
+		<label for="a"></label>
   </div>
+
+	<input type="radio" name="button" id="button1">
+	<label class="b" for="button1"> Radio Button</label>
+	<br>
+	<br>
+	<input type="radio" name="button" id="button2">
+	<label class="b" for="button2"> Radio Button</label>
+	<br>
+	<br>
+	<input type="radio" name="button" id="button3">
+	<label class="b" for="button3"> Radio Button</label>
+	
 </body>
 </html>
