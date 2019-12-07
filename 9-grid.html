@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+
+
+  <style>
+  div div{
+	display: block;
+	box-sizing: border-box;
+	width: 60px;
+	height: 60px;
+	border: 5px solid rgba(0,0,240);
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+}
+div div:hover{
+	position: relative;
+	border: 5px solid red;
+	z-index: 1;
+}
+.a div{
+		margin-bottom: -5px;
+}
+.a>div:nth-child(n+4){
+	margin-left: 55px;
+}
+.a>div:nth-child(n+7){
+	margin-left: 110px;
+}
+.a>div:nth-child(4),.a>div:nth-child(7){
+	margin-top: -170px;
+}
+
+
+.b div{
+	margin-bottom: -5px;
+}
+.b>div:nth-child(3n+2){
+	margin-left: 55px;
+	margin-top: -60px;
+}
+.b>div:nth-child(3n){
+	margin-left: 110px;
+	margin-top: -60px;
+}
+
+
+.c{
+	width: 180px;
+	font-size: 0;
+}
+.c div{
+	font-size: 16px;
+	display: inline-block;
+	margin: 0px;
+	margin-right: -5px;
+	margin-bottom: -5px;
+}
+
+
+.d{
+	position: relative;
+}
+.d>div{
+	position: absolute;
+}
+.d>div:nth-child(2){
+	left: 55px;
+	top: 0;
+}
+.d>div:nth-child(3){
+	left: 110px;
+	top: 0;
+}
+.d>div:nth-child(4){
+	top:55px;
+}
+.d>div:nth-child(5){
+	left: 55px;
+	top: 55px;
+}
+.d>div:nth-child(6){
+	left: 110px;
+	top: 55px;
+}
+.d>div:nth-child(7){
+	left: 0px;
+	top: 110px;
+}
+.d>div:nth-child(8){
+	left: 55px;
+	top: 110px;
+}
+.d>div:nth-child(9){
+	left: 110px;
+	top: 110px;
+}
+
+
+.e{
+	display: table;
+	margin-top: 200px;
+	border-collapse: separate;
+}
+.e td{
+	width: 55px;
+	height: 55px;
+	box-sizing: border-box;
+	border: 5px solid rgba(0,0,240);
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	cursor: pointer;
+}
+.e td:hover{
+	border: 5px solid red;
+}
+  </style>
+</head>
+<body>
+	<div class="a">
+		<div>1</div>
+		<div>4</div>
+		<div>7</div>
+		<div>2</div>
+		<div>5</div>
+		<div>8</div>
+		<div>3</div>
+		<div>6</div>
+		<div>9</div>
+	</div>
+	<br>
+	<div class="b">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+		<div>7</div>
+		<div>8</div>
+		<div>9</div>
+	</div>
+	<br>
+	<div class="c">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+		<div>7</div>
+		<div>8</div>
+		<div>9</div>
+	</div>
+	<br>
+	<div class="d">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+		<div>7</div>
+		<div>8</div>
+		<div>9</div>
+	</div>
+	<br>
+	<table class="e">
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+</body>
+</html>
