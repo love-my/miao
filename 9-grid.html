@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
 
-
   <style>
   div div{
 	display: block;
@@ -103,14 +102,16 @@ div div:hover{
 
 .e{
 	display: table;
-	margin-top: 200px;
-	border-collapse: separate;
+	border-collapse: collapse;
 }
+.e col,.e tr{
+	border: 5px solid rgba(0,0,240);
+}
+
 .e td{
 	width: 55px;
 	height: 55px;
 	box-sizing: border-box;
-	border: 5px solid rgba(0,0,240);
 	text-align: center;
 	vertical-align: middle;
 	position: relative;
@@ -119,7 +120,9 @@ div div:hover{
 .e td:hover{
 	border: 5px solid red;
 }
+
   </style>
+
 </head>
 <body>
 	<div class="a">
@@ -158,20 +161,11 @@ div div:hover{
 		<div>9</div>
 	</div>
 	<br>
-	<div class="d">
-		<div>1</div>
-		<div>2</div>
-		<div>3</div>
-		<div>4</div>
-		<div>5</div>
-		<div>6</div>
-		<div>7</div>
-		<div>8</div>
-		<div>9</div>
-	</div>
-	<br>
 	<table class="e">
 		<tbody>
+			<col>
+			<col>
+			<col>
 			<tr>
 				<td>1</td>
 				<td>2</td>
@@ -190,5 +184,18 @@ div div:hover{
 		</tbody>
 	</table>
 	<br>
+	<div class="d">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+		<div>7</div>
+		<div>8</div>
+		<div>9</div>
+	</div>
+	<br>
 </body>
+
 </html>
