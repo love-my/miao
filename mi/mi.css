@@ -1,0 +1,2831 @@
+﻿@font-face{font-family:iconfont4;
+	src:url(data:application/x-font-ttf;charset=utf-8;base64,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) format("woff");font-weight:400}
+@font-face {
+  font-family: 'iconfont';  /* project id 1557421 */
+  src: url('//at.alicdn.com/t/font_1557421_q1nf2rnqq8.eot');
+  src: url('//at.alicdn.com/t/font_1557421_q1nf2rnqq8.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1557421_q1nf2rnqq8.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1557421_q1nf2rnqq8.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1557421_q1nf2rnqq8.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1557421_q1nf2rnqq8.svg#iconfont') format('svg');
+}
+/* 顶部导航栏 */
+html{
+	width: 100%;
+	xmin-width: 1226px;
+	xoverflow: hidden;
+}
+
+html,body,.top,.top2{
+	margin: 0;
+}
+body{
+	font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+}
+a{
+	text-decoration: none;
+}
+ul{
+	padding:	0;
+}
+li{
+	list-style: none;
+}
+.top{
+	width: 100%;
+	min-width: 1226px;
+	height: 40px;
+	background-color: rgba(51,51,51);
+}
+header{
+	width: 1226px;
+	margin: auto;
+	line-height: 40px;
+	font-size: 12px;
+	position: relative;
+}
+header a{
+	height: 40px;
+	font-size: 12px;
+	border-right: 1px solid rgba(66,66,66);
+	padding-left: 6px;
+	padding-right: 6px;
+	color: rgba(176,176,176);
+}
+header>a:last-child{
+	position: absolute;
+	width: 120px;
+	text-align: center;
+	right: 0;
+}
+
+/* 下载app */
+header>a:nth-child(11){
+	position: relative;
+}
+header>a:nth-child(11)>span{
+	width: 125px;
+	height: 0px;
+	background-color: white;
+	left: -30px;
+	text-align: center;
+	top: 27px;
+	z-index: 0;
+	font-size: 14px;
+	transition: 0.5s;
+	position: absolute;
+	overflow: hidden;
+	box-shadow:-5px 5px 5px gray,5px 5px 5px gray;
+}
+header>a>span>img{
+	position: relative;
+	width: 100px;
+	height: 100px;
+	top:20px;
+}
+header>a:nth-child(11):hover::before{
+	content: "";
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	border: 9px solid;
+	border-color: transparent transparent white transparent;
+	z-index: 1;
+	bottom: -13px;
+	left: 25px;
+}
+header>a:nth-child(11):hover >span{
+	height: 150px;
+	transition: 0.5s;
+	z-index: 100;
+}
+
+header>a:nth-child(n+12){
+	border-right: none;
+}
+.yonghu{
+	position: absolute;
+	display: inline-block;
+	right: 140px;
+}
+.yonghu>a:nth-child(3){
+	border-right: none;
+}
+
+
+/* 购物车 */
+header>a:nth-child(14){
+	color: rgba(176,176,176);
+	background-color: rgba(66,66,66);
+	width: 120px;
+	box-sizing: border-box;
+	display: inline-block;
+	line-height: 40px;
+	transition: 0s 0.3s;
+}
+header>a:nth-child(14)::before{
+	content: '\E60C';
+	font-family: iconfont4;
+	font-size: 20px;
+	vertical-align: middle;
+	position: relative;
+	top:-2px;
+	margin-right: 3px;
+}
+header>a:nth-child(14)>span{
+	padding-right: 5px;
+	font-size: 12px;
+	vertical-align: top;
+}
+header>a:nth-child(14)>span{
+	display: block;
+	width: 317px;
+	height: 0;
+	position: relative;
+	top: -1px;
+	left: -208px;
+	z-index: 15;
+	background-color: white;
+	transition:0.3s;
+	overflow: hidden;
+	vertical-align: middle;
+	color: rgba(66,66,66);
+	line-height: 100px;
+}
+header>a:nth-child(14):hover{
+	color: rgba(255,103,0);
+	background-color: white;
+	transition: 0s;
+}
+header>a:nth-child(14):hover >span{
+	height: 100px;
+	box-shadow: -2px 2px 2px rgba(240,240,240),2px 2px 2px rgba(240,240,240);
+}
+
+
+
+/* 顶端目录 */
+.top2{
+	width: 100%;
+	height: 100px;
+	min-width: 1226px;
+}
+.top2-c{
+	width: 1226px;
+	margin: auto;
+	height: 100px;
+}
+section{
+	width: 1226px;
+	margin: auto;
+	margin-bottom: -50px;
+}
+/* 小米图标 */
+.mi-image{
+	display: inline-block;
+	width: 60px;
+}
+.mi-image>a{
+	display: inline-block;
+	width: 55px;
+	height: 55px;
+	background-color: rgba(255,103,0);
+	overflow: hidden;
+	margin-top: 22px;
+}
+.mi-image span{
+	display: inline-block;
+	width: 200px;
+	position: relative;
+	top: 3px;
+	transition: 0.3s;
+	left: 5px;
+}
+x.mi-image>a::before{
+	display: inline-block;
+	position: relative;
+	left: 0px;
+	content: "";
+	width: 55px;
+	height: 55px;
+	background: url(http://s02.mifile.cn/assets/static/image/mi-logo.png);
+	margin-left: 3px;
+	margin-top: 3px;
+	transition: 0.3s;
+}
+x.mi-image>a::after{
+	display: inline-block;
+	position: relative;
+	visibility: hidden;
+	left: 70px;
+	top: -62px;
+	content: "";
+	width: 55px;
+	height: 55px;
+	background: url(http://s02.mifile.cn/assets/static/image/mi-home.png);
+	margin-left: 3px;
+	margin-top: 3px;
+	transition: 0.3s;
+}
+.mi-image>a:hover>span{
+	left: -50px;
+}
+
+
+/* 目录1 */
+.mulu1{
+	xposition: relative;
+	display: inline-block;
+	margin-left: 165px;
+	top: -10px;
+	width: 992px;
+	font-size: 0;
+	vertical-align: top;
+	height: 100px;
+}
+.mulu1>a{
+	font-size: 16px;
+	padding: 8px;
+	color: rgba(51,51,51);
+	height: 100px;
+	line-height: 100px;
+	display: inline-block;
+	position: relative;
+	top:-10px;
+	padding-right: 12px;
+}
+.mulu1>a:hover{
+	color: rgba(255,103,0);
+}
+
+/* 搜索框 -------*/
+.search{
+	position: relative;
+	left: 88px;
+	top: -13px;
+	height: 50px;
+	z-index: 10;
+	display: inline-block;
+	width: 295px;
+	vertical-align: middle;
+}
+[name="search"]{
+	width: 245px;
+	height: 50px;
+	position: relative;
+	box-sizing: border-box;
+	border: 1px solid rgba(224,224,224);
+	outline: none;
+	auto-complete: off;
+}
+button{
+	font-family: iconfont4;
+	color: rgba(97,97,97);
+	font-size: 20px;
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	border: 1px solid rgba(224,224,224);
+	position: absolute;
+	left: 244px;
+	background-color: white;
+}
+button:hover{
+	background-color: rgba(255,103,0);
+	transition: 0.1s;
+	border: 1px solid rgab(255,103,0);
+	color: white;
+}
+.search-image{
+	width: 48px;
+	position: absolute;
+	left: 0;
+	top: 0px;
+}
+.search-c{
+	position: relative;
+	background-color: transparent;
+	transition: 0s 0.2s;
+	width: 245px;
+	box-sizing: border-box;
+	top: -1px;
+}
+.search-c a{
+	font-size: 12px;
+	margin: 10px;
+	display: block;
+	transition:0.2s;
+	visibility: hidden;
+	color: rgba(66,66,66);
+}
+.search-c a:hover{
+	background-color: rgba(250,250,250);
+}
+.search>a{
+	position: relative;
+}
+.search-value{
+	font-size: 10px;
+	position: absolute;
+	top: 18px;
+	right: 60px;
+}
+.search-value a{
+	padding: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 3px;
+	background-color: rgba(238,238,238);
+	color: rgba(136,117,117);
+	transition: 0.3s;
+}
+.search-value a:hover{
+	background-color: rgba(255,103,0);
+	color: white;
+}
+
+
+/* 搜索框获取焦点后颜色 */
+[name="search"]:hover{
+	border: 1px solid rgba(176,176,176);
+}
+[name="search"]:hover + button{
+	border: 1px solid rgba(176,176,176);
+}
+[name="search"]:focus{
+	border: 1px solid rgba(255,103,0);
+}
+[name="search"]:focus + button{
+	border: 1px solid rgba(255,103,0);
+}
+[name="search"]:focus ~div{
+	border: 1px solid rgba(255,103,0);
+	background-color: white;
+	transition: 0s;
+}
+[name="search"]:focus~div>a{
+	transition:0s;
+	visibility: visible;
+}
+[name="search"]:focus ~ .search-value{
+	display: none;
+}
+
+
+
+/* 顶端目录内容 */
+.mulu1-ck{
+	width: 100vw;
+	height: 0;
+	background-color: white;
+	min-width: 1226px;
+	position: absolute;
+	z-index: 10;
+	left: 0;
+	top: 140px;
+	border-top: 1px solid transparent;
+	transition: 0.3s 0.2s;
+	overflow: hidden;
+}
+.mulu1-ck:hover{
+	height: 230px;
+	box-shadow: 0px 5px 5px gray;
+	border-top: 1px solid rgba(224,224,224);
+}
+.mulu1-ck:hover >.mulu1-c{
+	transition: 0.3s 999s;
+}
+.mulu1-c{
+	text-align: center;
+	position: absolute;
+	top: -1px;
+	margin-left: calc(50% - 622px);
+	margin-top: 0px;
+	box-sizing: border-box;
+	width: 1226px;
+	height: 0px;
+	transition: 0s;
+	overflow: hidden;
+	padding-top: 0px;
+	z-index: 0;
+	xborder: 1px solid;
+	transition: 0s 0.5s;
+}
+.mulu1-c-c{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 204px;
+	text-align: center;
+	padding-left: 22px;
+	padding-right: 22px;
+	font-size: 14px;
+	transition: 0s;
+	padding-top: 37px;
+}
+.mulu1-c a{
+	color: rgba(51,51,51);
+}
+.mulu1-c-c>img{
+	position: relative;
+	padding-left: 0;
+	padding-right: 23px;
+	border-right: 1px solid rgba(224,224,224);
+}
+.mulu1-c-c:last-child>img{
+	border-right: none;
+}
+.mulu1-c-c>span{
+	display: block;
+	color: rgba(255,103,0);
+}
+.mulu1-c:hover{
+	height: 230px;
+}
+.mulu1>a:nth-child(-n+7):hover ~ .mulu1-ck{
+	height: 230px;
+	box-shadow: 0px 5px 5px gray;
+	border-top: 1px solid rgba(224,224,224);
+	transition: border none;
+}
+.mulu1>a:nth-child(-n+7):hover ~ .mulu1-ck>.mulu1-c{
+	transition: 0s 0s;
+}
+
+.mulu1>a:nth-child(1):hover ~ .mulu1-ck>.mulu1-c1{
+	height: 230px;
+}
+.mulu1>a:nth-child(2):hover ~ .mulu1-ck>.mulu1-c2{
+	height: 230px;
+}
+.mulu1>a:nth-child(3):hover ~ .mulu1-ck>.mulu1-c3{
+	height: 230px;
+}
+.mulu1>a:nth-child(4):hover ~ .mulu1-ck>.mulu1-c4{
+	height: 230px;
+}
+.mulu1>a:nth-child(5):hover ~ .mulu1-ck>.mulu1-c5{
+	height: 230px;
+}
+.mulu1>a:nth-child(6):hover ~ .mulu1-ck>.mulu1-c6{
+	height: 230px;
+}
+.mulu1>a:nth-child(7):hover ~ .mulu1-ck>.mulu1-c7{
+	height: 230px;
+}
+
+
+
+
+/* 左边目录栏 */
+.mulu2{
+	xbackground-color: gray;
+	width: 1226px;
+	height: 475px;
+	margin: auto;
+}
+.mulu2>ul{
+	width: 235px;
+	height: 460px;
+	list-style: none;
+	background-color: rgba(105,101,101,.6);
+	padding: 0px;
+	padding-left: 0;
+	padding-right: 0;
+	font-size: 14px;
+	position: relative;
+	margin-top: 0;
+	border: 1px solid transparent;
+	border-left: none;
+	box-sizing: border-box;
+	z-index: 5;
+}
+.mulu2>ul>li{
+	padding-left: 30px;
+	margin: 0;
+	color: white;
+	xposition: relative;
+	height: 42px;
+	line-height: 42px;
+}
+.mulu2>ul>li:first-child{
+	margin-top: 20px;
+}
+/* 左侧目录栏目录链接 */
+.mulu2>ul>li>a{
+	color: white;
+}
+.mulu2>ul>li>a>span{
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+}
+
+/* 左侧目录栏右边内容 */
+/* 第一个内容宽度 */
+.mulu2>ul>li>ul{
+	position: absolute;
+	width: 992px;
+	height: 460px;
+	left: 235px;
+	top: 0px;
+	xfont-size: 0;
+	background-color: white;
+	display: none;
+	box-shadow: 5px 5px 10px rgba(153,153,153);
+}
+ul ul>li>a>img{
+	vertical-align: middle;
+}
+ul ul>li>a>span{
+	display: inline-block;
+	color: rgba(51,51,51);
+	font-size: 14px;
+	line-height: 40px;
+	vertical-align: middle;
+	margin-left: 10px;
+
+}
+/* 左侧目录栏hover */
+.mulu2>ul>li:hover{
+	background-color: rgba(255,103,0);
+}
+.mulu2>ul>li:hover >ul{
+	display: block;
+}
+
+/* 左侧目录栏内容 */
+.mulu2>ul>li>ul>li{
+	display: inline-block;
+	margin-left: 10px;
+	width: 235px;
+	height: 40px;
+	padding: 0;
+	padding-top: 10px;
+	padding-bottom: 28px;
+	float: left;
+	line-height: 40px;
+}
+/* 第一个目录内容排版 */
+.mulu2>ul>li:nth-child(1)>ul>li:nth-child(9),.mulu2>ul>li:nth-child(1)>ul>li:nth-child(12),.mulu2>ul>li:nth-child(1)>ul>li:nth-child(15),.mulu2>ul>li:nth-child(1)>ul>li:nth-child(18){
+	clear: left;
+}
+/* 第二个目录内容排版 */
+
+/* 第三个目录内容排版 */
+.mulu2>ul>li:nth-child(3)>ul{
+	width: 752px;
+}
+.mulu2>ul>li:nth-child(3)>ul>li:nth-child(6),.mulu2>ul>li:nth-child(3)>ul>li:nth-child(8),.mulu2>ul>li:nth-child(3)>ul>li:nth-child(10),.mulu2>ul>li:nth-child(3)>ul>li:nth-child(12){
+	clear: left;
+}
+/* 第四个目录内容排版 */
+
+/* 第五个目录内容排版 */
+.mulu2>ul>li:nth-child(5)>ul{
+	width: 752px;
+}
+.mulu2>ul>li:nth-child(5)>ul>li:nth-child(6),.mulu2>ul>li:nth-child(5)>ul>li:nth-child(8),.mulu2>ul>li:nth-child(5)>ul>li:nth-child(10),.mulu2>ul>li:nth-child(5)>ul>li:nth-child(12){
+	clear: left;
+}
+/* 第六个目录内容排版 */
+.mulu2>ul>li:nth-child(6)>ul{
+	width: 752px;
+}
+.mulu2>ul>li:nth-child(6)>ul>li:nth-child(12),.mulu2>ul>li:nth-child(6)>ul>li:nth-child(14){
+	clear: left;
+}
+/* 第七个目录内容排版 */
+.mulu2>ul>li:nth-child(7)>ul{
+	width: 499px;
+}
+
+/* 第八个目录内容排版 */
+.mulu2>ul>li:nth-child(8)>ul>li:nth-child(20){
+	clear: left;
+}
+/* 第九个目录内容排版 */
+.mulu2>ul>li:nth-child(9)>ul{
+	width: 752px;
+}
+.mulu2>ul>li:nth-child(9)>ul>li:nth-child(6),.mulu2>ul>li:nth-child(9)>ul>li:nth-child(8),.mulu2>ul>li:nth-child(9)>ul>li:nth-child(10),.mulu2>ul>li:nth-child(9)>ul>li:nth-child(12){
+	clear: left;
+}
+/* 第十个目录内容排版 */
+.mulu2>ul>li:nth-child(10)>ul{
+	width: 752px;
+}
+
+
+/* 轮播图1 */
+.lb1-t{
+	position: relative;
+	width: 1226px;
+	height: 460px;
+	background-color: rgba(0,0,0,0.1);
+	overflow: hidden;
+	margin: auto;
+}
+.lunbotu1{
+	position: absolute;
+	top: 140px;
+	width: 1226px;
+	height: 460px;
+	background-color: rgba(0,0,0,0.1);
+	overflow: hidden;
+	margin: auto;
+}
+.lunbotu1 input{
+	position: relative;
+	left: 1110px;
+	top: 420px;
+	z-index: 4;
+	margin: 0;
+}
+.lunbotu1 img{
+	position: absolute;
+	top: 0px;
+	width: 1226px;
+	height: 460px;
+	opacity: 0;
+	transition: 1.5s;
+}
+
+/* 轮播图1 label */
+.lunbotu1 label{
+	background-color: tansparent;
+	color: rgba(162,162,162);
+	width: 41px;
+	height: 69px;
+	position: absolute;
+	top: 200px;
+	left: 235px;
+	z-index: 1;
+	font-size: 40px;
+	line-height: 69px;
+	text-align: center;
+	cursor: pointer;
+}
+
+/* 轮播图1 label hover */
+.lunbotu1 label:hover{
+	background-color: rgba(113,124,127);
+	color: white;
+}
+
+
+/* 轮播图1 label 下翻页 */
+.lunbotu1 .lb1-l1,.lunbotu1 .lb1-l2,.lunbotu1 .lb1-l3,.lunbotu1 .lb1-l4,.lunbotu1 .lb1-l5{
+	border-top-right-radius: 2px; 
+	border-bottom-right-radius: 2px;
+}
+.lunbotu1 .lb1-r1,.lunbotu1 .lb1-r2,.lunbotu1 .lb1-r3,.lunbotu1 .lb1-r4,.lunbotu1 .lb1-r5{
+	left: 1186px;
+	border-top-left-radius: 2px; 
+	border-bottom-left-radius: 2px;
+}
+
+
+/* 轮播图1-图1 */
+input#lb1-image1:checked ~section .lb1-image1{
+	opacity: 1;
+	transition: 1.5s;
+}
+input#lb1-image1:checked ~ .lb1-l1{
+	z-index: 2;
+}
+input#lb1-image1:checked ~ .lb1-r1{
+	z-index: 2;
+}
+
+/* 轮播图1-图2 */
+input#lb1-image2:checked ~section .lb1-image2{
+	opacity: 1;
+	transition: 1.5s;
+}
+input#lb1-image2:checked ~ .lb1-l2{
+	z-index: 2;
+}
+input#lb1-image2:checked ~ .lb1-r2{
+	z-index: 2;
+}
+
+/* 轮播图1-图3 */
+input#lb1-image3:checked ~section .lb1-image3{
+	opacity: 1;
+	transition: 1.5s;
+}
+input#lb1-image3:checked ~ .lb1-l3{
+	z-index: 2;
+}
+input#lb1-image3:checked ~ .lb1-r3{
+	z-index: 2;
+}
+
+/* 轮播图1-图4 */
+input#lb1-image4:checked ~section .lb1-image4{
+	opacity: 1;
+	transition: 1.5s;
+}
+input#lb1-image4:checked ~ .lb1-l4{
+	z-index: 2;
+}
+input#lb1-image4:checked ~ .lb1-r4{
+	z-index: 2;
+}
+
+/* 轮播图1-图5 */
+input#lb1-image5:checked ~section .lb1-image5{
+	opacity: 1;
+	transition: 1.5s;
+}
+input#lb1-image5:checked ~ .lb1-l5{
+	z-index: 2;
+}
+input#lb1-image5:checked ~ .lb1-r5{
+	z-index: 2;
+}
+
+/* 小米秒杀 */
+.xiaomimiaosha{
+	width: 1226px;
+	height: 197px;
+	margin: auto;
+	margin-top: ;
+}
+/* 小米秒杀左下栏 */
+.xmms{
+	float:left;
+	width: 235px;
+	height: 170px;
+	background-color: rgba(95,87,80);
+}
+.xmms a{
+	font-size: 12px;
+	color: white;
+	display: inline-block;
+	width: 48px;
+	height: 24px;
+	text-align: center;
+	padding: 12px;
+	padding-top: 25px;
+	opacity: 0.65;
+	border-left: 1px solid rgba(102,94,87);
+	border-top: 1px solid rgba(102,94,87);
+}
+.xmms a:hover{
+	opacity: 1;
+}
+/* 小米秒杀左下栏图标 */
+.xmms img{
+	width: 24px;
+	height: 24px;
+}
+.xmms span{
+	display: inline-block;
+}
+/* 小米秒杀3张图片 */
+.xiaomimiaosha>a img{
+	float: left;
+	width: 316px;
+	height: 170px;
+	margin-left: 14px;
+}
+
+
+/* 首页下面超大块------ */
+.dk{
+	width: 100%;
+	background-color: rgba(245,245,245);
+}
+
+.dakuai{
+	width: 1226px;
+	height: 6065px;
+	margin: auto;
+	background-color: rgba(245,245,245);
+}
+
+/* 小米闪购 */
+.xmsg{
+	width: 1226px;
+	margin: auto;
+}
+h2{
+	font-weight: 200;
+	color: rgba(51,51,51);
+	line-height: 58px;
+	margin: 0;
+}
+
+/* 小米闪购左 */
+.xmsg-l{
+	box-sizing: border-box;
+	width: 235px;
+	height: 361px;
+	border-top: 1px red solid;
+	padding-top: 39px;
+	text-align: center;
+	background-color: rgba(241,237,237);
+	float: left;
+}
+.xmsg-l *{
+	display: block;
+	padding: 15px;
+}
+.xmsg-l>span{
+	color: rgba(239,58,59);
+	font-size: 21px;
+}
+
+.xmsg-l>img{
+	margin: auto;
+}
+
+/* 本场已结束 */
+.xmsg-l>span:nth-child(3){
+	color: rgba(0,0,0,0.54);
+	font-size: 15px;
+}
+
+.xmsg-l span span{
+	display: inline-block;
+	padding: 0px;
+	font-size: 24px;
+	color: rgb(96, 87, 81);
+	line-height: 46px;
+}
+.xmsg-l span>span:nth-child(2n+1){
+	background-color: rgba(96,87,81);
+	color: white;
+	width: 46px;
+	height: 46px;
+}
+
+
+/* 小米闪购右边 */
+.xmsg-r{
+	position: relative;
+	width: 976px;
+	height: 360px;
+	margin-left: 15px;
+	float: left;
+	overflow: hidden;
+}
+/* 小米闪购右边 */
+.xmsg-r-c{
+	width: 10000px;
+	position: relative;
+	left: 0;
+	transition: 1s;
+}
+.xmsg-r *{
+	width: 235px;
+	text-align: center;
+	display: inline-block;
+	color: rgba(36,36,36);
+	font-size: 14px;
+}
+.xmsg-r ul{
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	width: 10000px;
+}
+.xmsg-r li{
+	border-top: 1px solid rgba(255,172,19);
+	box-sizing: border-box;
+	margin-right: 15px;
+	float: left;
+
+}
+/* 小米闪购右边每个小块 */
+.xmsg-r-c div{
+	width: 235px;
+	height: 360px;
+	background-color: rgba(255,255,255);
+}
+.xmsg-r img{
+	padding: 39px;
+	display: block;
+	width: 160px;
+	height: 160px;
+	margin: auto;
+}
+.xmsg-r-c div>span:nth-child(3){
+	color: rgba(176,176,176);
+	font-size: 12px;
+	line-height: 16px;
+}
+.xmsg-r-c div>span:nth-child(4){
+	color: rgba(250,101,9);
+	font-size: 14px;
+	line-height: 16px;
+	line-height: 35px;
+}
+
+/* del删除线 */
+.del{
+	display: inline;
+	margin-left: 3px;
+	color: rgb(176, 176, 176);
+	padding-left: 5px	;
+}
+
+/* 小米闪购翻页键 */
+
+.lunbotu2{
+	position: relative;
+}
+.lunbotu2 label{
+	position: absolute;
+	font-size: 20px;
+	color: rgba(176,176,176);
+	width: 36px;
+	height: 24px;
+	line-height: 24px;
+	border: 1px solid rgba(224,224,224);
+	margin: 0;
+	right:0px;
+	top: -26px;
+	z-index: 10;
+	text-align: center;
+	cursor: pointer;
+	z-index: 1;
+	transition: 0.3s;
+	
+}
+/* 轮播图2翻页键颜色 */
+.lunbotu2>input{
+	display: none;
+}
+
+.lunbotu2>label:nth-of-type(n+2):nth-of-type(-n+11){
+	color: rgba(176,176,176);
+}
+
+.lunbotu2>label:nth-of-type(1),.lunbotu2>label:nth-of-type(12){
+	color: rgba(224,224,224);
+}
+
+.lunbotu2 label:nth-of-type(2n+1){
+	border-right: none;
+	right: 38px;
+}
+.lunbotu2>label:nth-of-type(n+2):nth-of-type(-n+11):hover{
+	color: rgba(255,103,20);
+}
+.lunbotu2>span:checked{
+	z-index: 2;
+}
+
+/* 轮播图2翻页键display */
+.lunbotu2 label{
+	visibility: hidden;
+}
+#lb2-1:checked ~ .lb2-l1{
+	visibility: visible;
+}
+#lb2-1:checked ~ .lb2-r1{
+	visibility: visible;
+}
+#lb2-2:checked ~ .lb2-l2{
+	visibility: visible;
+}
+#lb2-2:checked ~ .lb2-r2{
+	visibility: visible;
+}
+#lb2-3:checked ~ .lb2-l3{
+	visibility: visible;
+}
+#lb2-3:checked ~ .lb2-r3{
+	visibility: visible;
+}
+#lb2-4:checked ~ .lb2-l4{
+	visibility: visible;
+}
+#lb2-4:checked ~ .lb2-r4{
+	visibility: visible;
+}
+#lb2-5:checked ~ .lb2-l5{
+	visibility: visible;
+}
+#lb2-5:checked ~ .lb2-r5{
+	visibility: visible;
+}
+#lb2-6:checked ~ .lb2-l6{
+	visibility: visible;
+}
+#lb2-6:checked ~ .lb2-r6{
+	visibility: visible;
+}
+
+/* 轮播图2 checked触发 */
+
+#lb2-1:checked ~ .xmsg-r>.xmsg-r-c{
+	left: 0px;
+}
+#lb2-2:checked ~ .xmsg-r>.xmsg-r-c{
+	left: -1000px;
+}
+#lb2-3:checked ~ .xmsg-r>.xmsg-r-c{
+	left: -2000px;
+}
+#lb2-4:checked ~ .xmsg-r>.xmsg-r-c{
+	left: -3000px;
+}
+#lb2-5:checked ~ .xmsg-r>.xmsg-r-c{
+	left: -4000px;
+}
+#lb2-6:checked ~ .xmsg-r>.xmsg-r-c{
+	left: -4500px;
+}
+
+
+
+
+/* 小米横条广告1 */
+.ad1 img{
+	margin-top: 22px;
+	margin-bottom: 15px;
+}
+
+/* 手机 */
+.shouji{
+	position: relative;
+}
+
+/* 查看全部 */
+.ckqb{
+	position: absolute;
+	right: 0;
+	top: 18px;
+}
+.ckqb>a{
+	color: rgba(66,66,66);
+	font-size: 16px;
+	transition: 0.3s;
+}
+.ckqb>a:hover{
+	color: rgba(255,103,0);
+}
+
+.ckqb>a>span{
+	display: inline-block;
+	color: white;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	background-color: rgba(176,176,176);
+	border-radius: 20px;
+	line-height: 20px;
+	transition: 0.3s;
+}
+.ckqb>a:hover >span{
+	background-color: rgba(255,103,0);
+}
+
+/* 手机9小块 */
+.shouji>ul{
+	min-width: 1226px;
+	margin: 0;
+	padding: 0;
+}
+.shouji li{
+	position: relative;
+	float: left;
+	margin-left: 14px;
+	margin-bottom: 14px;
+	top: 0;
+	transition: 0.3s;
+}
+.shouji li:nth-child(1){
+	margin-left: 0;
+}
+.shouji li:nth-child(1) img{
+	vertical-align: top;
+}
+
+.shouji li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+
+/* 右边8小块内容 */
+.shouji li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+.shouji li>a>*{
+	display: block;
+}
+.shouji li:nth-child(n+2)>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.shouji li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.shouji li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+/* 小米横条广告2 */
+.ad2 img{
+	margin-top: 22px;
+	margin-bottom: 15px;
+}
+
+/* 家电 */
+.jiadian{
+	width: 1226px;
+	margin: auto;
+	position: relative;
+}
+.remen,.dsyy{
+	position: absolute;
+	left: 1226px;
+}
+
+
+/* 热门 电视影音*/
+.jiadian>span{
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top:10px;
+	font-size: 16px;
+	cursor: pointer;
+	width: 65px;
+}
+.jiadian>span:nth-child(2),.jiadian>span:nth-child(4){
+	right: 100px;
+	width: 32px;
+}
+.jiadian>span:nth-child(2){
+	border-bottom: 2px solid rgba(255,103,0);
+	color: rgba(255,103,0);
+}
+.jiadian>span:nth-child(4){
+	border-bottom: 2px solid rgba(245,245,245);
+	color: rgba(66,66,66);
+	z-index: -1;
+}
+
+/* 热门 ul内容*/
+.remen>ul{
+	position: absolute;
+	right: 0px;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+.jiadian li{
+	position: relative;
+	float: left;
+	margin-left: 14px;
+	margin-bottom: 14px;
+	top: 0;
+	transition: 0.3s;
+}
+
+
+/* .jiadian li:nth-child(1) img{
+	vertical-align: top;
+} */
+
+/* 热门 内容 hover阴影 */
+.jiadian li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+/* 热门 内容 通用样式 */
+.jiadian li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+
+/* 热门 内容 最后2个小块 */
+.jiadian ul>li:nth-last-child(-n+2)>a{
+	height: 143px;
+}
+.jiadian ul>li:nth-last-child(-n+2)>a>img{
+	width: 80px;
+	height: 80px;
+	float: right;
+}
+.jiadian ul>li:nth-last-child(-n+2)>a>span{
+	padding: 15px;
+	padding-top: 30px;
+	text-align: left;
+	width: 200px;
+	height: 20px;
+}
+.jiadian ul>li:nth-last-child(-n+2)>a>span:nth-child(3){
+	font-size: 14px;
+	color: rgba(255,103,0);
+}
+.jiadian li>a>*{
+	display: block;
+}
+/* 热门 内容 其他小块 */
+.jiadian li>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.jiadian li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.jiadian li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+/* 电视影音 ul内容*/
+
+.dsyy>ul{
+	position: absolute;
+	right: 0;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+
+.dsyy li:nth-child(1) img{
+	vertical-align: top;
+}
+
+.dsyy li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+.dsyy li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+.dsyy li>a>*{
+	display: block;
+}
+.dsyy li>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.dsyy li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.dsyy li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+
+/* 热门 电视影音 hover */
+
+
+.jiadian>span{
+	transition: 0.3s 999s;
+}
+.jiadian>span:nth-child(3){
+	border-bottom: 2px solid transparent;
+	color: rgba(66,66,66);
+}
+.jiadian>span:nth-child(3):hover +span{
+	z-index: 6;
+}
+.jiadian>span:hover{
+	color: rgba(255,103,0);
+	border-bottom: 2px solid;
+	transition: none;
+}
+.jiadian>span:hover +span{
+	transition: none;
+}
+
+/* 热门 电视影音hover时 其列表内容变化 */
+.remen>ul{
+	transition: 0s 999s;
+	z-index: 1;
+}
+.dsyy>ul{
+	transition: 0s 999s;
+	z-index: -1;
+}
+.jiadian>span:hover ~ div>ul{
+	transition: none;
+}
+.jiadian>span:nth-child(2):hover ~.remen>ul{
+	z-index: 5;
+}
+.jiadian>span:nth-child(3):hover ~.dsyy>ul{
+	z-index: 5;
+}
+
+
+/* 家电 2张图 */
+
+.jiadian-image img{
+	display: block;
+	margin-bottom: 14px;
+	position: relative;
+	transition: 0.3s;
+}
+.jiadian-image img:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+
+
+/* 小米横条广告3 */
+.ad3 img{
+	margin-top: 22px;
+	margin-bottom: 15px;
+}
+
+
+
+/* 智能 */
+.zhineng{
+	width: 1226px;
+	margin: auto;
+	position: relative;
+}
+.remen2,.anfang,.chuxing{
+	position: absolute;
+	left: 1226px;
+}
+
+
+/* 热门 安防 出行*/
+.zhineng>span{
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top:10px;
+	font-size: 16px;
+	cursor: pointer;
+	width: 35px;
+}
+.zhineng>span:nth-child(2),.zhineng>span:nth-child(5){
+	right: 130px;
+	width: 32px;
+}
+.zhineng>span:nth-child(3),.zhineng>span:nth-child(6){
+	right: 65px;
+	width: 32px;
+}
+.zhineng>span:nth-child(2){
+	border-bottom: 2px solid rgba(255,103,0);
+	color: rgba(255,103,0);
+}
+.zhineng>span:nth-child(5),.zhineng>span:nth-child(6){
+	border-bottom: 2px solid rgba(245,245,245);
+	color: rgba(66,66,66);
+	z-index: -1;
+}
+
+/* 热门2 ul内容*/
+.remen2>ul{
+	position: absolute;
+	right: 0px;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+.zhineng li{
+	position: relative;
+	float: left;
+	margin-left: 14px;
+	margin-bottom: 14px;
+	top: 0;
+	transition: 0.3s;
+}
+
+
+/* .jiadian li:nth-child(1) img{
+	vertical-align: top;
+} */
+
+/* 热门2 内容 hover阴影 */
+.zhineng li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+/* 热门2 内容 通用样式 */
+.zhineng li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+
+/* 热门2 内容 最后2个小块 */
+.zhineng ul>li:nth-last-child(-n+2)>a{
+	height: 143px;
+}
+.zhineng ul>li:nth-last-child(-n+2)>a>img{
+	width: 80px;
+	height: 80px;
+	float: right;
+}
+.zhineng ul>li:nth-last-child(-n+2)>a>span{
+	padding: 15px;
+	padding-top: 30px;
+	text-align: left;
+	width: 200px;
+	height: 20px;
+}
+.zhineng ul>li:nth-last-child(-n+2)>a>span:nth-child(3){
+	font-size: 14px;
+	color: rgba(255,103,0);
+}
+.zhineng li>a>*{
+	display: block;
+}
+/* 热门2 内容 其他小块 */
+.zhineng li>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.zhineng li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.zhineng li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+/* 安防 ul内容*/
+
+.anfang>ul{
+	position: absolute;
+	right: 0;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+
+.anfang li:nth-child(1) img{
+	vertical-align: top;
+}
+
+.anfang li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+.anfang li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+.anfang li>a>*{
+	display: block;
+}
+.anfang li>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.anfang li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.anfang li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+/* 出行 ul内容*/
+
+.chuxing>ul{
+	position: absolute;
+	right: 0;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+
+.chuxing li:nth-child(1) img{
+	vertical-align: top;
+}
+
+.chuxing li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+.chuxing li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+.chuxing li>a>*{
+	display: block;
+}
+.chuxing li:nth-child(n)>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.chuxing li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.chuxing li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+/* 热门 安防 出行 hover */
+
+
+.zhineng>span{
+	transition: 0.3s 999s;
+}
+.zhineng>span:nth-child(3),.zhineng>span:nth-child(4){
+	border-bottom: 2px solid transparent;
+	color: rgba(66,66,66);
+}
+.zhineng>span:nth-child(3):hover + * + span{
+	z-index: 6;
+}
+.zhineng>span:nth-child(4):hover +span{
+	z-index: 6;
+}
+.zhineng>span:nth-child(4):hover +span+span{
+	z-index: 6;
+}
+.zhineng>span:hover{
+	color: rgba(255,103,0);
+	border-bottom: 2px solid;
+	transition: none;
+}
+.zhineng>span:hover ~ span{
+	transition: none;
+}
+
+/* 热门 安防 出行hover时 其列表内容变化 */
+.remen2>ul{
+	transition: 0s 999s;
+	z-index: 1;
+}
+.anfang>ul,.chuxing>ul{
+	transition: 0s 999s;
+	z-index: -1;
+}
+.zhineng>span:hover ~ div>ul{
+	transition: none;
+}
+.zhineng>span:nth-child(2):hover ~.remen2>ul{
+	z-index: 5;
+}
+.zhineng>span:nth-child(3):hover ~.anfang>ul{
+	z-index: 5;
+}
+.zhineng>span:nth-child(4):hover ~.chuxing>ul{
+	z-index: 5;
+}
+
+/* 智能 2张图 */
+
+.zhineng-image img{
+	display: block;
+	margin-bottom: 14px;
+	position: relative;
+	transition: 0.3s;
+}
+.zhineng-image img:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+
+/* -------------- */
+/* 小米横条广告4 */
+.ad4 img{
+	margin-top: 22px;
+	margin-bottom: 15px;
+}
+
+/* 搭配 */
+.dapei{
+	width: 1226px;
+	margin: auto;
+	position: relative;
+}
+.remen3,.ejyx{
+	position: absolute;
+	left: 1226px;
+}
+
+
+/* 热门 耳机音箱*/
+.dapei>span{
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top:10px;
+	font-size: 16px;
+	cursor: pointer;
+	width: 65px;
+}
+.dapei>span:nth-child(2),.dapei>span:nth-child(4){
+	right: 100px;
+	width: 32px;
+}
+.dapei>span:nth-child(2){
+	border-bottom: 2px solid rgba(255,103,0);
+	color: rgba(255,103,0);
+}
+.dapei>span:nth-child(4){
+	border-bottom: 2px solid rgba(245,245,245);
+	color: rgba(66,66,66);
+	z-index: -1;
+}
+
+/* 热门 ul内容*/
+.remen3>ul{
+	position: absolute;
+	right: 0px;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+.dapei li{
+	position: relative;
+	float: left;
+	margin-left: 14px;
+	margin-bottom: 14px;
+	top: 0;
+	transition: 0.3s;
+}
+
+
+/* .jiadian li:nth-child(1) img{
+	vertical-align: top;
+} */
+
+/* 热门 内容 hover阴影 */
+.dapei li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+/* 热门 内容 通用样式 */
+.dapei li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+
+/* 热门 内容 最后2个小块 */
+.dapei ul>li:nth-last-child(-n+2)>a{
+	height: 143px;
+}
+.dapei ul>li:nth-last-child(-n+2)>a>img{
+	width: 80px;
+	height: 80px;
+	float: right;
+}
+.dapei ul>li:nth-last-child(-n+2)>a>span{
+	padding: 15px;
+	padding-top: 30px;
+	text-align: left;
+	width: 200px;
+	height: 20px;
+}
+.dapei ul>li:nth-last-child(-n+2)>a>span:nth-child(3){
+	font-size: 14px;
+	color: rgba(255,103,0);
+}
+.dapei li>a>*{
+	display: block;
+}
+/* 热门 内容 其他小块 */
+.dapei li>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.dapei li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.dapei li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+/* 耳机音箱 ul内容*/
+
+.ejyx>ul{
+	position: absolute;
+	right: 0;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+
+.ejyx li:nth-child(1) img{
+	vertical-align: top;
+}
+
+.ejyx li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+.ejyx li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+.ejyx li>a>*{
+	display: block;
+}
+.ejyx li>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.ejyx li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.ejyx li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+
+/* 热门 耳机音箱 hover-------- */
+
+
+.dapei>span{
+	transition: 0.3s 999s;
+}
+.dapei>span:nth-child(3){
+	border-bottom: 2px solid transparent;
+	color: rgba(66,66,66);
+}
+.dapei>span:nth-child(3):hover +span{
+	z-index: 6;
+}
+.dapei>span:hover{
+	color: rgba(255,103,0);
+	border-bottom: 2px solid;
+	transition: none;
+}
+.dapei>span:hover +span{
+	transition: none;
+}
+
+/* 热门 耳机音箱hover时 其列表内容变化 */
+.remen3>ul{
+	transition: 0s 999s;
+	z-index: 1;
+}
+.ejyx>ul{
+	transition: 0s 999s;
+	z-index: -1;
+}
+.dapei>span:hover ~ div>ul{
+	transition: none;
+}
+.dapei>span:nth-child(2):hover ~.remen3>ul{
+	z-index: 5;
+}
+.dapei>span:nth-child(3):hover ~.ejyx>ul{
+	z-index: 5;
+}
+
+
+/* 搭配 2张图 */
+
+.dapei-image img{
+	display: block;
+	margin-bottom: 14px;
+	position: relative;
+	transition: 0.3s;
+}
+.dapei-image img:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+
+
+/* 小米横条广告5 */
+.ad5 img{
+	margin-top: 22px;
+	margin-bottom: 15px;
+}
+
+
+
+/* 配件 */
+.peijian{
+	width: 1226px;
+	margin: auto;
+	position: relative;
+}
+.remen4,.baohutao,.chongdianqi{
+	position: absolute;
+	left: 1226px;
+}
+
+
+/* 热门 保护套 充电器*/
+.peijian>span{
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top:10px;
+	font-size: 16px;
+	cursor: pointer;
+	width: 50px;
+}
+.peijian>span:nth-child(2),.peijian>span:nth-child(5){
+	right: 130px;
+	width: 32px;
+}
+.peijian>span:nth-child(3),.peijian>span:nth-child(6){
+	right: 65px;
+	width: 50px;
+}
+.peijian>span:nth-child(2){
+	border-bottom: 2px solid rgba(255,103,0);
+	color: rgba(255,103,0);
+}
+.peijian>span:nth-child(5),.peijian>span:nth-child(6){
+	border-bottom: 2px solid rgba(245,245,245);
+	color: rgba(66,66,66);
+	z-index: -1;
+}
+
+/* 热门4 ul内容*/
+.remen4>ul{
+	position: absolute;
+	right: 0px;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+.peijian li{
+	position: relative;
+	float: left;
+	margin-left: 14px;
+	margin-bottom: 14px;
+	top: 0;
+	transition: 0.3s;
+}
+
+
+/* .jiadian li:nth-child(1) img{
+	vertical-align: top;
+} */
+
+/* 热门4 内容 hover阴影 */
+.peijian li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+/* 热门4 内容 通用样式 */
+.peijian li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+
+/* 热门4 内容 最后2个小块 */
+.peijian ul>li:nth-last-child(-n+2)>a{
+	height: 143px;
+}
+.peijian ul>li:nth-last-child(-n+2)>a>img{
+	width: 80px;
+	height: 80px;
+	float: right;
+}
+.peijian ul>li:nth-last-child(-n+2)>a>span{
+	padding: 15px;
+	padding-top: 30px;
+	text-align: left;
+	width: 200px;
+	height: 20px;
+}
+.peijian ul>li:nth-last-child(-n+2)>a>span:nth-child(3){
+	font-size: 14px;
+	color: rgba(255,103,0);
+}
+.peijian li>a>*{
+	display: block;
+}
+/* 热门4 内容 其他小块 */
+.peijian li>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.peijian li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.peijian li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+/* 保护套 ul内容*/
+
+.baohutao>ul{
+	position: absolute;
+	right: 0;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+
+.baohutao li:nth-child(1) img{
+	vertical-align: top;
+}
+
+.baohutao li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+.baohutao li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+.baohutao li>a>*{
+	display: block;
+}
+.baohutao li>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.baohutao li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.baohutao li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+/* 充电器 ul内容*/
+
+.chongdianqi>ul{
+	position: absolute;
+	right: 0;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+
+.chongdianqi li:nth-child(1) img{
+	vertical-align: top;
+}
+
+.chongdianqi li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+.chongdianqi li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+.chongdianqi li>a>*{
+	display: block;
+}
+.chongdianqi li:nth-child(n)>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.chongdianqi li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.chongdianqi li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+/* 热门 保护套 充电器 hover */
+
+
+.peijian>span{
+	transition: 0.3s 999s;
+}
+.peijian>span:nth-child(3),.peijian>span:nth-child(4){
+	border-bottom: 2px solid transparent;
+	color: rgba(66,66,66);
+}
+.peijian>span:nth-child(3):hover + * + span{
+	z-index: 6;
+}
+.peijian>span:nth-child(4):hover +span{
+	z-index: 6;
+}
+.peijian>span:nth-child(4):hover +span+span{
+	z-index: 6;
+}
+.peijian>span:hover{
+	color: rgba(255,103,0);
+	border-bottom: 2px solid;
+	transition: none;
+}
+.peijian>span:hover ~ span{
+	transition: none;
+}
+
+/* 热门 保护套 充电器hover时 其列表内容变化 */
+.remen4>ul{
+	transition: 0s 999s;
+	z-index: 1;
+}
+.baohutao>ul,.chongdianqi>ul{
+	transition: 0s 999s;
+	z-index: -1;
+}
+.peijian>span:hover ~ div>ul{
+	transition: none;
+}
+.peijian>span:nth-child(2):hover ~.remen4>ul{
+	z-index: 5;
+}
+.peijian>span:nth-child(3):hover ~.baohutao>ul{
+	z-index: 5;
+}
+.peijian>span:nth-child(4):hover ~.chongdianqi>ul{
+	z-index: 5;
+}
+
+/* 配件 2张图 */
+
+.peijian-image img{
+	display: block;
+	margin-bottom: 14px;
+	position: relative;
+	transition: 0.3s;
+}
+.peijian-image img:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+
+/* 小米横条广告6 */
+.ad6 img{
+	margin-top: 22px;
+	margin-bottom: 15px;
+}
+
+/* 周边---------- */
+.zhoubian{
+	width: 1226px;
+	margin: auto;
+	position: relative;
+}
+.remen5,.chuxing2{
+	position: absolute;
+	left: 1226px;
+}
+
+
+/* 热门5 出行*/
+.zhoubian>span{
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top:10px;
+	font-size: 16px;
+	cursor: pointer;
+	width: 35px;
+}
+.zhoubian>span:nth-child(2),.zhoubian>span:nth-child(4){
+	right: 100px;
+	width: 32px;
+}
+.zhoubian>span:nth-child(2){
+	border-bottom: 2px solid rgba(255,103,0);
+	color: rgba(255,103,0);
+}
+.zhoubian>span:nth-child(4){
+	border-bottom: 2px solid rgba(245,245,245);
+	color: rgba(66,66,66);
+	z-index: -1;
+}
+
+/* 热门5 ul内容*/
+.remen5>ul{
+	position: absolute;
+	right: 0px;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+.zhoubian li{
+	position: relative;
+	float: left;
+	margin-left: 14px;
+	margin-bottom: 14px;
+	top: 0;
+	transition: 0.3s;
+}
+
+
+/* .jiadian li:nth-child(1) img{
+	vertical-align: top;
+} */
+
+/* 热门5 内容 hover阴影 */
+.zhoubian li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+/* 热门5 内容 通用样式 */
+.zhoubian li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+
+/* 热门5 内容 最后2个小块 */
+.zhoubian ul>li:nth-last-child(-n+2)>a{
+	height: 143px;
+}
+.zhoubian ul>li:nth-last-child(-n+2)>a>img{
+	width: 80px;
+	height: 80px;
+	float: right;
+}
+.zhoubian ul>li:nth-last-child(-n+2)>a>span{
+	padding: 15px;
+	padding-top: 30px;
+	text-align: left;
+	width: 200px;
+	height: 20px;
+}
+.zhoubian ul>li:nth-last-child(-n+2)>a>span:nth-child(3){
+	font-size: 14px;
+	color: rgba(255,103,0);
+}
+.zhoubian li>a>*{
+	display: block;
+}
+/* 热门5 内容 其他小块 */
+.zhoubian li>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.zhoubian li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.zhoubian li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+/* 出行2 ul内容*/
+
+.chuxing2>ul{
+	position: absolute;
+	right: 0;
+	width: 992px;
+	margin: 0;
+	padding: 0;
+}
+
+.chuxing2 li:nth-child(1) img{
+	vertical-align: top;
+}
+
+.chuxing2 li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+.chuxing2 li>a{
+	display: inline-block;
+	width: 234px;
+	height: 300px;
+	text-align: center;
+	background-color: white;
+	color: rgba(110,51,110);
+}
+.chuxing2 li>a>*{
+	display: block;
+}
+.chuxing2 li>a>img{
+	width: 160px;
+	height: 160px;
+	margin: auto;
+	padding: 20px;
+}
+.chuxing2 li>a>span:nth-child(3){
+	font-size: 12px;
+	line-height: 20px;
+	color: rgba(176,176,176);
+}
+.chuxing2 li>a>span:nth-child(4){
+	color: rgba(255,103,0);
+	line-height: 30px;
+}
+
+
+/* 热门5 出行2 hover-------- */
+
+
+.zhoubian>span{
+	transition: 0.3s 999s;
+}
+.zhoubian>span:nth-child(3){
+	border-bottom: 2px solid transparent;
+	color: rgba(66,66,66);
+}
+.zhoubian>span:nth-child(3):hover +span{
+	z-index: 6;
+}
+.zhoubian>span:hover{
+	color: rgba(255,103,0);
+	border-bottom: 2px solid;
+	transition: none;
+}
+.zhoubian>span:hover +span{
+	transition: none;
+}
+
+/* 热门5 出行2 hover时 其列表内容变化 */
+.remen5>ul{
+	transition: 0s 999s;
+	z-index: 1;
+}
+.chuxing2>ul{
+	transition: 0s 999s;
+	z-index: -1;
+}
+.zhoubian>span:hover ~ div>ul{
+	transition: none;
+}
+.zhoubian>span:nth-child(2):hover ~.remen5>ul{
+	z-index: 5;
+}
+.zhoubian>span:nth-child(3):hover ~.chuxing2>ul{
+	z-index: 5;
+}
+
+
+/* 周边 2张图 */
+
+.zhoubian-image img{
+	display: block;
+	margin-bottom: 14px;
+	position: relative;
+	transition: 0.3s;
+}
+.zhoubian-image img:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+
+
+
+/* 小米横条广告7------ */
+.ad7 img{
+	margin-top: 22px;
+	margin-bottom: 15px;
+}
+
+
+/* 视频 */
+.shipin{
+	width: 1226px;
+	margin: auto;
+	position: relative;
+}
+
+/* 查看全部2 */
+.ckqb2{
+	position: absolute;
+	right: 0;
+	top: 18px;
+}
+.ckqb2>a{
+	color: rgba(66,66,66);
+	font-size: 16px;
+	transition: 0.3s;
+}
+.ckqb2>a:hover{
+	color: rgba(255,103,0);
+}
+
+.ckqb2>a>span{
+	display: inline-block;
+	color: white;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	background-color: rgba(176,176,176);
+	border-radius: 20px;
+	line-height: 20px;
+	transition: 0.3s;
+}
+.ckqb2>a:hover >span{
+	background-color: rgba(255,103,0);
+}
+
+/* 4个视频内容 */
+.shipin ul{
+	margin: 0;
+	padding: 0;
+}
+.shipin li{
+	position: relative;
+	transition: 0.3s;
+	display: inline-block;
+	width: 296px;
+	height: 285px;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	margin-right: 10px;
+}
+.shipin li:nth-child(4){
+	margin-right: 0;
+}
+
+.shipin li a{
+	color: rgba(51,51,51);
+	padding-top: 22px;
+}
+.shipin li span{
+	display: inline-block;
+}
+.shipin li span:nth-child(2){
+	padding: 22px;
+}
+
+
+.shipin li>a>span:nth-child(1)::before{
+	content: "\E601";
+	background-color: transparent;
+	border: 2px solid white;
+	border-radius: 20px;
+	width: 38px;
+	height: 24px;
+	position: absolute;
+	box-sizing: border-box;
+	top: 133px;
+	left: 20px;
+	color: white;
+	z-index: 100;
+	font-size: 30px;
+	line-height: 20px;
+	font-family: iconfont4;
+	transition: 0.3s;
+}
+
+
+/* 视频 hover */
+.shipin li:hover{
+	top: -2px;
+	box-shadow: -5px 5px 10px -4px rgba(224,224,224),5px 5px 5px -4px rgba(224,224,224);
+}
+
+.shipin li>a>span:nth-child(1):hover::before{
+	background-color: rgba(255,103,0);
+	border: 2px solid rgba(255,103,0)
+}
+
+
+/* 底部导航栏------ */
+.dibudaohanglan{
+	height: 272px;
+}
+.dbdhl{
+	position: relative;
+	width: 1226px;
+	margin: auto;
+}
+/* 底部导航栏1 */
+.dbdhl1 ul{
+	margin-top: 25px;
+	width: 1226px;
+	border-bottom: 1px solid rgba(224,224,224);
+}
+.dbdhl1 ul li{
+	margin-bottom: 25px;
+
+	display: inline-block;
+	text-align: center;
+	width: 242px;
+	height: 25px;
+	box-sizing: border-box;
+	border-right: 1px solid rgba(224,224,224);
+	line-height: 25px;
+}
+.dbdhl1 ul li:last-child{
+	border-right: none;
+}
+.dbdhl1 li span{
+	font-family: iconfont4;
+	font-size: 22px;
+	vertical-align: middle;
+}
+.dbdhl1 a{
+	transition: 0.3s;
+	font-size: 16px;
+	color: rgba(97,97,97);
+}
+.dbdhl1 a:hover{
+	color: rgba(255,103,0);
+}
+
+/* 底部导航栏2 */
+.dbdhl2>ul{
+	width: 980px;
+	height: 115px;
+	margin-top: 37px;
+	border-right: 1px solid rgba(224,224,224);
+}
+.dbdhl2>ul>li{
+	position: relative;
+	display: inline-block;
+	color: rgba(108,66,66);
+	width: 160px;
+}
+.dbdhl2 a{
+	color: rgba(117,117,117);
+}
+.dbdhl2 a:hover{
+	color: rgba(255,103,0);
+}
+.dbdhl2 ul ul{
+	position: absolute;
+	margin-top: 15px;
+}
+.dbdhl2 ul ul li{
+	font-size: 12px;
+	padding-top: 10px;
+}
+
+/* 客服 */
+.kefu{
+	position: absolute;
+	right: 45px;
+	text-align: center;
+	top: 86px;
+}
+.kefu>span{
+	display: block;
+}
+.kefu>span:nth-child(1){
+	font-size: 22px;
+	color: rgba(255,103,0);
+}
+.kefu>span:nth-child(n+2){
+	color: rgba(97,97,97);
+	font-size: 12px;
+}
+.kefu>span:nth-child(4)>a{
+	display: block;
+	color: rgba(255,103,0);
+	border: 1px solid;
+	padding: 5px;
+	margin: 15px;
+	width: 120px;
+	box-sizing: border-box;
+	transition: 0.3s;
+}
+.kefu>span:nth-child(4)>a:hover{
+	color: white;
+	background-color: rgba(255,103,0);
+}
+.kefu span span{
+	font-family: iconfont4;
+}
+
+/* 最底部链接 */
+.db{
+	width: 100%;
+	min-width: 1226px;
+	background-color: rgba(245,245,245);
+	padding-top: 30px;
+	height: 230px;
+	font-size: 12px;
+}
+.dblj{
+	width: 1226px;
+	margin: auto;
+}
+.image-mi{
+	float: left;
+}
+.dblj-r{
+	float: left;
+	margin-left: 10px;
+}
+.p1{
+	width: 1128px;
+	margin: 0;
+	color: rgba(117,117,117);
+}
+.p1>a{
+	color: rgba(117,117,117);
+}
+.p1>a:hover{
+	color: rgba(255,107,0);
+}
+.p2{
+	width: 700px;
+	margin-top: 0;
+	color: rgba(176,176,176);
+}
+.p2>a{
+	color: rgba(176,176,176);
+}
+.p2>a:hover{
+	color: rgba(255,107,0);
+}
+
+
+/* 最底部图片 */
+.db-image img{
+	height: 28px;
+}
+.buttom-image{
+	clear: left;
+	height: 65px;
+	text-align: center;
+	position: relative;
+}
+.buttom-image img{
+	position: absolute;
+	width: 267px;
+	height: 19px;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+
+/* 右侧栏------- */
+.youcelan{
+	position: fixed;
+	right: 0;
+	bottom: 180px;
+	z-index: 100;
+}
+
+.youcelan li{
+	margin: 0;
+	padding: 0;
+	width: 85px;
+	background-color: white;
+}
+.youcelan li>a{
+	box-sizing: border-box;
+	width: 85px;
+	height: 92px;
+	border: 1px solid rgba(245,245,245);
+	border-bottom: none;
+	text-align: center;
+	display: inline-block;
+	color: rgba(117,117,117);
+	transition: 0s color 0.3s;
+}
+.youcelan li:nth-child(5) a{
+	border-bottom: 1px solid rgba(245,245,245);
+}
+.youcelan li>a>img{
+	margin-top: 21px;
+	width: 30px;
+}
+.youcelan li>a>img:nth-child(2){
+	position: absolute;
+	left: 28px;
+	opacity: 0;
+	transition: 0.3s;
+}
+.youcelan li span{
+	display: block;
+}
+.youcelan li>a:hover{
+	color: rgba(255,107,0);
+}
+.youcelan li a:hover img:nth-child(2){
+	opacity: 1;
+}
+
+/* 右侧栏手机app扫一扫---- */
+.shoujiapp{
+	position: absolute;
+	top: 14px;
+	left: -143px;
+	width: 130px;
+	height: 193px;
+	text-align: center;
+	border: 1px solid rgba(245,245,245);
+	background-color: white;
+	box-sizing: border-box;
+	display: none;
+}
+.shoujiapp img{
+	width: 100px;
+	margin: 15px;
+	margin-top: 23px;
+	margin-bottom: 8px;
+}
+.shoujiapp a{
+	color: rgba(117,117,117);
+}
+.youcelan li:nth-child(1):hover >.shoujiapp{
+	display: block;
+}
+
+/* 回顶部 */
+.huidingbu{
+	position: fixed;
+	right: 0;
+	bottom: 70px;
+	z-index: 100;
+	display: none;
+}
+.huidingbu li{
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+.huidingbu li a{
+	box-sizing: border-box;
+	width: 85px;
+	height: 92px;
+	border: 1px solid rgba(245,245,245);
+	text-align: center;
+	display: inline-block;
+	color: rgba(117,117,117);
+	transition: 0s color 0.3s;
+}
+
+.huidingbu li img{
+	margin-top: 21px;
+	width: 30px;
+}
+.huidingbu li img:nth-child(2){
+	position: absolute;
+	left: 28px;
+	opacity: 0;
+	transition: 0.3s;
+}
+.huidingbu li span{
+	display: block;
+}
+.huidingbu li a:hover{
+	color: rgba(255,107,0);
+}
+.huidingbu li a:hover img:nth-child(2){
+	opacity: 1;
+}
+
+.huidingbu li a{
+	border: 1px solid rgba(245,245,245)
+}
+.dk:hover ~.huidingbu{
+	display: block;
+}
+.dibudaohanglan:hover ~.huidingbu{
+	display: block;
+}
+.db:hover ~.huidingbu{
+	display: block;
+}
+.huidingbu:hover{
+	display: block;
+}
+
+
+@media(max-width: 1440px){
+	.youcelan{
+	right: 0px;
+	bottom: 100px;
+}
+
+.youcelan li{
+	width: 27px;
+	height: 42px;
+}
+.youcelan li>a{
+	width: 27px;
+	height: 42px;
+}
+.youcelan li>a>img{
+	margin-top: 10px;
+	width: 20px;
+}
+.youcelan li>a>img:nth-child(2){
+	left: 4px;
+}
+.youcelan li>a>span{
+	display: none;
+}
+
+	
+.huidingbu{
+	right: 0px;
+	bottom: 40px;
+}
+	.huidingbu li{
+		width: 27px;
+		height: 42px;
+	}
+.huidingbu li a{
+	width: 27px;
+	height: 42px;
+}
+
+.huidingbu li img{
+	margin-top: 10px;
+	width: 20px;
+}
+.huidingbu li img:nth-child(2){
+	left: 4px;
+}
+.huidingbu li span{
+	display: none;
+}
+	
+}
+
+
