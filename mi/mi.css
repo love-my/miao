@@ -52,6 +52,9 @@ header a{
 	padding-right: 6px;
 	color: rgba(176,176,176);
 }
+header a:hover{
+	color: white;
+}
 header>a:last-child{
 	position: absolute;
 	width: 120px;
