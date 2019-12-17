@@ -1,0 +1,662 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 1557421 */
+  src: url('http://at.alicdn.com/t/font_1557421_zffnsshmr3.eot');
+  src: url('http://at.alicdn.com/t/font_1557421_zffnsshmr3.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_1557421_zffnsshmr3.woff2') format('woff2'),
+  url('http://at.alicdn.com/t/font_1557421_zffnsshmr3.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_1557421_zffnsshmr3.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_1557421_zffnsshmr3.svg#iconfont') format('svg');
+}
+
+html,body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+ul,li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+::selection{
+	background-color: rgba(162,137,131);
+}
+
+
+/* 摩拜首页--------- */
+.mobaishouye{
+	position: relative;
+	background: url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-4.jpg) 72% 72%;
+	background-size: cover;
+	xheight: 825px;
+	display: inline-block;
+	height: 765px;
+	width: 100%;
+}
+
+/* 首页高度-响应 */
+@media (max-width: 1080px){
+	.mobaishouye{
+		height: 650px;
+	}
+}
+/* 顶部 */
+.top{
+	width: 1080px;
+	margin: auto;
+	height: 80px;
+}
+
+/* 顶部左边 */
+.top>div{
+	position: relative;
+	display: inline-block;
+	width: 700px;
+	height: 80px;
+	z-index: 1000;
+}
+.top>div>a{
+	display: inline-block;
+	font-family: iconfont;
+	font-size: 110px;
+	color: white;
+	width: 700px;
+	height: 80px;
+	text-align: left;
+	line-height: 80px;
+	margin-left: 10px;
+}
+.top>div>a::before{
+	content: '\e604';
+	font-family: iconfont;
+}
+/* 顶部右边 */
+
+.top>ul{
+	display: inline-block;
+	width: 350px;
+	height: 80px;
+	font-size: 0;
+	vertical-align: top;
+	position: relative;
+	z-index: 1000;
+}
+.top>ul>li{
+	font-size: 16px;
+	color: white;
+	display: inline-block;
+	line-height: 80px;
+	margin-right: 50px;
+}
+.top>ul>li:nth-child(4){
+	margin-right: 0;
+}
+.top>ul>li>a{
+	color: white;
+	font-size: 16px;
+}
+
+/* 产品 */
+.top>ul>li:nth-child(1){
+	position: relative;
+	cursor: default;
+}
+/* 小箭头 */
+.top>ul>li:nth-child(1):hover::before{
+	content: '';
+	font-size: 0;
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	border: 7px solid;
+	border-color: transparent transparent white transparent;
+	top: 56px;
+	left: 10px;
+}
+/* 产品列表 */
+.top>ul>li:nth-child(1)>ul{
+	position: absolute;
+	width: 240px;
+	opacity: 0;
+	transition: 0.1s;
+	background-color: white;
+	height: 205px;
+	border-radius: 5px;
+	left: -20px;
+	top: 70px;
+	z-index: 10;
+}
+.top>ul>li:nth-child(1):hover>ul{
+	opacity: 1;
+}
+
+.top>ul>li:nth-child(1)>ul>li{
+	width: 240px;
+	height: 60px;
+	box-sizing:border-box;
+	margin: 0;
+	margin-left: 20px;
+}
+.top>ul>li:nth-child(1)>ul a{
+	display: inline-block;
+	color: rgba(0,0,0);
+	width: 240px;
+	height: 60px;
+	box-sizing:border-box;
+	position: relative;
+	font-size: 20px;
+	line-height: 60px;
+	transition: 0.1s;
+	vertical-align: top;
+}
+.top>ul>li:nth-child(1)>ul a:hover{
+	color: rgba(226,61,14);
+}
+.top ul ul>li:nth-child(1)>a::after{
+	content: '轻便,可靠';
+	color: rgba(128,128,128);
+	font-size: 13px;
+	position: absolute;
+	left: 0;
+	top: 22px;
+}
+.top ul ul>li:nth-child(2)>a::after{
+	content: '城市随处可骑行';
+	color: rgba(128,128,128);
+	font-size: 14px;
+	position: absolute;
+	left: 0;
+	top: 22px;
+}
+.top ul ul>li:nth-child(3)>a::after{
+	content: '摩拜智造，天生靠得住';
+	color: rgba(128,128,128);
+	font-size: 13px;
+	position: absolute;
+	left: 0;
+	top: 22px;
+}
+
+/* 右边响应---- */
+@media (max-width: 1080px){
+	.top ul{
+	display: none;
+	}
+	.top{
+		width: 100%;
+	}
+	.top>div{
+		width: 80%;
+	}
+	.top>div>a{
+		width: 80vw;
+	}
+}
+
+
+/* 顶部响应1--- */
+
+.dbxy{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+}
+.db-c{
+	xdisplay: none;
+	position: absolute;
+	width: 100%;
+	height: 0px;
+	top:0;
+	padding-top: 80px;
+	background-color: rgb(226, 61, 14,0.8);
+	z-index: 100;
+	transition: 0.5s;
+	overflow: hidden;
+}
+.dbxy input{
+	display: none;
+}
+.db-c>a{
+	display: block;
+	color: white;
+	height: 55px;
+	line-height: 55px;
+	padding-left: 20px;
+}
+.dbxy label{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	color: white;
+	z-index: 100;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	font-size: 25px;
+	display: none;
+}
+#on:checked ~ [for="on"]{
+	display: none;
+}
+#off:checked ~ [for="off"]{
+	display: none;
+}
+#on:checked ~ .db-c{
+	opacity: 1;
+}
+#off:checked ~ .db-c{
+	opacity: 0;
+	z-index: -1;
+}
+
+/* 顶部响应2--- */
+@media (max-width: 1080px){
+	.db-c{
+		height: 286px;
+	}
+	.db-c>a{
+		border-top: 1px solid rgba(201,66,29);
+	}
+	.dbxy label{
+		display: block;
+	}
+}
+
+/* 中间大文字 */
+.use{
+	position: relative;
+	width: 1042px;
+	margin: auto;
+	padding-left: 20px;
+}
+.use>h1{
+	color: white;
+	font-size: 4.2em;
+	width: 1042px;
+	margin: auto;
+	margin-top: 250px;
+}
+.use a{
+	display: inline-block;
+	font-size: 22px;
+	color: white;
+	background-color: rgba(0,0,0,0.6);
+	box-shadow:rgba(74, 62, 62, 0.6) 0px 6px 30px 0px;
+	padding: 14px 26px;
+	border-radius: 6px;
+	margin-top: 20px;
+}
+.use a:hover{
+	background-color: rgba(0,0,0,0.8);
+}
+@media(max-width: 1080px){
+	.use>h1{
+		font-size: 2.8em;
+		margin-top: 200px;
+		width: 90vw;
+		float: left;
+	}
+	.use{
+		width: 90vw;
+	}
+}
+
+/* 首页底部新闻 */
+.news{
+	position: absolute;
+	background-color: rgba(0,0,0,0.4);
+	height: 42px;
+	top:calc(100% - 42px);
+	width: 100%;
+}
+.news>p{
+	margin: 0;
+	padding: 0;
+	width: 1040px;
+	margin: auto;
+}
+.news>p>a{
+	position: relative;
+	width: ;
+	font-size: 16px;
+	color: rgba(248,248,248);
+	line-height: 42px;
+	height: 42px;
+	margin-left: 50px;
+}
+.news>p>a::before{
+	position: relative;
+	display: inline-block;
+	content: 'news';
+	background-color: rgba(248,65,58);
+	border-radius: 6px;
+	height: 20px;
+	width: 50px;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+}
+
+@media(max-width: 1080px){
+	.news{
+		width: 100%;
+		margin: 0;
+	}
+	.news>p{
+		width: 90vw;
+		margin: 0;
+	}
+}
+
+/* 四张图片 */
+.image{
+	font-size: 0;
+}
+.image>a{
+	display: inline-block;
+	width: 25%;
+	min-height: 260px;
+	text-align: center;
+	font-size: 24px;
+	float: left;
+	color: white;
+	line-height: 80px;
+	white-space: nowrap;
+}
+.image>a:nth-child(1){
+	background: url("https://mobike.com/cn/assets/themes/moby/img/promo-01.jpg") center center;
+	background-size: cover;
+}
+.image>a:nth-child(2){
+	background: url("https://mobike.com/cn/assets/themes/moby/img/promo-02.jpg") center center;
+	background-size: cover;
+}
+.image>a:nth-child(3){
+	background: url("https://mobike.com/cn/assets/themes/moby/img/promo-03.jpg") center center;
+	background-size: cover;
+}
+.image>a:nth-child(4){
+	background: url("https://mobike.com/cn/assets/themes/moby/img/promo-04.jpg") center center;
+	background-size: cover;
+}
+
+/* 图片响应---- */
+@media (max-width: 1080px){
+	.image>a{
+		width: 50%;
+	}
+}
+@media (max-width: 650px){
+	.image>a{
+		width: 100%;
+	}
+}
+
+/* 微信 */
+.wx{
+	clear: both;
+	border-bottom: 1px solid rgba(238,238,238);
+	overflow: hidden;
+}
+.wx>div{
+	width: 1080px;
+	margin: auto;
+}
+.wx>div>span{
+	display: inline-block;
+	height: 140px;
+	width:210px;
+	float: left;
+	text-align: left;
+	margin-right: 190px;
+	margin-left: 20px;
+}
+.wx>div>span:nth-child(3){
+	margin-right: 0;
+	float: right;
+}
+.wx span>img{
+	width: 45px;
+	height: 50px;
+	margin-top: 45px;
+}
+.wx span span{
+	display: inline-block;
+}
+.wx em{
+	font-style: normal;
+	color: rgba(66,69,66);
+	font-weight: 300;
+}
+
+/* 微信-响应 ----*/
+@media(max-width: 1080px){
+	.wx>div{
+		width: 100%;
+	}
+	.wx>div>span{
+		width: 30%;
+		margin: 1px;
+		margin-left: 20px;
+	}
+	.wx>div>span:nth-child(3){
+		float: left;
+	}
+}
+@media (max-width: 700px){
+	.wx>div{
+		width: 100%;
+	}
+	.wx>div>span{
+		width: 45%;
+		margin: 0;
+		margin-left: 20px;
+	}
+	.wx>div>span:nth-child(3){
+		float: left;
+	}
+}
+@media(max-width: 480px){
+	.wx>div{
+		width: 100%;
+	}
+	.wx>div>span{
+		width: 90%;
+		margin: 0;
+		min-width: 210px;
+		margin-left: 20px;
+	}
+	.wx>div>span:nth-child(3){
+		float: left;
+	}
+}
+/* 底部链接 */
+.dblj{
+	max-width: 1040px;
+	margin: auto;
+	border-bottom: 1px solid rgba(238,238,238);
+	overflow: hidden;
+}
+.db-l,.db-r{
+	display: inline-block;
+}
+/* 左边 */
+.db-l{
+	width: 320px;
+	margin-right: 0px;
+	margin-top: 40px;
+	float: left;
+}
+.db-l>*{
+	display: block;
+	padding: 10px;
+	padding-left: 20px;
+}
+.db-l img{
+	display: block;
+	width: 180px;
+	padding-bottom: 10px;
+}
+.db-l a{
+	color: black;
+}
+/* 右边 */
+.db-r{
+	max-width: 580px;
+	width: 55vw;
+	float: right;
+	margin-right: 20px;
+	margin-top: 40px;
+	xmin-width: 310px;
+	margin-bottom: 60px;
+}
+.db-r>*{
+	display: inline-block;
+	xwidth: 12.5vw;
+	max-width: 140px;
+	min-height: 155px;
+	vertical-align: top;
+	float: right;
+	margin: 1.5vw;
+	min-width: 90px;
+}
+.db-r1{
+	margin-right: 0;
+}
+.db-r4{
+	margin-left: 0;
+}
+
+.db-r>*>span{
+	display: block;
+	width: 100%;
+	xheight: 30px;
+	white-space: nowrap;
+	font-size: 15px;
+	margin-top: 10px;
+	cursor: default;
+	color: rgba(66,69,66);
+	font-weight: lighter;
+}
+.db-r>*>span:nth-child(1){
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+.db-r>*>span:not(:nth-child(1)):hover{
+	cursor: pointer;
+	color: rgba(227,76,45);
+	transition: 0.1s;
+}
+/* 底部-右边-宽度定义变化-------- */
+@media (max-width: 800px) {
+	.db-r{
+		float: left;
+		width: 100vw;
+		margin-right: 0;
+	}
+	.db-r>*{
+		float: left;
+		margin: 2.0vw;
+	}
+}
+@media (max-width: 500px){
+	.db-r{
+		float: left;
+		width: 83vw;
+	}
+	.db-r>*{
+		margin: 5vw;
+	}
+}
+
+
+/* 最底部 */
+
+.zdb{
+	width: 1080px;
+	margin: auto;
+	margin-bottom: 30px;
+	overflow: hidden;
+	padding-top: 40px;
+}
+.zdb-l{
+	float: left;
+	margin: 20px;
+}
+.zdb-l>p{
+	font-size: 12px;
+	color: rgba(170,170,170);
+}
+.zdb-l img{
+	width: 15px;
+}
+.zdb-r{
+	float: right;
+	margin: 20px;
+}
+.zdb-r span{
+	position: relative;
+}
+.zdb-r img{
+	width: 40px;
+}
+.zdb-r span::before{
+	content: '诚信经营，放心消费';
+	text-align: center;
+	line-height: 40px;
+	color: white;
+	position: absolute;
+	opacity: 0;
+	width: 160px;
+	height: 40px;
+	right: -15px;
+	top: -75px;
+	background-color: black;
+	border-radius: 5px;
+	transition: 0.2s;
+}
+
+.zdb-r span:hover::before{
+	opacity: 1;
+}
+.zdb-r span::after{
+	position: absolute;
+	content: '';
+	width: 0;
+	height: 0;
+	border: 10px solid;
+	border-color: black transparent transparent transparent;
+	top: -35px;
+	right: 15px;
+	opacity: 0;
+	transition: 0.2s;
+}
+.zdb-r span:hover::after{
+	opacity: 1;
+}
+@media(max-width: 1080px){
+	.zdb{
+		width: 100%;
+	}
+	
+}
+@media(max-width: 460px){
+	.zdb-r{
+		width: 100%;
+	}
+	.zdb-r{
+		margin-top: 40px;
+		float: left;
+	}
+	.zdb-r span::before{
+		left: 0;
+	}
+	.zdb-r span::after{
+		left: 15px;
+	}
+}
