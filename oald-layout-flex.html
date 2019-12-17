@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .b {
+      display: flex;
+      flex-flow: column wrap;
+      width: 40%;
+    }
+
+    .a {
+      width: 20%;
+      background-color: blue;
+    }
+
+    .c {
+      width: 20%;
+      background-color: rgba(128, 128, 0);
+    }
+
+    .d {
+      width: 20%;
+      background-color: rgba(173, 216, 230);
+    }
+
+    .b1 {
+      height: 150px;
+      background-color: red;
+    }
+
+    .b2 {
+      flex-grow: 1;
+      background-color: yellow;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="a">a</div>
+  <div class="b">
+    <div class="b1">b1</div>
+    <div class="b2">b2</div>
+  </div>
+  <div class="c">c</div>
+  <div class="d">d</div>
+
+</body>
+
+</html>
