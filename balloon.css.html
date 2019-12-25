@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+
+  <style>
+    .wrap {
+      width: 800px;
+      height: 600px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+      background: rgba(255, 182, 65);
+    }
+
+    .wrap button {
+      color: white;
+      width: 180px;
+      height: 38px;
+      font-size: 15px;
+      background: rgba(183, 18, 18);
+      font-weight: bold;
+      position: relative;
+      margin-top: 50px;
+      border: none;
+      border-radius: 3px;
+      text-align: center;
+      display: inline-block;
+      transition: 0.2s 0.2s;
+    }
+
+
+    /* button before--------------- */
+
+    button::before {
+      display: inline-block;
+      content: attr(aria-label);
+      position: absolute;
+      background-color: black;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: normal;
+      overflow: hidden;
+      box-sizing: border-box;
+      opacity: 0;
+      bottom: 42px;
+      transition: 0.2s 0.2s;
+      pointer-events: none;
+      padding: 0.5em 1em 0.5em 1em;
+      left: 50%;
+      transform: translate(-50%);
+      animation: up-before-b 0.2s 0.2s both;
+    }
+
+    button:hover::before {
+      opacity: 1;
+      animation: up-before-a 0.2s 0.2s both;
+      bottom: 47px;
+    }
+
+    /* button after--------------- */
+
+    button::after {
+      display: inline-block;
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 5px solid;
+      border-color: black transparent transparent transparent;
+      opacity: 0;
+      opacity: 0;
+      transition: 0.2s 0.2s;
+      pointer-events: none;
+      animation: up-after-b 0.2s 0.2s both;
+      bottom: 32px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    button:hover::after {
+      opacity: 1;
+      animation: up-after-a 0.2s 0.2s both;
+      bottom: 37px;
+    }
+
+    /* 动画----------- */
+
+    /* up动画............ */
+    @keyframes up-before-a {
+      0% {
+        bottom: 42px;
+      }
+
+      100% {
+        bottom: 47px;
+      }
+    }
+
+    @keyframes up-before-b {
+      0% {
+        bottom: 47px;
+      }
+
+      100% {
+        bottom: 42px;
+      }
+    }
+
+    @keyframes up-after-a {
+      0% {
+        bottom: 32px;
+      }
+
+      100% {
+        bottom: 37px;
+      }
+    }
+
+    @keyframes up-after-b {
+      0% {
+        bottom: 37px;
+      }
+
+      100% {
+        bottom: 32px;
+      }
+    }
+
+    /* down动画............ */
+    @keyframes down-before-a {
+      0% {
+        top: 42px;
+      }
+
+      100% {
+        top: 47px;
+      }
+    }
+
+    @keyframes down-before-b {
+      0% {
+        top: 47px;
+      }
+
+      100% {
+        top: 42px;
+      }
+    }
+
+    @keyframes down-after-a {
+      0% {
+        top: 32px;
+      }
+
+      100% {
+        top: 37px;
+      }
+    }
+
+    @keyframes down-after-b {
+      0% {
+        top: 37px;
+      }
+
+      100% {
+        top: 32px;
+      }
+    }
+
+    /* left动画............. */
+    @keyframes left-before-a {
+      0% {
+        right: 185px;
+      }
+
+      100% {
+        right: 190px;
+      }
+    }
+
+    @keyframes left-before-b {
+      0% {
+        right: 190px;
+      }
+
+      100% {
+        right: 185px;
+      }
+    }
+
+    @keyframes left-after-a {
+      0% {
+        right: 175px;
+      }
+
+      100% {
+        right: 180px;
+      }
+    }
+
+    @keyframes left-after-b {
+      0% {
+        right: 180px;
+      }
+
+      100% {
+        right: 175px;
+      }
+    }
+
+    /* right动画............. */
+    @keyframes right-before-a {
+      0% {
+        left: 185px;
+      }
+
+      100% {
+        left: 190px;
+      }
+    }
+
+    @keyframes right-before-b {
+      0% {
+        left: 190px;
+      }
+
+      100% {
+        left: 185px;
+      }
+    }
+
+    @keyframes right-after-a {
+      0% {
+        left: 175px;
+      }
+
+      100% {
+        left: 180px;
+      }
+    }
+
+    @keyframes right-after-b {
+      0% {
+        left: 180px;
+      }
+
+      100% {
+        left: 175px;
+      }
+    }
+
+    /* up--------------------- */
+    [data-balloon-pos="up"]::before,
+    [data-balloon-pos="up"]::after {
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    [data-balloon-pos="up"]::before {
+      animation: up-before-b 0.2s 0.2s both;
+      bottom: 42px;
+    }
+
+    [data-balloon-pos="up"]:hover::before {
+      animation: up-before-a 0.2s 0.2s both;
+      bottom: 47px;
+    }
+
+    [data-balloon-pos="up"]::after {
+      animation: up-after-b 0.2s 0.2s both;
+      bottom: 32px;
+    }
+
+    [data-balloon-pos="up"]:hover::after {
+      animation: up-after-a 0.2s 0.2s both;
+      bottom: 37px;
+    }
+
+    /* down------------------- */
+    [data-balloon-pos="down"]::before,
+    [data-balloon-pos="down"]::after {
+      bottom: auto;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    [data-balloon-pos="down"]::after {
+      border-color: transparent transparent black transparent;
+    }
+
+    [data-balloon-pos="down"]::before {
+      animation: down-before-b 0.2s 0.2s both;
+      top: 42px;
+    }
+
+    [data-balloon-pos="down"]:hover::before {
+      animation: down-before-a 0.2s 0.2s both;
+      bottom: auto;
+      top: 47px;
+    }
+
+    [data-balloon-pos="down"]::after {
+      animation: down-after-b 0.2s 0.2s both;
+      top: 42px;
+    }
+
+    [data-balloon-pos="down"]:hover::after {
+      animation: down-after-a 0.2s 0.2s both;
+      top: 47px;
+    }
+
+
+    /* left------------------- */
+    [data-balloon-pos="left"]::before,
+    [data-balloon-pos="left"]::after {
+      left: auto;
+      bottom: auto;
+      top: 50%;
+      transform: translatey(-50%);
+    }
+
+    [data-balloon-pos="left"]::after {
+      border-color: transparent transparent transparent black;
+    }
+
+    [data-balloon-pos="left"]::before {
+      animation: left-before-b 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="left"]:hover::before {
+      animation: left-before-a 0.2s 0.2s both;
+      bottom: auto;
+    }
+
+    [data-balloon-pos="left"]::after {
+      animation: left-after-b 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="left"]:hover::after {
+      animation: left-after-a 0.2s 0.2s both;
+    }
+
+    /* right------------------- */
+    [data-balloon-pos="right"]::before,
+    [data-balloon-pos="right"]::after {
+      top: 50%;
+      bottom: auto;
+      transform: translatey(-50%);
+    }
+
+    [data-balloon-pos="right"]::after {
+      border-color: transparent black transparent transparent;
+    }
+
+    [data-balloon-pos="right"]::before {
+      animation: right-before-b 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="right"]:hover::before {
+      animation: right-before-a 0.2s 0.2s both;
+      bottom: auto;
+    }
+
+    [data-balloon-pos="right"]::after {
+      animation: right-after-b 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="right"]:hover::after {
+      animation: right-after-a 0.2s 0.2s both;
+    }
+
+
+    /* small------------------- */
+    [data-balloon-length="small"]::before {
+      width: 80px;
+    }
+
+    /* medium------------------- */
+    [data-balloon-length="medium"]::before {
+      width: 150px;
+    }
+
+    /* large------------------- */
+    [data-balloon-length="large"]::before {
+      width: 260px;
+    }
+
+    /* xlarge------------------- */
+    [data-balloon-length="xlarge"]::before {
+      width: 380px;
+    }
+
+    /* fit------------------- */
+    [data-balloon-length="fit"]::before {
+      width: 100%;
+    }
+
+    /* data-balloon-blunt-------!important */
+    [data-balloon-blunt]::before {
+      transition: none !important;
+      animation: none !important;
+      bottom: 47px !important;
+    }
+
+    [data-balloon-blunt]::after {
+      transition: none !important;
+      animation: none !important;
+      bottom: 37px !important;
+    }
+
+    /* up */
+    [data-balloon-blunt][data-balloon-pos="up"]::before {
+      transition: none !important;
+      animation: none !important;
+      bottom: 47px !important;
+    }
+
+    [data-balloon-blunt][data-balloon-pos="up"]::after {
+      transition: none !important;
+      animation: none !important;
+      bottom: 37px !important;
+    }
+
+    /* down */
+    [data-balloon-blunt][data-balloon-pos="down"]::before {
+      transition: none !important;
+      animation: none !important;
+      top: 47px !important;
+      bottom: auto !important;
+    }
+
+    [data-balloon-blunt][data-balloon-pos="down"]::after {
+      transition: none !important;
+      animation: none !important;
+      top: 37px !important;
+      bottom: auto !important;
+    }
+
+    /* left */
+    [data-balloon-blunt][data-balloon-pos="left"]::before {
+      transition: none !important;
+      animation: none !important;
+      right: 190px !important;
+      bottom: auto !important;
+    }
+
+    [data-balloon-blunt][data-balloon-pos="left"]::after {
+      transition: none !important;
+      animation: none !important;
+      right: 180px !important;
+      bottom: auto !important;
+    }
+
+    /* right */
+    [data-balloon-blunt][data-balloon-pos="right"]::before {
+      transition: none !important;
+      animation: none !important;
+      left: 190px !important;
+      bottom: auto !important;
+    }
+
+    [data-balloon-blunt][data-balloon-pos="right"]::after {
+      transition: none !important;
+      animation: none !important;
+      left: 180px !important;
+    }
+
+
+
+    /* data-balloon-visible-------------- */
+    [data-balloon-visible]::before {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      bottom: 47px !important;
+    }
+
+    [data-balloon-visible]::after {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      bottom: 37px !important;
+    }
+
+    /* up */
+    [data-balloon-visible][data-balloon-pos="up"]::before {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      bottom: 47px !important;
+    }
+
+    [data-balloon-visible][data-balloon-pos="up"]::after {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      bottom: 37px !important;
+    }
+
+    /* down */
+    [data-balloon-visible][data-balloon-pos="down"]::before {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      top: 47px !important;
+      bottom: auto !important;
+    }
+
+    [data-balloon-visible][data-balloon-pos="down"]::after {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      top: 37px !important;
+      bottom: auto !important;
+    }
+
+    /* left */
+    [data-balloon-visible][data-balloon-pos="left"]::before {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      right: 190px !important;
+      bottom: auto !important;
+    }
+
+    [data-balloon-visible][data-balloon-pos="left"]::after {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      right: 180px !important;
+      bottom: auto !important;
+    }
+
+    /* right */
+    [data-balloon-visible][data-balloon-pos="right"]::before {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      left: 190px !important;
+      bottom: auto !important;
+    }
+
+    [data-balloon-visible][data-balloon-pos="right"]::after {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      left: 180px !important;
+    }
+
+
+    /* tooltip-red-------------- */
+    .tooltip-red::before {
+      background: red;
+    }
+
+    .tooltip-red::after {
+      border-color: red transparent transparent transparent;
+    }
+
+    /* up */
+    .tooltip-red[data-balloon-pos="up"]::after {
+      border-color: red transparent transparent transparent;
+    }
+
+    /* down */
+    .tooltip-red[data-balloon-pos="down"]::after {
+      border-color: transparent transparent red transparent;
+    }
+
+    /* left */
+    .tooltip-red[data-balloon-pos="left"]::after {
+      border-color: transparent transparent transparent red;
+    }
+
+    /* right */
+    .tooltip-red[data-balloon-pos="right"]::after {
+      border-color: transparent red transparent transparent;
+    }
+
+
+    /* tooltip-big-text---------- */
+    .tooltip-big-text::before {
+      font-size: 20px;
+    }
+
+    /* tooltip-slide 动画--------- */
+
+    /* up */
+    @keyframes slide-up-before-a {
+      0% {
+        bottom: -53px;
+      }
+
+      100% {
+        bottom: 47px;
+      }
+    }
+
+    @keyframes slide-up-before-b {
+      0% {
+        bottom: 47px;
+      }
+
+      100% {
+        bottom: -53px;
+      }
+    }
+
+    @keyframes slide-up-after-a {
+      0% {
+        bottom: -63px;
+      }
+
+      100% {
+        bottom: 37px;
+      }
+    }
+
+    @keyframes slide-up-after-b {
+      0% {
+        bottom: 37px;
+      }
+
+      100% {
+        bottom: -63px;
+      }
+    }
+
+    /* down */
+    @keyframes slide-down-before-a {
+      0% {
+        top: -53px;
+      }
+
+      100% {
+        top: 47px;
+      }
+    }
+
+    @keyframes slide-down-before-b {
+      0% {
+        top: 47px;
+      }
+
+      100% {
+        top: -53px;
+      }
+    }
+
+    @keyframes slide-down-after-a {
+      0% {
+        top: -63px;
+      }
+
+      100% {
+        top: 37px;
+      }
+    }
+
+    @keyframes slide-down-after-b {
+      0% {
+        top: 37px;
+      }
+
+      100% {
+        top: -63px;
+      }
+    }
+
+    /* left */
+    @keyframes slide-left-before-a {
+      0% {
+        right: 90px;
+      }
+
+      100% {
+        right: 190px;
+      }
+    }
+
+    @keyframes slide-left-before-b {
+      0% {
+        right: 190px;
+      }
+
+      100% {
+        right: 90px;
+      }
+    }
+
+    @keyframes slide-left-after-a {
+      0% {
+        right: 80px;
+      }
+
+      100% {
+        right: 180px;
+      }
+    }
+
+    @keyframes slide-left-after-b {
+      0% {
+        right: 180px;
+      }
+
+      100% {
+        right: 80px;
+      }
+    }
+
+    /* right */
+    @keyframes slide-right-before-a {
+      0% {
+        left: 90px;
+      }
+
+      100% {
+        left: 190px;
+      }
+    }
+
+    @keyframes slide-right-before-b {
+      0% {
+        left: 190px;
+      }
+
+      100% {
+        left: 90px;
+      }
+    }
+
+    @keyframes slide-right-after-a {
+      0% {
+        left: 80px;
+      }
+
+      100% {
+        left: 180px;
+      }
+    }
+
+    @keyframes slide-right-after-b {
+      0% {
+        left: 180px;
+      }
+
+      100% {
+        left: 80px;
+      }
+    }
+
+    /* tooltip-slide------------ */
+    .tooltip-slide:hover::before {
+      animation: slide-up-before-a 0.2s 0.2s both;
+    }
+
+    .tooltip-slide::before {
+      animation: slide-up-before-b 0.2s 0.2s both;
+    }
+
+    .tooltip-slide:hover::after {
+      animation: slide-up-after-a 0.2s 0.2s both;
+    }
+
+    .tooltip-slide::after {
+      animation: slide-up-after-b 0.2s 0.2s both;
+    }
+
+    /* up--------------- */
+    [data-balloon-pos="up"].tooltip-slide:hover::before {
+      animation: slide-up-before-a 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="up"].tooltip-slide::before {
+      animation: slide-up-before-b 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="up"].tooltip-slide:hover::after {
+      animation: slide-up-after-a 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="up"].tooltip-slide::after {
+      animation: slide-up-after-b 0.2s 0.2s both;
+    }
+
+    /* down--------------- */
+    [data-balloon-pos="down"].tooltip-slide:hover::before {
+      animation: slide-down-before-a 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="down"].tooltip-slide::before {
+      animation: slide-down-before-b 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="down"].tooltip-slide:hover::after {
+      animation: slide-down-after-a 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="down"].tooltip-slide::after {
+      animation: slide-down-after-b 0.2s 0.2s both;
+    }
+
+    /* left--------------- */
+    [data-balloon-pos="left"].tooltip-slide:hover::before {
+      animation: slide-left-before-a 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="left"].tooltip-slide::before {
+      animation: slide-left-before-b 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="left"].tooltip-slide:hover::after {
+      animation: slide-left-after-a 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="left"].tooltip-slide::after {
+      animation: slide-left-after-b 0.2s 0.2s both;
+    }
+
+    /* right--------------- */
+    [data-balloon-pos="right"].tooltip-slide:hover::before {
+      animation: slide-right-before-a 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="right"].tooltip-slide::before {
+      animation: slide-right-before-b 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="right"].tooltip-slide:hover::after {
+      animation: slide-right-after-a 0.2s 0.2s both;
+    }
+
+    [data-balloon-pos="right"].tooltip-slide::after {
+      animation: slide-right-after-b 0.2s 0.2s both;
+    }
+
+    /* font-awesome */
+    .font-awesome {
+      font-family: font-awesome;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- data-balloon-length data-balloon-pos--->
+  <div class="wrap">
+    <button class="tooltip-red" data-balloon-length="small" aria-label="Hi.">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-length="medium" aria-label="Hi" data-balloon-pos="left">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-length="large" aria-label="Hi" data-balloon-pos="right">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-length="xlarge" aria-label="Hi" data-balloon-pos="up">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-length="fit" aria-label="Hi" data-balloon-pos="down">Hover
+      me!
+    </button>
+    <br>
+  </div>
+
+
+  <!-- data-balloon-pos----data-balloon-visible -->
+  <div class="wrap">
+    <button class="tooltip-red" data-balloon-visible data-balloon-length="small" aria-label="Hi.">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-visible data-balloon-length="medium" aria-label="Hi"
+      data-balloon-pos="up">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-visible data-balloon-length="xlarge" aria-label="Hi"
+      data-balloon-pos="down">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-visible data-balloon-length="large" aria-label="Hi"
+      data-balloon-pos="left">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-visible data-balloon-length="fit" aria-label="Hi"
+      data-balloon-pos="right">Hover
+      me!
+    </button>
+    <br>
+  </div>
+
+  <!-- data-balloon-blunt -->
+  <div class="wrap">
+    <button class="tooltip-red" data-balloon-blunt data-balloon-length="small" aria-label="Hi.">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-blunt data-balloon-length="medium" aria-label="Hi"
+      data-balloon-pos="up">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-blunt data-balloon-length="xlarge" aria-label="Hi"
+      data-balloon-pos="down">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-blunt data-balloon-length="large" aria-label="Hi"
+      data-balloon-pos="left">Hover
+      me!
+    </button>
+    <br>
+    <button class="tooltip-red" data-balloon-blunt data-balloon-length="fit" aria-label="Hi"
+      data-balloon-pos="right">Hover
+      me!
+    </button>
+    <br>
+  </div>
+
+</body>
+
+</html>
