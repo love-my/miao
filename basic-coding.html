@@ -25,11 +25,10 @@
 <script type="ok" id="ch0103/04">
   var a = +prompt()
   var b = +prompt()
-  var c = +prompt()
-  var d = (a + b) / c
-  var e = Math.trunc(d)
-  var f = (a + b) % c
-  console.log(e, f)
+  var c = a / b
+  var d = Math.trunc(c)
+  var e = a % b
+  console.log(d, e)
 </script>
 
 <script type="ok" id="ch0103/05">
@@ -69,8 +68,8 @@
 <script type="ok" id="ch0103/09">
   var a = +prompt()
   var b = 2 * a
-  var c = 2 * Math.PI * a
-  var d = Math.PI * a * a
+  var c = 2 * 3.14159 * a
+  var d = 3.14159 * a * a
   var e = b.toFixed(4)
   var f = c.toFixed(4)
   var g = d.toFixed(4)
