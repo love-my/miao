@@ -171,3 +171,153 @@
   var a = Math.pow(2, n)
   console.log(a)
 </script>
+
+<script type="ok" id="ch0104/01">
+  var n = +prompt()
+  var a = n > 0 ? `positive` : n === 0 ? `zero` : `negative`
+  console.log(a)
+</script>
+
+<script type="ok" id="ch0104/02">
+  var a = +prompt()
+  var b = Math.sqrt(a * a)
+  console.log(b)
+</script>
+
+<script type="ok" id="ch0104/03">
+  var n = +prompt()
+  var a = n % 2 === 1 ? `odd` : `even`
+  console.log(a)
+</script>
+
+<script xtype="ok" id="ch0104/04">
+
+</script>
+
+<script type="ok" id="ch0104/05">
+  var x = +prompt()
+  var y = +prompt()
+  var a = x > y ? `>` : x === y ? `=` : `<`
+  console.log(a)
+</script>
+
+<script type="ok" id="ch0104/06">
+  var n = +prompt()
+  var a = n >= 10 && n < 100 ? 1 : 0
+  console.log(a)
+</script>
+
+<script type="ok" id="ch0104/07">
+  var a = +prompt()
+  var b = +prompt()
+  var c = a >= 10 || b >= 20 ? 1 : 0
+  console.log(c)
+</script>
+
+<script type="ok" id="ch0104/08">
+  var a = +prompt()
+  var b = a % 3 === 0 && a % 5 === 0 ? `YES` : `NO`
+  console.log(b)
+</script>
+
+<script type="ok" id="ch0104/09">
+  var a = +prompt()
+  var b = a % 3 === 0 ? 3 : ''
+  var c = a % 5 === 0 ? 5 : ''
+  var d = a % 7 === 0 ? 7 : ''
+  var e = b + c + d
+  var f = e != 0 ? (String(b) + ` ` + String(c) + ` ` + String(d)) : `n`
+  console.log(f)
+</script>
+
+<script type="ok" id="ch0104/10">
+  var a = +prompt()
+  var b = +prompt()
+  var c = a >= 60 && b < 60 || a < 60 && b >= 60 ? 1 : 0
+  console.log(c)
+</script>
+
+<script type="ok" id="ch0104/11">
+  var a = +prompt()
+  var b = a % 2 === 0 ? 'YES' : 'No'
+  console.log(b)
+</script>
+
+<script type="ok" id="ch0104/12">
+  var a = +prompt()
+  var b = a / 1.2
+  var c = b / 3.0 + 27 + 23
+  var d = b < c ? 'Walk' : b > c ? 'Bike' : 'All'
+  console.log(d)
+</script>
+
+<script type="ok" id="ch0104/13">
+  var a = +prompt()
+  var b = a >= 0 && a < 5 ? -a + 2.5 : a >= 5 && a < 10 ? 2 - 1.5 * (a - 3) * (a - 3) : a / 2 - 1.5
+  var c = b.toFixed(3)
+  console.log(c)
+</script>
+
+<script type="ok" id="ch0104/14">
+  var a = +prompt()
+  var b = prompt()
+  var c = a <= 1000 ? 8 : Math.ceil((a - 1000) / 500) * 4 + 8
+  var d = b === 'y' ? 5 : 0
+  var e = c + d
+  console.log(e)
+</script>
+
+<script type="ok" id="ch0104/15">
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  var d = a > b && a > c ? a : b > a && b > c ? b : c
+  console.log(d)
+</script>
+
+<script type="ok" id="ch0104/16">
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  var d = a + b > c && a + c > b && b + c > a ? 'yes' : 'no'
+  console.log(d)
+</script>
+
+<script type="ok" id="ch0104/17">
+  var a = +prompt()
+  var b = a % 400 === 0 || a % 4 === 0 && a % 100 != 0 ? 'Y' : 'N'
+  console.log(b)
+</script>
+
+<script type="ok" id="ch0104/18">
+  var a = +prompt()
+  var b = +prompt()
+  var c = a >= -1 && a <= 1 && b >= -1 && b <= 1 ? 'yes' : 'no'
+  console.log(c)
+</script>
+
+<script type="ok" id="ch0104/19">
+  var a = +prompt()
+  var b = +prompt()
+  var c = prompt()
+  var d = b === 0 && c === '/' ? `Divided by zero!` : c === '+' ? a + b : c === '-' ? a - b : c === '*' ? a * b : c === '/' ? a / b : `Invalid operator!`
+  console.log(d)
+</script>
+
+<script type="ok" id="ch0104/20">
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  var d = (-b / (2 * a)).toFixed(5)
+  var e = b * b - 4 * a * c > 0 ? (Math.sqrt(b * b - 4 * a * c) / (2 * a)).toFixed(5) : b * b - 4 * a * c < 0 ? (Math.sqrt(4 * a * c - b * b) / (2 * a)).toFixed(5) : 0
+  var f = b * b - 4 * a * c > 0 ? 'x1=' + d + '+' + e + ';x2=' + d + '-' + e : b * b - 4 * a * c < 0 ? 'x1=' + d + '+' + e + 'i;x2=' + d + '-' + e + 'i' : 'x1=x2=' + d
+  console.log(f)
+</script>
+
+<script type="ok" id="ch0104/21">
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  var d = Math.floor(a - c / b)
+  console.log(d)
+</script>
