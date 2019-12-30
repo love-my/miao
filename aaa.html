@@ -1,0 +1,20 @@
+<script>
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  var delta = b * b - 4 * a * c
+  if (delta > 0) {
+    var x1 = (- b + Math.sqrt(b * b - 4 * a * c)) / 2 * a
+    var x2 = (- b - Math.sqrt(b * b - 4 * a * c)) / 2 * a
+    var d = 'x1=' + x1 + ';x2=' + x2
+  }
+  else if (delta === 0) {
+    var x1 = -b / (2 * a)
+    var x2 = -b / (2 * a)
+    var d = 'x1=x2=' + x1
+  }
+  else {
+    var d = '无解'
+  }
+  console.log(d)
+</script>

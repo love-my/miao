@@ -190,8 +190,16 @@
   console.log(a)
 </script>
 
-<script xtype="ok" id="ch0104/04">
-
+<script type="ok" id="ch0104/04">
+  var a = String(prompt())
+  var b = Number(a.charCodeAt(0)) % 2
+  if (b === 1) {
+    var c = 'YES'
+  }
+  else {
+    var c = 'NO'
+  }
+  console.log(c)
 </script>
 
 <script type="ok" id="ch0104/05">
