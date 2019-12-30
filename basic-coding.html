@@ -317,9 +317,19 @@
   var b = +prompt()
   var c = +prompt()
   var d = (-b / (2 * a)).toFixed(5)
-  var e = b * b - 4 * a * c > 0 ? (Math.sqrt(b * b - 4 * a * c) / (2 * a)).toFixed(5) : b * b - 4 * a * c < 0 ? (Math.sqrt(4 * a * c - b * b) / (2 * a)).toFixed(5) : 0
-  var f = b * b - 4 * a * c > 0 ? 'x1=' + d + '+' + e + ';x2=' + d + '-' + e : b * b - 4 * a * c < 0 ? 'x1=' + d + '+' + e + 'i;x2=' + d + '-' + e + 'i' : 'x1=x2=' + d
-  console.log(f)
+  var e = b * b - 4 * a * c
+  if (e > 0) {
+    var f = (Math.sqrt(e) / (2 * a)).toFixed(5)
+    var g = 'x1=' + d + '+' + f + ';x2=' + d + '-' + f
+  }
+  else if (e < 0) {
+    var f = (Math.sqrt(-e) / (2 * a)).toFixed(5)
+    var g = 'x1=' + d + '+' + f + 'i;x2=' + d + '-' + f + 'i'
+  }
+  else {
+    var g = 'x1=x2=' + d
+  }
+  console.log(g)
 </script>
 
 <script type="ok" id="ch0104/21">
