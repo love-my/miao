@@ -1,0 +1,64 @@
+<script type="2.20.1">
+  var a = 0, b = 0, c = '#'
+  while (a < 7) {
+    a += 1
+    b = a
+    while (c.length < b) {
+      c = c + '#'
+    }
+    console.log(c)
+  }
+</script>
+
+<script type="2.20.2">
+  var a = 0
+  while (a < 100) {
+    a += 1
+    if (a % 3 === 0 && a % 5 === 0) {
+      console.log('FizzBuzz')
+    }
+    else if (a % 3 === 0) {
+      console.log('Fizz')
+    }
+    else if (a % 5 === 0) {
+      console.log('Buzz')
+    }
+    else {
+      console.log(a)
+    }
+  }
+</script>
+
+<script type="2.20.3">
+  var a = 0, b = 0, c = `#`, d = ` `, e = ''
+  var size = +prompt()
+  while (a < size) {
+    a += 1
+    if (a % 2 === 1) {
+      b = 0, e = ''
+      while (b < size) {
+        b += 1
+        if (b % 2 === 1) {
+          e = String(e) + c
+        }
+        else {
+          e = String(e) + d
+        }
+      }
+      console.log(e)
+    }
+    else {
+      b = 0, e = ''
+      while (b < size) {
+        b += 1
+        if (b % 2 === 1) {
+          e = String(e) + d
+        }
+        else {
+          e = String(e) + c
+        }
+      }
+      console.log(e)
+    }
+  }
+</script>
