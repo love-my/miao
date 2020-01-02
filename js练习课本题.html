@@ -13,17 +13,28 @@
 <script type="2.20.2">
   var a = 0
   while (a < 100) {
-    a += 1
+    a = a + 1
+    if (a % 3 === 0) {
+      console.log('Fizz')
+    } else if (a % 5 === 0 && a % 3 != 0) {
+      console.log('Buzz')
+    } else {
+      console.log(a)
+    }
+  }
+</script>
+
+<script type="2.20.2">
+  var a = 0
+  while (a < 100) {
+    a = a + 1
     if (a % 3 === 0 && a % 5 === 0) {
       console.log('FizzBuzz')
-    }
-    else if (a % 3 === 0) {
+    } else if (a % 3 === 0) {
       console.log('Fizz')
-    }
-    else if (a % 5 === 0) {
+    } else if (a % 5 === 0) {
       console.log('Buzz')
-    }
-    else {
+    } else {
       console.log(a)
     }
   }

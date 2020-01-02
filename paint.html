@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated'
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+  /**
+   * YOUR TASK
+画图的题：
+画一条实线
+画一条一个实点一个空点的虚线
+画一条两个实点两个空点的虚线
+画一条三个实点两个空点的虚线
+画一条45度的斜线
+画一条跨越画布左上角和右下角的对角线
+画一个空心矩形
+画一个实心矩形
+画一个rgb色彩空间的某一面
+画一个空心的圆
+画一个实心的圆
+画一个大小合适的sin(x)的图像
+   */
+</script>
+<script>
+  // YOUR CODE GOES BELOW
+  // 实线
+  var x1 = 400
+  var i = 100
+  while (i < 400) {
+    i = i + 1
+    dot(i, 20, 'black')
+  }
+
+  // 虚线1:1
+  var i = 100
+  while (i < 400) {
+    i = i + 2
+    dot(i, 40, 'black')
+  }
+
+  // 虚线2:2
+  var i = 100
+  while (i < 400) {
+    i = i + 1
+    if (i % 4 < 2) {
+      dot(i, 60, 'black')
+    }
+  }
+
+  // 虚线3:2
+  var i = 100
+  while (i < 400) {
+    i = i + 1
+    if (i % 5 < 3) {
+      dot(i, 80, 'black')
+    }
+  }
+
+  // 45度斜线
+  var x = 0
+  var y = 0
+  while (x <= 300) {
+    dot(x, y, 'black')
+    x = x + 1
+    y = x
+  }
+
+  // 对角线
+  var x = 0
+  var y = 0
+  while (x <= 400) {
+    dot(x, y, 'black')
+    x = x + 1
+    y = 3 * x / 4
+  }
+
+  // 空心正方形50*50
+  var x = 20
+  var y = 100
+  while (x < 70) {
+    x = x + 1
+    y = 100
+    if (x === 21 || x === 70) {
+      while (y < 150) {
+        y = y + 1
+        dot(x, y, 'black')
+      }
+    } else {
+      dot(x, 101, 'black')
+      dot(x, 150, 'black')
+    }
+  }
+
+  // 实心正方形50*50
+  var x = 20
+  var y = 170
+  while (x < 70) {
+    x = x + 1
+    y = 170
+    while (y < 220) {
+      y = y + 1
+      dot(x, y, 'black')
+    }
+  }
+
+  // 色彩正方形55*55
+  var x = 20
+  var y = 240
+  var r = 0
+  var b = 0
+  while (x < 75) {
+    x = x + 1
+    r = r + 5
+    y = 240
+    b = 255
+    while (y < 295) {
+      y = y + 1
+      b = b - 5
+      var c = 'rgb(' + r + ',' + 0 + ',' + b + ')'
+      dot(x, y, c)
+    }
+  }
+
+  // 空心圆30*30
+  var x = 220
+  var y = 100
+  while (x < 280) {
+    x = x + 1
+    y = 130 + Math.sqrt(900 - (x - 250) * (x - 250))
+    dot(x, y, 'black')
+    y = 130 - Math.sqrt(900 - (x - 250) * (x - 250))
+    dot(x, y, 'black')
+  }
+  var x = 220
+  var y = 100
+  while (y < 160) {
+    y = y + 1
+    x = 250 + Math.sqrt(900 - (y - 130) * (y - 130))
+    dot(x, y, 'black')
+    x = 250 - Math.sqrt(900 - (y - 130) * (y - 130))
+    dot(x, y, 'black')
+  }
+
+  // 实心圆30*30
+  var x = 320
+  var y = 100
+  while (x < 380) {
+    x = x + 1
+    y = 100
+    while (y < 160) {
+      y = y + 1
+      if ((x - 350) * (x - 350) + (y - 130) * (y - 130) <= 900) {
+        dot(x, y, 'black')
+      }
+    }
+  }
+
+  // sin(x)图像
+  var x = 99
+  var y = 220
+  while (x < 350) {
+    x = x + 1
+    y = (Math.sin(x / 10 - 10 + Math.PI)) * 10 + 250
+    dot(x, y, 'black')
+  }
+
+</script>
+
+</html>

@@ -1,0 +1,199 @@
+<script type="ok">
+  // debugger
+  var a = 0, b = 0, e = ''
+  while (a < 7) {
+    a = a + 1
+    b = a
+    while (e.length < b) {
+      e = e + '#'
+    }
+    console.log(e)
+  }
+</script>
+
+<script type="ok">
+  var a = 0
+  while (a < 100) {
+    a = a + 1
+    if (a % 3 === 0) {
+      console.log('Fizz')
+    } else if (a % 5 === 0 && a % 3 != 0) {
+      console.log('Buzz')
+    } else {
+      console.log(a)
+    }
+  }
+</script>
+
+<script type="ok">
+  var a = 0
+  while (a < 100) {
+    a = a + 1
+    if (a % 3 === 0 && a % 5 === 0) {
+      console.log('FizzBuzz')
+    } else if (a % 3 === 0) {
+      console.log('Fizz')
+    } else if (a % 5 === 0) {
+      console.log('Buzz')
+    } else {
+      console.log(a)
+    }
+  }
+</script>
+
+<script type="ok">
+  var size = 8
+  var a = 0
+  var b = 0
+  var c = '#'
+  var d = ' '
+  var e = ''
+  while (a < size) {
+    a = a + 1
+    if (a % 2 === 1) {
+      b = 0
+      e = ''
+      while (b < size) {
+        b = b + 1
+        if (b % 2 === 1) {
+          e = e + c
+        } else {
+          e = e + d
+        }
+      }
+      console.log(e)
+    } else {
+      b = 0
+      e = ''
+      while (b < size) {
+        b = b + 1
+        if (b % 2 === 1) {
+          e = e + d
+        } else {
+          e = e + c
+        }
+      }
+      console.log(e)
+    }
+  }
+</script>
+
+<script type="ok">
+  // 平行四边形
+  var xsize = 3
+  var ysize = 5
+  var a = '#'
+  var b = ' '
+  var n = 0
+  while (n < ysize) {
+    n = n + 1
+    m = 0
+    e = ''
+    while (m < (xsize + n - 1)) {
+      m = m + 1
+      if (m < n) {
+        e = e + b
+      } else {
+        e = e + a
+      }
+    }
+    console.log(e)
+  }
+</script>
+
+<script type="ok">
+  // 实心菱形
+  var size = 7
+  var e = ''
+  var n = 0
+  // n行
+  var m = 0
+  // m列
+  while (n < size) {
+    n = n + 1
+    e = ''
+    m = 0
+    if (n < (size + 1) / 2) {
+      while (m < size) {
+        m = m + 1
+        if (m < (size + 1) / 2 + 1 - n) {
+          e = e + ' '
+        } else if (m <= (size - 1) / 2 + n) {
+          e = e + '#'
+        } else {
+          e = e + ' '
+        }
+      }
+      console.log(e)
+    } else {
+      while (m < size) {
+        m = m + 1
+        if (m < (-size + 1) / 2 + n) {
+          e = e + ' '
+        } else if (m <= (3 * size + 1) / 2 - n) {
+          e = e + '#'
+        } else {
+          e = e + ' '
+        }
+      }
+      console.log(e)
+    }
+  }
+</script>
+
+<script type="ok">
+  // 空心菱形
+  var size = 7
+  var e = ''
+  var n = 0
+  // n行
+  var m = 0
+  // m列
+  while (n < size) {
+    n = n + 1
+    m = 0
+    e = ''
+    if (n < (size + 1) / 2) {
+      while (m < size) {
+        m = m + 1
+        if (m === (size + 1) / 2 + 1 - n || m === (size - 1) / 2 + n) {
+          e = e + '#'
+        } else {
+          e = e + ' '
+        }
+      }
+      console.log(e)
+    } else {
+      while (m < size) {
+        m = m + 1
+        if (m === (-size + 1) / 2 + n || m === (3 * size + 1) / 2 - n) {
+          e = e + '#'
+        } else {
+          e = e + ' '
+        }
+      }
+      console.log(e)
+    }
+  }
+</script>
+
+<script>
+  var n = +prompt()
+  var a = +prompt()
+  var ji = 0
+  var ji = 0
+  var sum = 1
+  var b = a
+  while (n > 1) {
+    if (n % 2 === 1) {
+      n = (n - 1) / 2
+      ji = ji + 1
+      b = b * b * a
+    } else {
+      n = n / 2
+      ou = ou + 1
+      b = b * b
+    }
+  }
+  console.log(b)
+</script>
