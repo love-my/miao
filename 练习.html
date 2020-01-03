@@ -180,20 +180,18 @@
 <script>
   var n = +prompt()
   var a = +prompt()
-  var ji = 0
-  var ji = 0
   var sum = 1
   var b = a
   while (n > 1) {
     if (n % 2 === 1) {
       n = (n - 1) / 2
-      ji = ji + 1
-      b = b * b * a
+      b = b * b
+      sum = sum * a * b
     } else {
       n = n / 2
-      ou = ou + 1
       b = b * b
+      sum = sum * b
     }
   }
-  console.log(b)
+  console.log(sum)
 </script>
