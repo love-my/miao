@@ -1071,7 +1071,7 @@
       } else if (torf === 1) {
         e = e + img
       } else {
-        e = e + ' '
+        e = e + '\ '
       }
     }
   }
@@ -1259,6 +1259,23 @@
       e = e % 10
       t = (t - e) / 10
       sum = sum + Math.pow(e, count)
+    }
+    if (sum === i) {
+      console.log(i)
+    }
+  }
+</script>
+
+<script type="ok" id="xnarcissistics">
+  for (var i = 100; i < 1000; i++) {
+    var t = i
+    var e = t
+    var sum = 0
+    while (t > 0) {
+      e = t
+      e = e % 10
+      t = (t - e) / 10
+      sum = sum + e * e * e
     }
     if (sum === i) {
       console.log(i)
