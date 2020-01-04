@@ -1058,7 +1058,6 @@
   while (i < h) {
     i++
     j = 0
-    e = ''
     while (j < w) {
       j++
       if (i === 1 && j === w) {
@@ -1075,8 +1074,8 @@
         e = e + ' '
       }
     }
-    console.log(e)
   }
+  console.log(e)
 </script>
 
 <!-- <script type="ok" id="ch0105/42">
@@ -1181,4 +1180,109 @@
       console.log('NO')
     }
   }
+</script>
+
+<script type="ok" id="sort">
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  if (a > b && a > c) {
+    max = a
+    if (b > c) {
+      mid = b
+      min = c
+    } else {
+      mid = c
+      min = b
+    }
+  } else if (b > a && b > c) {
+    max = b
+    if (a > c) {
+      mid = a
+      min = c
+    } else {
+      mid = c
+      min = a
+    }
+  } else {
+    max = c
+    if (a > b) {
+      mid = a
+      min = b
+    } else {
+      mid = b
+      min = a
+    }
+  }
+  console.log(min, mid, max)
+</script>
+
+<script type="ok" id="narcissistic">
+  var n = +prompt()
+  var t = n
+  var e = t
+  var sum = 0
+  var count = 1
+  while (t >= 1) {
+    t = t / 10
+    if (t >= 1) {
+      count = count + 1
+    }
+  }
+  t = n
+  while (t > 0) {
+    e = t
+    e = e % 10
+    t = (t - e) / 10
+    sum = sum + Math.pow(e, count)
+  }
+  if (sum === n) {
+    console.log('YES')
+  } else {
+    console.log('NO')
+  }
+</script>
+
+<script type="ok" id="narcissistics">
+  for (var i = 1; i <= 1000; i++) {
+    var t = i
+    var e = t
+    var sum = 0
+    var count = 1
+    while (t >= 1) {
+      t = t / 10
+      if (t >= 1) {
+        count = count + 1
+      }
+    }
+    t = i
+    while (t > 0) {
+      e = t
+      e = e % 10
+      t = (t - e) / 10
+      sum = sum + Math.pow(e, count)
+    }
+    if (sum === i) {
+      console.log(i)
+    }
+  }
+</script>
+
+<script type="ok" id="narcissistics">
+
+</script>
+
+<script type='ok'>
+  // 循环输出，相同输出被合并
+  var a = 'aaaaaaa'
+  var b = 'a     a'
+  for (i = 1; i <= 7; i++) {
+    if (i === 1 | i === 7) {
+      console.log(a)
+    } else {
+      console.log(b)
+    }
+  }
+
+
 </script>
