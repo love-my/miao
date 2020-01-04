@@ -1049,6 +1049,39 @@
 <script type="ok" id="ch0105/42">
   var h = +prompt()
   var w = +prompt()
+  var img = prompt()
+  var torf = +prompt()
+  var i = 0
+  var j = 0
+  var e = ''
+  // debugger
+  while (i < h) {
+    i++
+    j = 0
+    e = ''
+    while (j < w) {
+      j++
+      if (i === 1 && j === w) {
+        e = e + img + '\n'
+      } else if (i === 1 || i === h) {
+        e = e + img
+      } else if (j === 1) {
+        e = e + img
+      } else if (j === w) {
+        e = e + img + '\n'
+      } else if (torf === 1) {
+        e = e + img
+      } else {
+        e = e + ' '
+      }
+    }
+    console.log(e)
+  }
+</script>
+
+<!-- <script type="ok" id="ch0105/42">
+  var h = +prompt()
+  var w = +prompt()
   var fuhao = prompt()
   var torf = +prompt()
   var e
@@ -1073,7 +1106,7 @@
     }
     console.log(e)
   }
-</script>
+</script> -->
 
 <script type="ok" id="ch0105/43">
   var n = +prompt()
@@ -1127,31 +1160,25 @@
   console.log(sum)
 </script>
 
-<!-- <script type="ok" id="ch0105/42">
-  var h = +prompt()
-  var w = +prompt()
-  var img = prompt()
-  var torf = +prompt()
-  var i = 0
-  var j = 0
-  var e = ''
-  // debugger
-  while (i < h) {
-    i++
-    j = 0
-    e = ''
-    while (j < w) {
-      j++
-      if (i === 1 || i === h) {
-        e = e + img
-      } else if (j === 1 || j === w) {
-        e = e + img
-      } else if (torf === 1) {
-        e = e + img
-      } else {
-        e = e + ' '
+<script type="ok" id="7">
+  var n = +prompt()
+  var t = n
+  var e = 0
+  if (t % 7 === 0) {
+    console.log('YES')
+  } else {
+    while (n > 0) {
+      t = n
+      t = t % 10
+      n = (n - t) / 10
+      if (t === 7) {
+        console.log('YES')
+        e = 1
       }
+
     }
-    console.log(e)
+    if (e === 0) {
+      console.log('NO')
+    }
   }
-</script> -->
+</script>
