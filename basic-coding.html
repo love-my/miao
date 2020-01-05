@@ -1425,6 +1425,7 @@
 </script>
 
 <script type="ok" id="sqrt">
+  // 二分法
   var n = +prompt()
   var low = 1
   var high = n
@@ -1436,6 +1437,17 @@
       low = (high + low) / 2
     }
     a = (high + low) / 2
+  }
+  console.log(a.toFixed(3))
+</script>
+
+
+<script type="ok" id="sqrt">
+  // 牛顿法
+  var n = +prompt()
+  var a = n
+  while (Math.abs(a * a - n) > 0.0000001) {
+    a = (a * a + n) / (2 * a)
   }
   console.log(a.toFixed(3))
 </script>
