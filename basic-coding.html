@@ -947,8 +947,8 @@
   var x = +prompt()
   var left = x
   var count = 0
-  while (left > 0) {
-    left = left - Math.ceil(m / n)
+  left = left - Math.ceil(m / n)
+  while (left >= 0) {
     count = 0
     for (var i = 1; i <= m; i++) {
       count = count + 1
@@ -957,6 +957,7 @@
         count = 0
       }
     }
+    left = left - Math.ceil(m / n)
   }
   console.log(n)
 </script>
@@ -1071,7 +1072,7 @@
       } else if (torf === 1) {
         e = e + img
       } else {
-        e = e + '   '
+        e = e + ' '
       }
     }
   }
@@ -1243,7 +1244,7 @@
   }
 </script>
 
-<script type="ok" id="xnarcissistics">
+<!-- <script type="ok" id="narcissistics">
   for (var i = 0; i <= 1000; i++) {
     var t = i
     var e = t
@@ -1264,7 +1265,7 @@
       console.log(i)
     }
   }
-</script>
+</script> -->
 
 <script type="ok" id="narcissistics">
   for (var i = 100; i < 1000; i++) {
@@ -1284,7 +1285,20 @@
 </script>
 
 <script type="ok" id="palindrom">
-
+  var n = +prompt()
+  var t = n
+  var e
+  var sum = 0
+  while (t > 0) {
+    e = t % 10
+    t = (t - e) / 10
+    sum = sum * 10 + e
+  }
+  if (sum === n) {
+    console.log('YES')
+  } else {
+    console.log('NO')
+  }
 </script>
 
 <script type='ok'>
