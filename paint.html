@@ -25,6 +25,13 @@
     ctx.fillStyle = color
     ctx.fillRect(x, y, 1, 1)
   }
+  function line(x1, y1, x2, y2) {
+    ctx.strokeStyle = 'black'
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.stroke()
+  }
+
   /**
    * YOUR TASK
 画图的题：
@@ -133,11 +140,11 @@
     x = x + 1
     r = r + 5
     y = 240
-    b = 255
+    b = 0
     while (y < 295) {
       y = y + 1
-      b = b - 5
-      var c = 'rgb(' + r + ',' + 0 + ',' + b + ')'
+      b = b + 5
+      var c = 'rgb(' + r + ',' + 255 + ',' + b + ')'
       dot(x, y, c)
     }
   }

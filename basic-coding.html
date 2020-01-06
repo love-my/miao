@@ -1401,6 +1401,10 @@
 
 <script type="ok" id="itob">
   var n = +prompt()
+  var e = n
+  if (n < 0) {
+    n = -n
+  }
   var sum = ''
   function ntos(x) {
     switch (x) {
@@ -1421,6 +1425,9 @@
       var t = n % 10
       sum = ntos(t) + sum
       n = (n - t) / 10
+    }
+    if (e < 0) {
+      sum = '-' + sum
     }
     return sum
   }
