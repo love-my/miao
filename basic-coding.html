@@ -1304,26 +1304,33 @@
 <script type="ok" id="weekday">
   var year = +prompt()
   var month = +prompt()
-  var count = -366 - 31 + 1
   var result
-
-  for (i = 1; i <= year; i++) {
-    if (i % 400 === 1 || i % 4 === 1 && i % 100 != 1) {
-      count = count + 366
-    } else {
-      count = count + 365
+  var count = 1
+  var y = year - 1
+  var m
+  var count = count + 365 * y + Math.trunc(y / 4) - Math.trunc(y / 100) + Math.trunc(y / 400)
+  for (j = 1; j < month; j++) {
+    switch (j) {
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12: m = 31
+        break
+      case 4:
+      case 6:
+      case 9:
+      case 11: m = 30
+        break
+      case 2: if (year % 400 === 0 || year % 4 === 0 && year % 100 !== 0) {
+        m = 29
+      } else {
+        m = 28
+      }
     }
-  }
-  for (j = 1; j <= month; j++) {
-    if (j === 2 || j === 4 || j === 6 || j === 8 || j === 9 || j === 11 || j === 1) {
-      count = count + 31
-    } else if (j === 5 || j === 7 || j === 10 || j === 12) {
-      count = count + 30
-    } else if (year % 400 === 0 || year % 4 === 0 && year % 100 != 0) {
-      count = count + 29
-    } else {
-      count = count + 28
-    }
+    count += m
   }
   result = count % 7
   console.log(result)
