@@ -195,3 +195,141 @@
   }
   console.log(sum)
 </script>
+
+<script type='ok'>
+  function find(x, y, how) {
+  if (x === 6 && y === 3) {
+  console.log(how)
+  } else if (x > 6 || y > 3) {
+  return
+  } else {
+  return find(x + 1, y, how + " >") || find(x, y + 1, how + ' v')
+  }
+  }
+  find(0, 0, '')
+</script>
+
+<script type='ok'>
+  let a = [1, 2, 3]
+  let arymap = []
+  for (var i = 0; i < a.length; i++) {
+    arymap[i] = {
+      val: a[i],
+      next: null
+    }
+  }
+  for (var j = 0; j < arymap.length; j++) {
+    if (j === arymap.length - 1) {
+      arymap[j].next = null
+    } else {
+      arymap[j].next = arymap[j + 1]
+    }
+  }
+  console.log(arymap)
+</script>
+
+<script type='ok'>
+  let a = [1,2,3]
+  let arymap = []
+  for (var i = 0; i < a.length; i++) {
+    if (i === 0) {
+      arymap[i] = {}
+      arymap[i][val] = i
+      arymap[i][next] = null
+    } else if (i === a.length - 1) {
+
+    }
+    arymap[i] = {}
+    arymap[i][val] = i
+    arymap[i][next] = null
+    arymap[i - 1][next] = arymap[i]
+  }
+</script>
+
+<script type='ok'>
+  function f(head) {
+    var ary = []
+    while (head) {
+      ary.push(head.val)
+      head = head.next
+    }
+    ary.push()
+  }
+</script>
+
+<script type='ok'>
+  function f(head) {
+    if (head == null) {
+      return []
+    }
+    return [head.val].concat(f(head.next))
+  }
+</script>
+
+<script type='ok'>
+  function append(val, head) {
+    var node = head.next
+    while (node) {
+      var node = head.next
+    }
+    node = {
+      val: val,
+      next: null
+    }
+    return head
+  }
+</script>
+
+<script type='ok'>
+  function mergeSort(ary) {
+    if (ary.length === 1 || ary.length === 0) {
+      return ary
+    }
+    var left = ary.slice(0, Math.floor(ary.length / 2))
+    var right = ary.slice(Math.floor(ary.length / 2))
+    left = mergeSort(left)
+    right = mergeSort(right)
+    var i = 0
+    var j = 0
+    var k = 0
+    while (i < left.length && j < right.length) {
+      if (left[i] < right[j]) {
+        ary[k] = left[i]
+        i++
+      } else {
+        ary[k] = right[j]
+        j++
+      }
+      k++
+    }
+    while (i < left.length) {
+      ary[k] = left[i]
+      k++
+      i++
+    }
+    while (j < right.length) {
+      ary[k] = right[j]
+      k++
+      j++
+    }
+    return ary
+  }
+</script>
+
+<script type='ok'>
+  function f(val, head) {
+    var l = head
+    while (head.next) {
+      head = head.next
+    }
+    head.next = {
+      val: val,
+      next: null,
+    }
+    return l
+  }
+</script>
+
+<script xtype='ok'>
+
+</script>
