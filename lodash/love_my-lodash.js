@@ -1,4 +1,4 @@
-var love-my = {
+var love_my = {
   isNaN:function(val) {
     if (val !== val) {
       return turn
