@@ -560,7 +560,298 @@ var love_my = {
       return end
     }
   }
-  ,sortedIndexBy: function(array, val, iterratee) {
-    
+  ,sortedIndexBy: function(array, val, iteratee) {
+    for (var i = 0; i < array.length; i++) {
+      if (typeof(iteratee) == 'function') {
+        var a = iteratee(array[i])
+        var b = iteratee(val)
+      } else {
+        var a = array[i][iteratee]
+        var b = val[iteratee]
+      }
+      if (a == b) {
+        return i
+      }
+    }
+    return -1
+  }
+  ,sortedIndexOf: function(array, val) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] == val) {
+        return i
+      }
+    }
+    return -1
+  }
+  ,sortedLastIndex: function(array, val) {
+    var start = 0
+    var end = array.length - 1
+    var mid = Math.floor((start + end) / 2)
+    while (start < end - 1) {
+      if (array[mid] > val) {
+        end = mid
+        mid = Math.floor((start + end) / 2)
+      } else {
+        start = mid
+        mid = Math.floor((start + end) / 2)
+      }
+    }
+    if (array[start] > val) {
+      return start
+    } else if (array[end] < val) {
+      return end + 1
+    } else {
+      return end
+    }
+  }
+  ,sortedLastIndexBy: function(array, val, iteratee) {
+    for (var i = array.length - 1; i >= 0; i--) {
+      if (typeof(iteratee) == 'function') {
+        var a = iteratee(array[i])
+        var b = iteratee(val)
+      } else {
+        var a = array[i][iteratee]
+        var b = val[iteratee]
+      }
+      if (a == b) {
+        return i
+      }
+    }
+    return -1
+  }
+  ,sortedLastIndexOf: function(array, val) {
+    for (var i = array.length - 1; i >= 0; i--) {
+      if (array[i] == val) {
+        return i
+      }
+    }
+    return -1
+  }
+  ,sortedUniq(array) {
+    var ary = []
+    if (array.length == 0) {
+      ary = []
+    } else {
+      ary.push(array[0])
+      for (var i = 1; i < array.length; i++) {
+        if (array[i] !== array[i - 1]) {
+          ary.push(array[i])
+        }
+      }
+    }
+    return ary
+  }
+  ,sortedUniqBy: function(array, iteratee) {
+    var ary = []
+    if (array.length == 0) {
+      ary = []
+    } else {
+      ary.push(array[0])
+      for (var i = 1; i < array.length; i++) {
+        if (iteratee(array[i]) !== iteratee(array[i - 1])) {
+          ary.push(array[i])
+        }
+      }
+    }
+    return ary
+  }
+  ,tail: function(array) {
+    return array.slice(1)
+  }
+  ,take: function(array, n = 1) {
+    return array.slice(0, n)
+  }
+  ,takeRight: function(array, n = 1) {
+    return array.slice(array.length - n,array.length)
+  }
+  ,takeRightWhile: function(array, predicate) {
+    var ary = []
+    for (var i = array.length - 1; i >= 0; i--) {
+      var a = array[i]
+      if (typeof(predicate) == 'function') {
+        if (predicate(a)) {
+          ary.unshift(a['user'])
+        } else {
+          return ary
+        }
+      } else if (Array.isArray(predicate)) {
+        for (var j = 0; j < predicate.length; j += 2) {
+          if (a[predicate[j]] !== predicate[j + 1]) {
+            return ary
+          }
+        }
+        ary.unshift(a['user'])
+      } else if (typeof(predicate) == 'object') {
+        for (var key in predicate) {
+          if (a[key] !== predicate[key]) {
+            return ary
+          }
+        }
+        ary.unshift(a['user'])
+      } else {
+        if (a[predicate]) {
+          ary.unshift(a['user'])
+        } else {
+          return ary
+        }
+      }
+    }
+  }
+  ,takeWhile: function(array, predicate) {
+    var ary = []
+    for (var i = 0; i < array.length; i++) {
+      var a = array[i]
+      if (typeof(predicate) == 'function') {
+        if (predicate(a)) {
+          ary.unshift(a['user'])
+        } else {
+          return ary
+        }
+      } else if (Array.isArray(predicate)) {
+        for (var j = 0; j < predicate.length; j += 2) {
+          if (a[predicate[j]] !== predicate[j + 1]) {
+            return ary
+          }
+        }
+        ary.unshift(a['user'])
+      } else if (typeof(predicate) == 'object') {
+        for (var key in predicate) {
+          if (a[key] !== predicate[key]) {
+            return ary
+          }
+        }
+        ary.unshift(a['user'])
+      } else {
+        if (a[predicate]) {
+          ary.unshift(a['user'])
+        } else {
+          return ary
+        }
+      }
+    }
+  }
+  ,union: function(arrays) {
+    var p = Array.from(arguments)
+    var ary = []
+    for (var i = 0; i < p.length; i++) {
+      for (var j = 0; j < p[i].length; j++) {
+        if (!(ary.includes(p[i][j]))) {
+          ary.push(p[i][j])
+        }
+      }
+    }
+    return ary
+  }
+  ,unionBy: function(arrays, iteratee) {
+    var ary = []
+    var ary2 = []
+    var p = Array.from(arguments)
+    var iter = p[p.length - 1]
+    for (var i = 0; i< p.length - 1; i++) {
+      for (var j = 0; j< p[i].length; j++) {
+        if (typeof(iter) == 'function') {
+          if (!(ary2.includes(iter(p[i][j])))) {
+            ary.push(p[i][j])
+            ary2.push(iter(p[i][j]))
+          }
+        } else {
+          if (!(ary2.includes(p[i][j][iter]))) {
+            ary.push(p[i][j])
+            ary2.push(p[i][j][iter])
+          }
+        }
+      }
+    }
+    return ary
+  }
+  ,unionWith: function(arrays, comparator) {
+    var ary = []
+    var p = Array.from(arguments)
+    var comparator = p[p.length - 1]
+    for (var i = 0; i < p.length - 1; i++) {
+      for (var j = 0; j < p[i].length; j++) {
+        if (ary.length == 0) {
+          ary.push(p[i][j])
+        } else {
+          var should = true
+          for (var k = 0; k < ary.length; k++) {
+            if (comparator(ary[k], p[i][j])) {
+              should = false
+              break
+            }
+          }
+          if (should) {
+            ary.push(p[i][j])
+          }
+        }
+      }
+    }
+    return ary
+  }
+  ,uniq: function(array) {
+    var ary = []
+    for (var i = 0; i < array.length; i++) {
+      if (!(ary.includes(array[i]))) {
+        ary.push(array[i])
+      }
+    }
+    return ary
+  }
+  ,uniqBy: function(array, iteratee) {
+    var ary = []
+    var ary2 = []
+    for (var i = 0; i < array.length; i++) {
+      if (typeof(iteratee) == 'function') {
+        if (!(ary2.includes(iteratee(array[i])))) {
+          ary.push(array[i])
+          ary2.push(iteratee(array[i]))
+        }
+      } else {
+        if (!(ary2.includes(array[i][iteratee]))) {
+          ary.push(array[i])
+          ary2.push(array[i][iteratee])
+        }
+      }
+    }
+    return ary
+  }
+  ,uniqWith: function(array, comparator) {
+    var ary = []
+    for (var i = 0; i < array.length; i++) {
+      if (ary.length == 0) {
+        ary.push(array[i])
+      } else {
+        var should = true
+        for (var j = 0; j < ary.length; j++) {
+          if (comparator(array[i], ary[j])) {
+            should = false
+            break
+          }
+        }
+        if (should) {
+          ary.push(array[i])
+        }
+      }
+    }
+    return ary
+  }
+  ,unzip: function(array) {
+    var ary = []
+    var ary2 = []
+    for (var i = 0; i < array[0].length; i++) {
+      for (var j = 0; j < array.length; j++) {
+        ary2.push(array[j][i])
+      }
+      ary.push(ary2)
+      ary2 = []
+    }
+    return ary
+  }
+  ,unzipWith: function(array, iteratee) {
+    var ary = []
+    for (var i = 0; i < array[0].length; i++) {
+      ary.push(iteratee(array[array.length - 1][i], array[0][i]))
+    }
+    return ary
   }
 }
