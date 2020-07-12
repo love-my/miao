@@ -467,4 +467,51 @@ var love_my = {
     }
    return ary
   }
+  ,pullAllWith: function(array, vals, comparator) {
+    var ary = []
+    for (var i = 0; i < array.length; i++) {
+      var should = true
+      for (var j = 0; j < vals.length; j++) {
+        if (comparator(array[i], vals[j])) {
+          should = false
+          break
+        }
+      }
+      if (should) {
+        ary.push(array[i])
+      }
+    }
+    return ary
+  }
+  ,reverse: function(array) {
+    var ary = []
+    for (var i = array.length - 1; i >= 0; i--) {
+      ary.push(array[i])
+    }
+    return ary
+  }
+  ,sortedIndex: function(array, val) {
+    var start = 0
+    var end = array.length - 1
+    var mid = Math.floor((start + end) / 2)
+    while (start < end - 1) {
+      if (array[mid] >= val) {
+        end = mid
+        mid = Math.floor((start + end) / 2)
+      } else {
+        start = mid
+        mid = Math.floor((start + end) / 2)
+      }
+    }
+    if (array[start] > val) {
+      return start
+    } else if (array[end] < val) {
+      return end + 1
+    } else {
+      return end
+    }
+  }
+  ,sortedIndexBy: function(array, val, iterratee) {
+    
+  }
 }
