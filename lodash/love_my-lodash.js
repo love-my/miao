@@ -25,7 +25,7 @@ var love_my = {
     var ary = []
     for (var i = 0; i < array.length; i++) {
       var a = array[i]
-      if (a !== 0 && a !== '' && a !== null && a !== undefined && a !== false || a !== a) {
+      if (a !== 0 && a !== '' && a !== null && a !== undefined && a !== false && a == a) {
         ary.push(a)
       }
     }
@@ -69,6 +69,22 @@ var love_my = {
     var vals = []
     for (var i = 0; i < p.length - 1; i++) {
       vals.push(...p[i])
+    }
+    if (Array.isArray(dif)) {
+      vals.push(...dif)
+      for (var i = 0; i < array.length; i++) {
+        var should = true
+        for (var j = 0; j < vals.length; j++) {
+          if (array[i] == vals[j]) {
+            should = false
+            break
+          }
+        }
+        if (should) {
+          ary.push(array[i])
+        }
+      }
+      return ary
     }
     for (var i = 0; i < array.length; i++) {
       if (typeof(dif) == 'function') {
