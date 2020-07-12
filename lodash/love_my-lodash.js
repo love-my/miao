@@ -259,13 +259,13 @@ var love_my = {
     return ary
   }
   ,flattenDepth: function fDepth(array, depth = 1, ary = []) {
-    if (depth = 0) {
+    if (depth == 0) {
       ary.push(array)
     } else {
       for (var i = 0; i < array.length; i++) {
         var a = array[i]
         if (Array.isArray(a)) {
-          fDeep(a, depth - 1, ary)
+          fDepth(a, depth - 1, ary)
         } else {
           ary.push(a)
         }
@@ -273,5 +273,198 @@ var love_my = {
     }
     return ary
   }
-  ,
+  ,fromPairs: function(array) {
+    var obj = {}
+    for (var i = 0; i < array.length; i++) {
+      obj[array[i][0]] = array[i][1]
+    }
+    return obj
+  }
+  ,head: function(array) {
+    return array[0]
+  }
+  ,indexOf: function(array, val, fromIndex = 0) {
+    for (var i = fromIndex; i < array.length;i ++) {
+      if (array[i] == val) {
+        return i
+      }
+    }
+    return -1
+  }
+  ,initial: function(array) {
+    return array.slice(0, array.length - 1)
+  }
+  ,intersection: function(...arrays) {
+    var p = arguments
+    var ary = []
+    var a = p[0]
+    for (var i = 0; i < a.length; i++) {
+      var isAll = true
+      for (var j = 1; j < p.length; j++) {
+        if (!(p[j].includes(a[i]))) {
+          isAll = false
+          break
+        }
+      }
+      if (isAll) {
+        ary.push(a[i])
+      }
+    }
+    return ary
+  }
+  ,intersectionBy: function(...arrays) {
+    var p = Array.from(arguments).slice(0, -1)
+    var ary = []
+    var a = p[0]
+    var iteratee = arguments[arguments.length - 1]
+    for (var i = 0; i < a.length; i++) {
+      if (typeof(iteratee) == 'function') {
+        var b = iteratee(a[i])
+        var isSame = true
+        for (var j = 1; j < p.length; p++) {
+          var isSame2 = false
+          for (var k = 0; k < p[j].length; k++) {
+            var c = iteratee(p[j][k])
+            if (b == c) {
+              isSame2 = true
+              break
+            }
+          }
+          if (!isSame2) {
+            isSame = false
+            break
+          } else {
+            break
+          }
+        }
+        if (isSame) {
+          ary.push(a[i])
+        }
+      } else {
+        var b = a[i][iteratee]
+        var isSame = true
+        for (var j = 1; j < p.length; p++) {
+          var isSame2 = false
+          for (var k = 0; k < p[j].length; k++) {
+            var c = p[j][k][iteratee]
+            if (b == c) {
+              isSame2 = true
+              break
+            }
+          }
+          if (!isSame2) {
+            isSame = false
+            break
+          } else {
+            break
+          }
+        }
+        if (isSame) {
+          ary.push(a[i])
+        }
+      }
+    }
+    return ary
+  }
+  ,intersectionWith: function(...arrays) {
+    var p = Array.from(arguments).slice()
+    var ary = []
+    var a = p[0]
+    var comparator = p[p.length - 1]
+    for (var i = 0; i < a.length; i++) {
+      var isSame = true
+      for (var j = 1; j < p.length - 1; j++) {
+        var isSame2 = false
+        for (var k = 0; k < p[j].length; k++) {
+          if (comparator(a[i], p[j][k])) {
+            isSame2 = true
+            break
+          }
+        }
+        if (isSame2) {
+          break
+        } else {
+          isSame = false
+          break
+        }
+      }
+      if (isSame2) {
+        ary.push(a[i])
+      }
+    }
+    return ary
+  }
+  ,join: function(array, separator) {
+    return array.join(separator)
+  }
+  ,last: function(array) {
+    return array[array.length - 1]
+  }
+  ,lastIndexOf: function(array, val, fromIndex = array.length - 1) {
+    for (var i = fromIndex; i >= 0; i--) {
+      if (array[i] == val) {
+        return i
+      }
+    }
+    return -1
+  }
+  ,nth: function(array, n = 0) {
+    if (n >= 0) {
+      return array[n]
+    } else {
+      return array[array.length - n]
+    }
+  }
+    ,pull: function(array, ...vals) {
+    var ary = []
+    var p = Array.from(vals).slice()
+    for (var i = 0; i < array.length; i++) {
+      if (!(p.includes(array[i]))) {
+        ary.push(array[i])
+      }
+    }
+    return ary
+  }
+    ,pullAll: function(array, vals) {
+    var ary = []
+    for (var i = 0; i < array.length; i++) {
+      if (!(vals.includes(array[i]))) {
+        ary.push(array[i])
+      }
+    }
+    return ary
+  }
+    ,pullAllBy: function(array, vals, iteratee) {
+    var ary = []
+    for (var i = 0; i < array.length; i++) {
+      if (typeof(iteratee) == 'function') {
+        var a = iteratee(array[i])
+        var should = true
+        for (var j = 0; j < vals.length; j++) {
+          var b = iteratee(vals[j])
+          if (a == b) {
+            should = false
+            break
+          }
+        }
+        if (should) {
+          ary.push(array[i])
+        }
+      } else {
+        var a = array[i][iteratee]
+        var should = true
+        for (var j = 0; j < vals.length; j++) {
+          var b = vals[j][iteratee]
+          if (a == b) {
+            should = false
+            break
+          }
+        }
+        if (should) {
+          ary.push(array[i])
+        }
+      }
+    }
+   return ary
+  }
 }
