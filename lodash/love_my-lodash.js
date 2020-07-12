@@ -11,10 +11,10 @@ var love_my = {
 
   ,chunk: function(ary, size = 1) {
     var result = []
-    for (var i = 0; i< ary.length; i++) {
+    for (var i = 0; i< ary.length; i += size) {
       var ary2 = []
       for (var j = i; j < size + i && j < ary.length; j++) {
-        ary2.push(ary[i])
+        ary2.push(ary[j])
       }
       result.push(ary2)
     }
@@ -25,7 +25,7 @@ var love_my = {
     var ary = []
     for (var i = 0; i < array.length; i++) {
       var a = array[i]
-      if (a !== 0 && a !== '' && a !== null && a !== undefined || a !== a) {
+      if (a !== 0 && a !== '' && a !== null && a !== undefined && a !== false || a !== a) {
         ary.push(a)
       }
     }
@@ -47,42 +47,72 @@ var love_my = {
     return ary
   }
 
-  ,difference: function(array, val) {
+  ,difference: function(array, vals) {
     var ary = []
+    var p = Array.from(arguments).slice(1)
+    var vals = []
+    for (var i = 0; i < p.length; i++) {
+      vals.push(...p[i])
+    }
     for (var i = 0; i < array.length; i++) {
-      if (val.includes(array[i])) {
-        continue
-      } else {
+      if (!(vals.includes(array[i]))) {
         ary.push(array[i])
       }
     }
     return ary
   }
 
-  ,differenceBy: function(array, val, dif) {
+  ,differenceBy: function(array, vals, dif) {
     var ary = []
-    if (typeof(dif) == 'function') {
-      var ary1 = array.map(it => dif(it))
-      var ary2 = val.map(it => dif(it))
-    } else if (typeof(dif) == 'string') {
-      var ary1 = array.map(it => it.dif)
-      var ary2 = val.map(it => it.dif)
+    var p = Array.from(arguments).slice(1)
+    var dif = p[p.length - 1]
+    var vals = []
+    for (var i = 0; i < p.length - 1; i++) {
+      vals.push(...p[i])
     }
-    for (var i = 0; i < ary1.length; i++) {
-      if (ary2.includes(ary1[i])) {
-        continue
+    for (var i = 0; i < array.length; i++) {
+      if (typeof(dif) == 'function') {
+        var a = dif(array[i])
+        var should = true
+        for (var j = 0; j < vals.length; j++) {
+          if (dif(vals[j]) == a) {
+            should = false
+            break
+          }
+        }
+        if (should) {
+          ary.push(array[i])
+        }
       } else {
-        ary.push(ary[i])
+        var a = array[i][dif]
+        var should = true
+        for (var j = 0; j < vals.length; j++) {
+          if (vals[j][dif] == a) {
+            should = false
+            break
+          }
+        }
+        if (should) {
+          ary.push(array[i])
+        }
       }
     }
     return ary
   }
 
-  ,differenceWith: function(array, val, compare) {
+  ,differenceWith: function(array, vals, compare) {
     var ary = []
+    var p = Array.from(arguments).slice(1)
+    var compare = p[p.length - 1]
+    var vals = []
+    for (var i = 0; i < p.length - 1; i++) {
+      vals.push(...p[i])
+    }
     for (var i = 0; i < array.length; i++) {
-      if (!compare(arry[i], val)) {
-        ary.push(array[i])
+      for (var j = 0; j < vals.length; j++) {
+        if (!compare(array[i], vals[j])) {
+          ary.push(array[i])
+        }
       }
     }
     return ary
@@ -93,6 +123,9 @@ var love_my = {
   }
 
   ,dropRight: function(array, n = 1) {
+    if (n > array.length) {
+      return []
+    }
     return array.slice(0, array.length - n)
   }
 
@@ -124,7 +157,7 @@ var love_my = {
     return []
   }
   ,dropWhile: function(array, predicate) {
-    for (var i = 0; i < predicate.length; i++) {
+    for (var i = 0; i < array.length; i++) {
       var a = array[i]
       if (typeof(predicate) == 'function') {
         if (!predicate(a)) {
@@ -191,7 +224,7 @@ var love_my = {
           return i
         }
       } else {
-        if (a[key]) {
+        if (a[predicate]) {
           return i
         }
       }
@@ -228,7 +261,7 @@ var love_my = {
           return i
         }
       } else {
-        if (a[key]) {
+        if (a[predicate]) {
           return i
         }
       }
@@ -260,7 +293,7 @@ var love_my = {
   }
   ,flattenDepth: function fDepth(array, depth = 1, ary = []) {
     if (depth == 0) {
-      ary.push(array)
+      ary.push(...array)
     } else {
       for (var i = 0; i < array.length; i++) {
         var a = array[i]
@@ -412,7 +445,7 @@ var love_my = {
     if (n >= 0) {
       return array[n]
     } else {
-      return array[array.length - n]
+      return array[array.length + n]
     }
   }
     ,pull: function(array, ...vals) {
