@@ -569,7 +569,7 @@ var love_my = {
         var a = array[i][iteratee]
         var b = val[iteratee]
       }
-      if (a == b) {
+      if (a > b) {
         return i
       }
     }
@@ -577,7 +577,7 @@ var love_my = {
   }
   ,sortedIndexOf: function(array, val) {
     for (var i = 0; i < array.length; i++) {
-      if (array[i] == val) {
+      if (array[i] > val) {
         return i
       }
     }
@@ -613,16 +613,16 @@ var love_my = {
         var a = array[i][iteratee]
         var b = val[iteratee]
       }
-      if (a == b) {
-        return i
+      if (a <= b) {
+        return i + 1
       }
     }
     return -1
   }
   ,sortedLastIndexOf: function(array, val) {
     for (var i = array.length - 1; i >= 0; i--) {
-      if (array[i] == val) {
-        return i
+      if (array[i] <= val) {
+        return i + 1
       }
     }
     return -1
@@ -662,7 +662,7 @@ var love_my = {
     return array.slice(0, n)
   }
   ,takeRight: function(array, n = 1) {
-    return array.slice(array.length - n,array.length)
+    return array.slice(array.length - n < 0 ? 0 : array.length - n,array.length)
   }
   ,takeRightWhile: function(array, predicate) {
     var ary = []
@@ -670,7 +670,7 @@ var love_my = {
       var a = array[i]
       if (typeof(predicate) == 'function') {
         if (predicate(a)) {
-          ary.unshift(a['user'])
+          ary.unshift(a)
         } else {
           return ary
         }
@@ -680,17 +680,17 @@ var love_my = {
             return ary
           }
         }
-        ary.unshift(a['user'])
+        ary.unshift(a)
       } else if (typeof(predicate) == 'object') {
         for (var key in predicate) {
           if (a[key] !== predicate[key]) {
             return ary
           }
         }
-        ary.unshift(a['user'])
+        ary.unshift(a)
       } else {
         if (a[predicate]) {
-          ary.unshift(a['user'])
+          ary.unshift(a)
         } else {
           return ary
         }
@@ -703,7 +703,7 @@ var love_my = {
       var a = array[i]
       if (typeof(predicate) == 'function') {
         if (predicate(a)) {
-          ary.unshift(a['user'])
+          ary.unshift(a)
         } else {
           return ary
         }
@@ -713,17 +713,17 @@ var love_my = {
             return ary
           }
         }
-        ary.unshift(a['user'])
+        ary.unshift(a)
       } else if (typeof(predicate) == 'object') {
         for (var key in predicate) {
           if (a[key] !== predicate[key]) {
             return ary
           }
         }
-        ary.unshift(a['user'])
+        ary.unshift(a)
       } else {
         if (a[predicate]) {
-          ary.unshift(a['user'])
+          ary.unshift(a)
         } else {
           return ary
         }
