@@ -569,7 +569,7 @@ var love_my = {
         var a = array[i][iteratee]
         var b = val[iteratee]
       }
-      if (a > b) {
+      if (a >= b) {
         return i
       }
     }
@@ -577,7 +577,7 @@ var love_my = {
   }
   ,sortedIndexOf: function(array, val) {
     for (var i = 0; i < array.length; i++) {
-      if (array[i] > val) {
+      if (array[i] >= val) {
         return i
       }
     }
@@ -620,9 +620,17 @@ var love_my = {
     return -1
   }
   ,sortedLastIndexOf: function(array, val) {
-    for (var i = array.length - 1; i >= 0; i--) {
-      if (array[i] <= val) {
-        return i + 1
+    var start = 0
+    var end = array.length - 1
+    var mid
+    while (start < end - 1) {
+      mid = Math.floor((start + end) / 2)
+      if (val == array[mid] && val < array[mid + 1]) {
+        return mid
+      } else if (val >= array[mid]) {
+        start = mid
+      } else {
+        end = mid
       }
     }
     return -1
@@ -703,7 +711,7 @@ var love_my = {
       var a = array[i]
       if (typeof(predicate) == 'function') {
         if (predicate(a)) {
-          ary.unshift(a)
+          ary.push(a)
         } else {
           return ary
         }
@@ -713,17 +721,17 @@ var love_my = {
             return ary
           }
         }
-        ary.unshift(a)
+        ary.push(a)
       } else if (typeof(predicate) == 'object') {
         for (var key in predicate) {
           if (a[key] !== predicate[key]) {
             return ary
           }
         }
-        ary.unshift(a)
+        ary.push(a)
       } else {
         if (a[predicate]) {
-          ary.unshift(a)
+          ary.push(a)
         } else {
           return ary
         }
