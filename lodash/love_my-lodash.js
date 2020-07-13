@@ -854,4 +854,74 @@ var love_my = {
     }
     return ary
   }
+  ,without: function(array, vals) {
+    var ary = []
+    var p = Array.from(arguments).slice(1)
+    for (var i = 0; i < array.length; i++) {
+      if (!(p.includes(array[i]))) {
+        ary.push(array[i])
+      }
+    }
+    return ary
+  }
+  ,xor: function(arrays) {
+    var ary = []
+    var ary2 = []
+    var q = Array.from(arguments)
+    for (var i = 0; i < q.length; i++) {
+      ary2.push(...q[i])
+    }
+    for (var i = 0; i < ary2.length; i++) {
+      if (ary2[i] !== undefined) {
+        var same = false
+        for (var j = i + 1; j < ary2.length; j++) {
+          if (ary2[j] == ary2[i]) {
+            ary2[j] = undefined
+            same = true
+          }
+        }
+        if (!same) {
+          ary.push(ary2[i])
+        }
+      }
+    }
+    return ary
+  }
+  ,xorBy: function(arrays, iteratee) {
+    var ary = []
+    var ary2 = []
+    var q = Array.from(arguments)
+    var iter = q[q.length - 1]
+    for (var i = 0; i < q.length - 1; i++) {
+      ary2.push(...q[i])
+    }
+    for (var i = 0; i < ary2.length; i++) {
+      if (ary2[i] !== undefined) {
+        var same = false
+        if (typeof(iter) == 'function') {
+          var a = iter(ary2[i])
+          for (var j = i + 1; j < ary2.length; j++) {
+            if (iter(ary2[j]) == a) {
+              ary2[j] = undefined
+              same = true
+            }
+          }
+        } else {
+          var a = ary2[i][iter]
+          for (var j = i + 1; j < ary2.length; j++) {
+            if (ary2[j] !== undefined) {
+              if (ary2[j][iter] == a) {
+                ary2[j] = undefined
+                same = true
+              }
+            }
+          }
+        }
+        if (!same) {
+          ary.push(ary2[i])
+        }
+      }
+    }
+    return ary
+  }
 }
