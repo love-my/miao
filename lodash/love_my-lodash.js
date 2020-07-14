@@ -1176,4 +1176,74 @@ var love_my = {
     }
     return undefined
   }
+  ,findLast: function(collection, predicate) {
+    for (var i = collection.length - 1; i >= 0; i--) {
+      var a = collection[i]
+      if (typeof(predicate) == 'function') {
+        if (predicate(a)) {
+          return a
+        }
+      } else if (typeof(predicate) == 'string') {
+        if (a[predicate]) {
+          return a
+        }
+      } else if (Array.isArray(predicate)) {
+        var same = true
+        for (var j = 0; j < predicate.length; j += 2) {
+          if (a[predicate[j]] !== predicate[j + 1]) {
+            same = false
+            break
+          }
+        }
+        if (same) {
+          return a
+        }
+      } else if (typeof(predicate) == 'object') {
+        var same = true
+        for (var key in predicate) {
+          if (a[key] !== predicate[key]) {
+            same = false
+            break
+          }
+        }
+        if (same) {
+          return a
+        }
+      }
+    }
+    return undefined
+  }
+  ,flatMap: function(collection, iteratee) {
+    var ary = []
+    for (var i = 0; i < collection.length; i++) {
+      var a = iteratee(collection[i])
+      ary.push(...a)
+    }
+    return ary
+  }
+  ,flatMapDeep: function(collection, iteratee) {
+    var ary = []
+    for (var i = 0; i < collection.length; i++) {
+      var a = iteratee(collection[i])
+      while (Array.isArray(a[0])) {
+        a = a[0]
+      }
+      ary.push(...a)
+    }
+    return ary
+  }
+  ,flatMapDepth: function(collection, iteratee, depth = 1) {
+    var ary = []
+    var d = depth
+    for (var i = 0; i < collection.length; i++) {
+      var a = iteratee(collection[i])
+      d = depth
+      while (Array.isArray(a) && d > 0) {
+        a = a[0]
+        d--
+      }
+      ary.push(a)
+    }
+    return ary
+  }
 }
