@@ -985,7 +985,18 @@ var love_my = {
     return obj
   }
   ,zipWith: function(arrays, iteratee) {
-
+    var ary = []
+    var p = Array.from(arguments)
+    var iteratee = p.pop()
+    var ary2 = []
+    for (var i = 0; i < p[0].length; i++) {
+      ary2 = []
+      for (var j = 0; j < p.length; j++) {
+        ary2.push(p[j][i])
+      }
+      ary[i] = iteratee(...ary2)
+    }
+    return ary
   }
   ,set: function(obj = {}, path, val) {
     if (typeof(path) == 'string') {
@@ -1006,5 +1017,163 @@ var love_my = {
     }
     pre[path[i]] = val
     return obj
+  }
+  ,countBy: function(collection, iteratee) {
+    if (Array.isArray(collection)) {
+      var result = {}
+      for (var i = 0; i< collection.length; i++) {
+        if (collection[i] !== undefined) {
+          if (typeof(iteratee) == 'function') {
+            var key = iteratee(collection[i])
+            var count = 1
+            for (var j = i + 1; j < collection.length; j++) {
+              if (iteratee(collection[j]) == key) {
+                count++
+                iteratee[j] = undefined
+              }
+            }
+          } else {
+            var key = collection[i][iteratee]
+            var count = 1
+            for (var j = i + 1; j < collection.length; j++) {
+              if (collection[j][iteratee] == key) {
+                count++
+                iteratee[j] = undefined
+              }
+            }
+          }
+          result[key] = count
+        }
+      }
+    }
+    return result
+  }
+  ,every: function(collection, predicate) {
+    if (Array.isArray(collection)) {
+      if (collection.length == 0) {
+        return true
+      }
+      for (var i = 0; i < collection.length; i++) {
+        var a = collection[i]
+        if (typeof(predicate) == 'function') {
+          if (predicate(a) == false) {
+            return false
+          }
+        } else if (typeof(predicate) == 'string') {
+          if (a[predicate] == false) {
+            return false
+          }
+        } else if (Array.isArray(predicate)) {
+          for (var i = 0; i < predicate.length; i += 2) {
+            if (a[predicate[i]] !== predicate[i + 1]) {
+              return false
+            }
+          }
+        } else if (typeof(predicate) == 'object') {
+          for (var key in predicate) {
+            if (a[key] !== predicate[key]) {
+              return false
+            }
+          }
+        }
+      }
+    } else {
+      if (Object.keys(collection).length == 0) {
+        return true
+      }
+      if (typeof(predicate) == 'string') {
+        if (collection[predicate] == false) {
+          return false
+        }
+      } else if (Array.isArray(predicate)) {
+        for (var i = 0; i < predicate.length; i += 2) {
+          if (collection[predicate[i]] !== predicate[i + 1]) {
+            return false
+          }
+        }
+      } else if (typeof(predicate) == 'object') {
+        for (var key in predicate) {
+          if (collection[key] !== predicate[key]) {
+            return false
+          }
+        }
+      }
+    }
+    return true
+  }
+  ,filter: function(collection, predicate) {
+    var ary = []
+    for (var i = 0; i < collection.length; i++) {
+      var a = collection[i]
+      if (typeof(predicate) == 'function') {
+        if (predicate(a)) {
+          ary.push(a)
+        }
+      } else if (typeof(predicate) == 'string') {
+        if (a[predicate]) {
+          ary.push(a)
+        }
+      } else if (Array.isArray(predicate)) {
+        var same = true
+        for (var j = 0; j < predicate.length; j += 2) {
+          if (a[predicate[j]] !== predicate[j + 1]) {
+            same = false
+            break
+          }
+        }
+        if (same) {
+          ary.push(a)
+        }
+      } else if (typeof(predicate) == 'object') {
+        var same = true
+        for (var key in predicate) {
+          if (a[key] !== predicate[key]) {
+            same = false
+            break
+          }
+        }
+        if (same) {
+          ary.push(a)
+        }
+      }
+    }
+    return ary
+  }
+  ,find: function(collection, predicate) {
+    for (var i = 0; i < collection.length; i++) {
+      var a = collection[i]
+      if (typeof(predicate) == 'function') {
+        if (predicate(a)) {
+          return a
+        }
+      } else if (typeof(predicate) == 'string') {
+        if (a[predicate]) {
+          return a
+        }
+      } else if (Array.isArray(predicate)) {
+        var same = true
+        for (var j = 0; j < predicate.length; j += 2) {
+          if (a[predicate[j]] !== predicate[j + 1]) {
+            same = false
+            break
+          }
+        }
+        if (same) {
+          return a
+        }
+      } else if (typeof(predicate) == 'object') {
+        var same = true
+        for (var key in predicate) {
+          if (a[key] !== predicate[key]) {
+            same = false
+            break
+          }
+        }
+        if (same) {
+          return a
+        }
+      }
+    }
+    return undefined
   }
 }
