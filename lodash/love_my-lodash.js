@@ -985,7 +985,7 @@ var love_my = {
     return obj
   }
   ,zipWith: function(arrays, iteratee) {
-    
+
   }
   ,set: function(obj = {}, path, val) {
     if (typeof(path) == 'string') {
@@ -1005,6 +1005,6 @@ var love_my = {
       pre = pre[path[i]]
     }
     pre[path[i]] = val
-    return val
+    return obj
   }
 }
