@@ -932,4 +932,79 @@ var love_my = {
     }
     return ary
   }
+  ,xorWith: function(arrays, comparator) {
+    var ary = []
+    var p = Array.from(arguments)
+    var comparator = p.pop()
+    var ary2 = []
+    for (var i = 0; i < p.length; i++) {
+      ary2.push(...p[i])
+    }
+    for (var i = 0; i < ary2.length; i++) {
+      if (ary2[i] !== undefined) {
+        var same = false
+        var a = ary2[i]
+        for (var j = i + 1; j < ary2.length; j++) {
+          if (comparator(a, ary2[j])) {
+            ary2[j] = undefined
+            same = true
+          }
+        }
+        if (!same) {
+          ary.push(ary2[i])
+        }
+      }
+    }
+    return ary
+  }
+  ,zip: function(arrays) {
+    var p = Array.from(arguments)
+    var ary = []
+    var ary2 = []
+    for (var i = 0; i < p[0].length; i++) {
+      for (var j = 0; j < p.length; j++) {
+        ary2.push(p[j][i])
+      }
+      ary.push(ary2)
+      ary2 = []
+    }
+    return ary
+  }
+  ,zipObject: function(array, val) {
+    var obj = {}
+    for (var i = 0; i < array.length; i++) {
+      obj[array[i]] = val[i]
+    }
+    return obj
+  }
+  ,zipObjectDeep: function(array, aryval) {
+    var obj = {}
+    for (var i = 0; i < array.length; i++) {
+      this.set(obj, array[i], aryval[i])
+    }
+    return obj
+  }
+  ,zipWith: function(arrays, iteratee) {
+    
+  }
+  ,set: function(obj = {}, path, val) {
+    if (typeof(path) == 'string') {
+      path = path.split(/\[|\]\.|\./)
+    }
+    var pre = obj
+    for (var i = 0; i < path.length - 1; i++) {
+      if (path[i + 1] >= 0 && path[i + 1] <= 9) {
+        if (!pre[path[i]]) {
+          pre[path[i]] = []
+        }
+      } else {
+        if (!pre[path[i]]) {
+          pre[path[i]] = {}
+        }
+      }
+      pre = pre[path[i]]
+    }
+    pre[path[i]] = val
+    return val
+  }
 }
