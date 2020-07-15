@@ -1349,7 +1349,12 @@ var love_my = {
         if (typeof(iteratee) == 'function') {
           ary.push(iteratee(a, i, collection))
         } else if (typeof(iteratee) == 'string') {
-          ary.push(a[iteratee])
+          var s = iteratee.split('.')
+          var b = a
+          for (var j = 0; j < s.length; j++) {
+            b = b[s[j]]
+          }
+          ary.push(b)
         }
       }
     } else if (typeof(collection) == 'object') {
@@ -1357,6 +1362,29 @@ var love_my = {
         if (typeof(iteratee) == 'function') {
           ary.push(iteratee(collection[key]))
         }
+      }
+    }
+    return ary
+  }
+  ,orderBy: function(collection, iteratee, orders = ['asc','asc']) {
+    var ary = collection.slice()
+    for (var i = orders.length - 1; i >= 0; i--) {
+      if (orders[i] == 'asc') {
+        ary.sort((a, b) => {
+          if (a[iteratee[i]] >= b[iteratee[i]]) {
+            return 1
+          } else {
+            return -1
+          }
+        })
+      } else {
+        ary.sort((a, b) => {
+          if (a[iteratee[i]] < b[iteratee[i]]) {
+            return 1
+          } else {
+            return -1
+          }
+        })
       }
     }
     return ary
