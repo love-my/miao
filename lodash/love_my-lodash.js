@@ -1029,7 +1029,7 @@ var love_my = {
             for (var j = i + 1; j < collection.length; j++) {
               if (iteratee(collection[j]) == key) {
                 count++
-                iteratee[j] = undefined
+                collection[j] = undefined
               }
             }
           } else {
@@ -1038,7 +1038,7 @@ var love_my = {
             for (var j = i + 1; j < collection.length; j++) {
               if (collection[j][iteratee] == key) {
                 count++
-                iteratee[j] = undefined
+                collection[j] = undefined
               }
             }
           }
