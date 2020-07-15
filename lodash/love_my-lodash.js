@@ -1246,4 +1246,119 @@ var love_my = {
     }
     return ary
   }
+  ,forEach: function(collection, iteratee) {
+    if (Array.isArray(collection)) {
+      for (var val of collection) {
+        iteratee(val)
+      }
+    } else {
+      for (var key in collection) {
+        iteratee(key)
+      }
+    }
+    return collection
+  }
+  ,forEachRight: function(collection, iteratee) {
+    for (var i = collection.length - 1; i >= 0; i--) {
+      iteratee(collection[i])
+    }
+    return collection
+  }
+  ,groupBy: function(collection, iteratee) {
+    var obj = {}
+    var key = ''
+    var ary = []
+    for (var i = 0; i < collection.length; i++) {
+      var a = collection[i]
+      if (a !== undefined) {
+        ary = [a]
+        if (typeof(iteratee) == 'function') {
+          var key = iteratee(a)
+          for (var j = i + 1; j < collection.length; j++) {
+            if (iteratee(collection[j]) == key) {
+              ary.push(collection[j])
+              collection[j] = undefined
+            }
+          }
+        } else if (typeof(iteratee) == 'string') {
+          var key = a[iteratee]
+          for (var j = i + 1; j < collection.length; j++) {
+            if (collection[j][iteratee] == key) {
+              ary.push(collection[j])
+              collection[j] = undefined
+            }
+          }
+        }
+        obj[key] = ary
+      }
+    }
+    return obj
+  }
+  ,includes: function(collection, value, fromIndex = 0) {
+    if (Array.isArray(collection)) {
+      for (var i = fromIndex; i < collection.length; i++) {
+        if (collection[i] == value) {
+          return true
+        }
+      }
+    } else if (typeof(collection) == 'object') {
+      for (var key in collection) {
+        if (collection[key] == value) {
+          return true
+        }
+      }
+    } else if (typeof(collection) == 'string') {
+      for (var i = fromIndex; i < collection.length - value.length + 1; i++) {
+        if (collection.slice(i, i + value.length) == value) {
+          return true
+        }
+      }
+    }
+    return false
+  }
+  ,invokeMap: function(collection, path, ...arys) {
+    var ary = []
+    for (var i = 0; i < collection.length; i++) {
+      if (typeof(path) == 'string') {
+        ary.push(collection[i][path]())
+      } else if (typeof(path) == 'function') {
+        ary.push(path.call(collection[i], ...arys))
+      }
+    }
+    return ary
+  }
+  ,keyBy: function(collection, iteratee) {
+    var obj = {}
+    var key
+    for (var i = 0; i < collection.length; i++) {
+      var a = collection[i]
+      if (typeof(iteratee) == 'function') {
+        key = iteratee(a)
+      } else if (typeof(iteratee) == 'string') {
+        key = a[iteratee]
+      }
+      obj[key] = a
+    }
+    return obj
+  }
+  ,map: function(collection, iteratee) {
+    var ary = []
+    if (Array.isArray(collection)) {
+      for (var i = 0; i < collection.length; i++) {
+        var a = collection[i]
+        if (typeof(iteratee) == 'function') {
+          ary.push(iteratee(a, i, collection))
+        } else if (typeof(iteratee) == 'string') {
+          ary.push(a[iteratee])
+        }
+      }
+    } else if (typeof(collection) == 'object') {
+      for (var key in collection) {
+        if (typeof(iteratee) == 'function') {
+          ary.push(iteratee(collection[key]))
+        }
+      }
+    }
+    return ary
+  }
 }
