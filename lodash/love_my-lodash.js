@@ -1393,5 +1393,51 @@ var love_my = {
     }
     return ary
   }
-  ,
+  ,partition: function(collection, predicate) {
+    var ary = []
+    var arytrue = []
+    var aryfalse = []
+    for (var i = 0; i < collection.length; i++) {
+      var a = collection[i]
+      if (typeof(predicate) == 'function') {
+        if (predicate(a)) {
+          arytrue.push(a)
+        } else {
+          aryfalse.push(a)
+        }
+      } else if (typeof(predicate) == 'string') {
+        if (a[predicate]) {
+          arytrue.push(a)
+        } else {
+          aryfalse.push(a)
+        }
+      } else if (Array.isArray(predicate)) {
+        var same = true
+        for (var j = 0; j < predicate.length; j += 2) {
+          if (a[predicate[j]] !== predicate[j + 1]) {
+            aryfalse.push(a)
+            same = false
+            break
+          }
+        }
+        if (same) {
+          arytrue.push(a)
+        }
+      } else if (typeof(predicate) == 'object') {
+        var same = true
+        for (var key in predicate) {
+          if (a[key] !== predicate[key]) {
+            aryfalse.push(a)
+            same = false
+            break
+          }
+        }
+        if (same) {
+          arytrue.push(a)
+        }
+      }
+    }
+    ary.push(arytrue.slice(), aryfalse.slice())
+    return ary
+  }
 }
