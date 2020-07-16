@@ -1371,22 +1371,27 @@ var love_my = {
     for (var i = orders.length - 1; i >= 0; i--) {
       if (orders[i] == 'asc') {
         ary.sort((a, b) => {
-          if (a[iteratee[i]] >= b[iteratee[i]]) {
+          if (a[iteratee[i]] > b[iteratee[i]]) {
             return 1
-          } else {
+          } else if (a[iteratee[i]] < b[iteratee[i]]) {
             return -1
+          } else {
+            return 0
           }
         })
       } else {
         ary.sort((a, b) => {
           if (a[iteratee[i]] < b[iteratee[i]]) {
             return 1
-          } else {
+          } else if (a[iteratee[i]] > b[iteratee[i]]) {
             return -1
+          } else {
+            return 0
           }
         })
       }
     }
     return ary
   }
+  ,
 }
