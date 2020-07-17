@@ -1623,4 +1623,90 @@ var love_my = {
     }
     return [val]
   }
+  ,conformsTo: function(object, source) {
+    for (var key in source) {
+      if (source[key](object[key])) {
+        return true
+      }
+      return false
+    }
+  }
+  ,eq: function(val, other) {
+    if (val !== val && other !== other) {
+      return true
+    }
+    return val === other
+  }
+  ,gt: function(val, other) {
+    return val > other
+  }
+  ,gte: function(val, other) {
+    return val >= other
+  }
+  ,isArguments: function(val) {
+    return typeof(val) === 'object' && val.toString() === '[object Arguments]'
+  }
+  ,isArray: function(val) {
+    return Array.isArray(val)
+  }
+  ,isArrayBuffer: function(val) {
+    return val.toString() === '[object ArrayBuffer]'
+  }
+  ,isArrayLike: function(val) {
+    return typeof(val) !== 'function' && val.length >= 0
+  }
+  ,isArrayLikeObject: function(val) {
+    return typeof(val) == 'object'
+  }
+  ,isBoolean: function(val) {
+    if (val == null || val == undefined) {
+      return false
+    }
+    return val.valueOf() === false || val.valueOf() === true
+  }
+  ,isDate: function(val) {
+    return typeof(a) === 'object' && Object.prototype.toString.call(val) === "[object Date]"
+  }
+  ,isElement: function(val) {
+    return typeof(a) === 'object' && Object.prototype.toString.call(val) === "[object HTMLBodyElement]"
+  }
+  ,isEmpty: function(val) {
+    if (val === null) {
+      return true
+    }
+    if (a == 'object' || a == 'string') {
+      return false
+    }
+    return true
+  }
+  ,isEqual: function(val, other) {
+    if (val !== val && other !== other) {
+      return true
+    }
+    if (val === other) {
+      return true
+    }
+    if (val === null) {
+      return other === null
+    } else if (other === null) {
+      return false
+    }
+    var a = typeof(val)
+    var b = typeof(other)
+    if (a === b) {
+      if (a == 'object') {
+        var c = Object.keys(val).length
+        var d = Object.keys(other).length
+        if (c == d) {
+          for (var key in a) {
+            if (a[key] !== b[key]) {
+              return false
+            }
+          }
+          return true
+        }
+      }
+    return false
+    }
+  }
 }
