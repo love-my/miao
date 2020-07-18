@@ -1733,5 +1733,47 @@ var love_my = {
     }
     return false
   }
-  ,
+  ,isError: function(val) {
+    return typeof(val) == 'object' && Object.prototype.toString.call(val) == '[object Error]'
+  }
+  ,isFinite: function(val) {
+    if (typeof(val) == 'number') {
+      if (val >= Number.MIN_VALUE && val <= Number.MAX_VALUE) {
+        return true
+      }
+    }
+    return false
+  }
+  ,isFunction: function(val) {
+    return typeof(val) == 'function'
+  }
+  ,isInteger: function(val) {
+    if (typeof(val) == 'number') {
+      if (parseInt(val) === val) {
+        return true
+      }
+    }
+    return false
+  }
+  ,isLength: function(val) {
+    if (typeof(val) == 'number') {
+      if (val >= 0) {
+        if (parseInt(val) === val) {
+          return true
+        }
+      }
+    }
+    return false
+  }
+  ,isMap: function(val) {
+    return typeof(val) == 'object' && Object.prototype.toString.call(val) == '[object Map]'
+  }
+  ,isMatch: function(object, source) {
+    for (var key in source) {
+      if (object[key] !== source[key]) {
+        return false
+      }
+    }
+    return true
+  }
 }
