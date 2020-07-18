@@ -1808,15 +1808,22 @@ var love_my = {
     return false
   }
   ,isObject: function(val) {
+    if (val === null) {
+      return false
+    }
     return typeof(val) == 'object' || typeof(val) == 'function'
   }
   ,isObjectLike: function(val) {
+    if (val === null) {
+      return false
+    }
     return typeof(val) == 'object'
   }
   ,isPlainObject: function(val) {
     if (val == null) {
       return false
     }
-    return val.constructor === Object || val._proto__ == null
+    return val.constructor === Object || val.__proto__ == null
   }
+  ,
 }
