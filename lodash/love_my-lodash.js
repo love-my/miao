@@ -1000,9 +1000,16 @@ var love_my = {
   }
   ,set: function(obj = {}, path, val) {
     if (typeof(path) == 'string') {
-      path = path.split(/\[|\]\.|\]\[|\./)
+      path = path.split(/\[|\]\.|\]\[|\.|\]/)
     }
     var pre = obj
+    var ary = []
+    for (var i = 0; i < path.length; i++) {
+      if (path[i] !== undefined) {
+        ary.push(path[i])
+      }
+    }
+    path = ary
     for (var i = 0; i < path.length - 1; i++) {
       if (+path[i + 1] >= 0) {
         if (!pre[path[i]]) {
@@ -2116,12 +2123,14 @@ var love_my = {
   ,get: function(obj, path, defaultvalue) {
     var result = obj
     if (typeof(path) == 'string') {
-      path = path.split(/\[|\]\.|\]\[|\./)
+      path = path.split(/\[|\]\.|\]\[|\.|\]/)
     }
     for (var i = 0; i < path.length; i++) {
-      result = result[path[i]]
-      if (result == undefined) {
-        return defaultvalue
+      if (path[i] !== undefined) {
+        result = result[path[i]]
+        if (result == undefined) {
+          return defaultvalue
+        }
       }
     }
     return result
@@ -2150,6 +2159,43 @@ var love_my = {
       }
     }
     return obj
+  }
+  ,findKey: function(obj, predicate) {
+    for (var key in obj) {
+      var a = obj[key]
+      if (typeof(predicate) == 'function') {
+        if (predicate(a)) {
+          return key
+        }
+      } else if (typeof(predicate) == 'string') {
+        if (a[predicate]) {
+          return key
+        }
+      } else if (Array.isArray(predicate)) {
+        var same = true
+        for (var i = 0; i < predicate.length; i += 2) {
+          if (a[predicate[i]] !== predicate[i + 1]) {
+            same = false
+            break
+          }
+        }
+        if (same) {
+          return key
+        }
+      } else if (typeof(predicate) == 'object') {
+        var same = true
+        for (var key2 in predicate) {
+          if (a[key2] !== predicate[key2]) {
+            same = false
+            break
+          }
+        }
+        if (same) {
+          return key
+        }
+      }
+    }
+    return undefined
   }
   ,
 }
