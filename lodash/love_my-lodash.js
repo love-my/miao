@@ -1838,4 +1838,65 @@ var love_my = {
     }
     return false
   }
+  ,isSet: function(val) {
+    return typeof(val) == 'object' && Object.prototype.toString.call(val) == '[object Set]'
+  }
+  ,isString: function(val) {
+    if (typeof(val) == 'string') {
+      return true
+    }
+    if (typeof(val) == 'object') {
+      if (typeof(val.valueOf()) == 'string') {
+        return true
+      }
+    }
+    return false
+  }
+  ,isSymbol: function(val) {
+    return typeof(val) == 'symbol'
+  }
+  ,isTypedArray: function(val) {
+    return val instanceof Int8Array || val instanceof Uint8Array || val instanceof Uint8ClampedArray || val instanceof Int16Array || val instanceof Uint16Array || val instanceof Int32Array || val instanceof Uint32Array
+  }
+  ,isUndefined: function(val) {
+    return val === undefined
+  }
+  ,isWeakMap: function(val) {
+    return typeof(val) == 'object' && Object.prototype.toString.call(val) == '[object WeakMap]'
+  }
+  ,isWeakSet: function(val) {
+    return typeof(val) == 'object' && Object.prototype.toString.call(val) == '[object WeakSet]'
+  }
+  ,lt: function(val, other) {
+    return val < other
+  }
+  ,lte: function(val, other) {
+    return val <= other
+  }
+  ,toArray: function(val) {
+    var ary = []
+    if (Array.isArray(val)) {
+      ary = val.slice()
+    } else if (typeof(val) == 'object') {
+      for (var key in val) {
+        ary.push(val[key])
+      }
+    } else if (typeof(val) == 'string') {
+      ary = val.split('')
+    }
+    return ary
+  }
+  ,toFinite: function(val) {
+    var a = +val
+    if (typeof(a) == 'number' && a === a) {
+      if (a < Number.MIN_VALUE) {
+        return Number.MIN_VALUE
+      } else if (a > Number.MAX_VALUE) {
+        return Number.MAX_VALUE
+      } else {
+        return a
+      }
+    }
+    return 0
+  }
 }
