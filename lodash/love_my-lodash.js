@@ -1776,4 +1776,41 @@ var love_my = {
     }
     return true
   }
+  ,isMatchWith: function(object, source,customizer) {
+    if (customizer == undefined) {
+      return this.isMatch(object, source)
+    }
+    for (var key in source) {
+      if (!customizer(object[key], source[key])) {
+        return false
+      }
+    }
+    return true
+  }
+  ,isNative: function(val) {
+    return typeof(val) == 'function' && val.toString().includes('[native code]')
+  }
+  ,isNil: function(val) {
+    return val === null || val === undefined
+  }
+  ,isNull: function(val) {
+    return val === null
+  }
+  ,isNumber: function(val) {
+    if (typeof(val) == 'number') {
+      return true
+    }
+    if (typeof(val) == 'object') {
+      if (typeof(val.valueOf()) == 'number') {
+        return true
+      }
+    }
+    return false
+  }
+  ,isObject: function(val) {
+    return typeof(val) == 'object' || typeof(val) == 'function'
+  }
+  ,isObjectLike: function(val) {
+    return typeof(val) == 'object'
+  }
 }
