@@ -1000,7 +1000,7 @@ var love_my = {
   }
   ,set: function(obj = {}, path, val) {
     if (typeof(path) == 'string') {
-      path = path.split(/\[|\]\.|\./)
+      path = path.split(/\[|\]\.|\]\[|\./)
     }
     var pre = obj
     for (var i = 0; i < path.length - 1; i++) {
@@ -2066,7 +2066,7 @@ var love_my = {
       end = start
       start = 0
     }
-    return n >= start && n <= end || n <= start && n >= end
+    return n >= start && n < end || n < start && n >= end
   }
   ,random: function(l = 0, u = 1, f = false) {
     var a = arguments.length
@@ -2116,7 +2116,7 @@ var love_my = {
   ,get: function(obj, path, defaultvalue) {
     var result = obj
     if (typeof(path) == 'string') {
-      path = path.split(/\[|\]\.|\./)
+      path = path.split(/\[|\]\.|\]\[|\./)
     }
     for (var i = 0; i < path.length; i++) {
       result = result[path[i]]
@@ -2133,5 +2133,7 @@ var love_my = {
     }
     return ary
   }
-  ,
+  ,defaults: function(obj, source) {
+
+  }
 }
