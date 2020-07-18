@@ -2134,6 +2134,22 @@ var love_my = {
     return ary
   }
   ,defaults: function(obj, source) {
-
+    for (var key in source) {
+      if (!(key in obj)) {
+        obj[key] = source[key]
+      }
+    }
+    return obj
   }
+  ,defaultsDeep: function(obj, source) {
+    for (var key in source) {
+      if (typeof(source[key]) == 'object') {
+        this.defaultsDeep(obj[key], source[key])
+      } else {
+        this.defaults(obj, source)
+      }
+    }
+    return obj
+  }
+  ,
 }
