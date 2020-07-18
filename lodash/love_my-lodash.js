@@ -1709,4 +1709,28 @@ var love_my = {
     return false
     }
   }
+  ,isEqualWith: function(val, other, customizer) {
+    if (customizer == undefined) {
+      return this.isEqual(val, other)
+    }
+    var a = typeof(val)
+    var b = typeof(other)
+    if (a == b) {
+      if (a == 'object') {
+        var c = Object.keys(val).length
+        var d = Object.keys(other).length
+        if (c == d) {
+          for (var key in val) {
+            if (customizer(val[key], other[key])) {
+              return true
+            }
+          }
+        }
+        return false
+      } else {
+        return customizer(val, other)
+      }
+    }
+    return false
+  }
 }
