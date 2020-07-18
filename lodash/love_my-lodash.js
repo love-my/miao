@@ -1004,7 +1004,7 @@ var love_my = {
     }
     var pre = obj
     for (var i = 0; i < path.length - 1; i++) {
-      if (path[i + 1] >= 0 && path[i + 1] <= 9) {
+      if (+path[i + 1] >= 0) {
         if (!pre[path[i]]) {
           pre[path[i]] = []
         }
@@ -1959,4 +1959,179 @@ var love_my = {
     }
     return obj
   }
+  ,add: function(a, b) {
+    return a + b
+  }
+  ,ceil: function(n, p = 0) {
+    return Math.ceil(n * 10 ** p) / (10 ** p)
+  }
+  ,divide: function(a, b) {
+    return a / b
+  }
+  ,floor: function(n, p = 0) {
+    return Math.floor(n * 10 ** p) / (10 ** p)
+  }
+  ,max: function(array) {
+    if (array.length == 0) {
+      return undefined
+    }
+    return Math.max(...array)
+  }
+  ,maxBy: function(array, f) {
+    var ary
+    if (typeof(f) == 'function') {
+      ary = array.map(it => f(it))
+    } else if (typeof(f) == 'string') {
+      ary = array.map(it => it[f])
+    }
+    var max = Math.max(...ary)
+    var idx = ary.indexOf(max)
+    return array[idx]
+  }
+  ,mean: function(array) {
+    if (array == undefined) {
+      return NaN
+    }
+    return array.reduce((result, it) => {
+      return result + it
+    }, 0) / array.length
+  }
+  ,meanBy: function(array, f) {
+    if (array == undefined) {
+      return NaN
+    }
+    var ary
+    if (typeof(f) == 'function') {
+      ary = array.map(it => f(it))
+    } else if (typeof(f) == 'string') {
+      ary = array.map(it => it[f])
+    }
+    return ary.reduce((result, it) => {
+      return result + it
+    }, 0) / ary.length
+  }
+  ,min: function(array) {
+    if (array.length == 0) {
+      return undefined
+    }
+    return Math.min(...array)
+  }
+  ,minBy: function(array, f) {
+    var ary
+    if (typeof(f) == 'function') {
+      ary = array.map(it => f(it))
+    } else if (typeof(f) == 'string') {
+      ary = array.map(it => it[f])
+    }
+    var min = Math.min(...ary)
+    var idx = ary.indexOf(min)
+    return array[idx]
+  }
+  ,multiply: function(a, b) {
+    return a * b
+  }
+  ,round: function(n, p = 0) {
+    return Math.round(n * 10 ** p) / (10 ** p)
+  }
+  ,subtract: function(a, b) {
+    return a - b
+  }
+  ,sum: function(array) {
+    return array.reduce((sum, it) => {
+      return sum + it
+    }, 0)
+  }
+  ,sumBy: function(array, f) {
+    var ary
+    if (typeof(f) == 'function') {
+      ary = array.map(it => f(it))
+    } else if (typeof(f) == 'string') {
+      ary = array.map(it => it[f])
+    }
+    return ary.reduce((sum, it) => {
+      return sum + it
+    }, 0)
+  }
+  ,clamp: function(n, l, u) {
+    if (n < l) {
+      return l
+    }
+    if (n > u) {
+      return u
+    }
+    return n
+  }
+  ,inRange: function(n, start = 0, end) {
+    if (end == undefined) {
+      end = start
+      start = 0
+    }
+    return n >= start && n <= end || n <= start && n >= end
+  }
+  ,random: function(l = 0, u = 1, f = false) {
+    var a = arguments.length
+    if (a == 1) {
+      var n = arguments[0]
+      if (n == true) {
+        return Math.random()
+      } else if (n == false) {
+        return Math.floor(Math.random() * 2)
+      } else {
+        if (this.isInteger(n)) {
+          return Math.floor(Math.random() * (n + 1))
+        }
+        return Math.random() * n
+      }
+    } else if (a == 2) {
+      var n = arguments[1]
+      var m = arguments[0]
+      if (n == true) {
+        return Math.random() * m
+      } else if (n == false) {
+        if (this.isInteger(m)) {
+          return Math.floor(Math.random() * (m + 1))
+        }
+        return Math.random() * m
+      } else {
+        if (this.isInteger(m) && this.isInteger(n)) {
+          return Math.floor(Math.random() * (n - m + 1)) + m
+        }
+        return Math.random() * (n - m) + m
+      }
+    } else if (f || !this.isInteger(l) || !this.isInteger(u)) {
+      return Math.random() * (u - l) + l
+    } else {
+      return Math.floor(Math.random() * (u - l + 1)) + l
+    }
+  }
+  ,assignIn: function(obj, source) {
+    var p = Array.from(arguments).slice(1)
+    for (var i = 0; i < p.length; i++) {
+      for (var key in p[i]) {
+        obj[key] = p[i][key]
+      }
+    }
+    return obj
+  }
+  ,get: function(obj, path, defaultvalue) {
+    var result = obj
+    if (typeof(path) == 'string') {
+      path = path.split(/\[|\]\.|\./)
+    }
+    for (var i = 0; i < path.length; i++) {
+      result = result[path[i]]
+      if (result == undefined) {
+        return defaultvalue
+      }
+    }
+    return result
+  }
+  ,at: function(obj, path) {
+    var ary = []
+    for (var i = 0; i < path.length; i++) {
+      ary.push(this.get(obj, path[i]))
+    }
+    return ary
+  }
+  ,
 }
