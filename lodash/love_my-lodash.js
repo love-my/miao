@@ -1825,5 +1825,17 @@ var love_my = {
     }
     return val.constructor === Object || val.__proto__ == null
   }
-  ,
+  ,isRegExp: function(val) {
+    return typeof(val) == 'object' && Object.prototype.toString.call(val) == '[object RegExp]'
+  }
+  ,isSafeInteger: function(val) {
+    if (typeof(val) == 'number') {
+      if (parseInt(val) === val) {
+        if (val >= 1 - 2 ** 53 && val <= 2 ** 53 - 1) {
+          return true
+        }
+      }
+    }
+    return false
+  }
 }
