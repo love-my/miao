@@ -1738,7 +1738,7 @@ var love_my = {
   }
   ,isFinite: function(val) {
     if (typeof(val) == 'number') {
-      if (val >= Number.MIN_VALUE && val <= Number.MAX_VALUE) {
+      if (val >= -Number.MAX_VALUE && val <= Number.MAX_VALUE) {
         return true
       }
     }
@@ -1749,7 +1749,7 @@ var love_my = {
   }
   ,isInteger: function(val) {
     if (typeof(val) == 'number') {
-      if (parseInt(val) === val) {
+      if (Math.round(val) === val) {
         return true
       }
     }
@@ -1758,7 +1758,7 @@ var love_my = {
   ,isLength: function(val) {
     if (typeof(val) == 'number') {
       if (val >= 0) {
-        if (parseInt(val) === val) {
+        if (Math.round(val) === val) {
           return true
         }
       }
@@ -1888,9 +1888,9 @@ var love_my = {
   }
   ,toFinite: function(val) {
     var a = +val
-    if (typeof(a) == 'number' && a === a) {
-      if (a < Number.MIN_VALUE) {
-        return Number.MIN_VALUE
+    if (a === a) {
+      if (a < -Number.MAX_VALUE) {
+        return -Number.MAX_VALUE
       } else if (a > Number.MAX_VALUE) {
         return Number.MAX_VALUE
       } else {
@@ -1898,5 +1898,61 @@ var love_my = {
       }
     }
     return 0
+  }
+  ,toInteger: function(val) {
+    var a = +val
+    if (a === a) {
+      if (a > Number.MAX_VALUE) {
+        return Number.MAX_VALUE
+      } else if (a < -Number.MAX_VALUE) {
+        return -Number.MAX_VALUE
+      } else {
+        return a
+      }
+    }
+    return 0
+  }
+  ,toLength: function(val) {
+    var a = +val
+    if (a === a) {
+      var b = 2 ** 32 - 1
+      if (a > b) {
+        return b
+      } else if (a < 0) {
+        return 0
+      } else {
+        return Math.floor(a)
+      }
+    }
+    return 0
+  }
+  ,toNumber: function(val) {
+    return +val
+  }
+  ,toSafeInteger: function(val) {
+    var a = +val
+    if (a === a) {
+      var b = 2 ** 53 - 1
+      if (val > b) {
+        return b
+      } else if (val < -b) {
+        return -b
+      } else {
+        return Math.trunc(a)
+      }
+    }
+    return 0
+  }
+  ,assign: function(obj, source) {
+    var p = Array.from(arguments).slice(1)
+    for (var i = 0; i < p.length; i++) {
+      var hasown = Object.prototype.hasOwnProperty
+      for (var key in p[i]) {
+        if (hasown.call(p[i], key)) {
+          obj[key] = p[i][key]
+        }
+      }
+    }
+    return obj
   }
 }
