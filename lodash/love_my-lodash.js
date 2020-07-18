@@ -1813,4 +1813,10 @@ var love_my = {
   ,isObjectLike: function(val) {
     return typeof(val) == 'object'
   }
+  ,isPlainObject: function(val) {
+    if (val == null) {
+      return false
+    }
+    return val.constructor === Object || val._proto__ == null
+  }
 }
