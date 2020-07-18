@@ -2197,5 +2197,111 @@ var love_my = {
     }
     return undefined
   }
-  ,
+  ,findLastKey: function(obj, predicate) {
+    var ary = []
+    for (var key in obj) {
+      var a = obj[key]
+      if (typeof(predicate) == 'function') {
+        if (predicate(a)) {
+          ary.push(key)
+        }
+      } else if (typeof(predicate) == 'string') {
+        if (a[predicate]) {
+          ary.push(key)
+        }
+      } else if (Array.isArray(predicate)) {
+        var same = true
+        for (var i = 0; i < predicate.length; i += 2) {
+          if (a[predicate[i]] !== predicate[i + 1]) {
+            same = false
+            break
+          }
+        }
+        if (same) {
+          ary.push(key)
+        }
+      } else if (typeof(predicate) == 'object') {
+        var same = true
+        for (var key2 in predicate) {
+          if (a[key2] !== predicate[key2]) {
+            same = false
+            break
+          }
+        }
+        if (same) {
+          ary.push(key)
+        }
+      }
+    }
+    return ary[ary.length - 1]
+  }
+  ,forIn: function(obj, iteratee) {
+    for (var key in obj) {
+      if (iteratee(obj[key], key, obj) === false) {
+        break
+      }
+    }
+    return obj
+  }
+  ,forInRight: function(obj, iteratee) {
+    var ary = []
+    for (var key in obj) [
+      ary.push(key)
+    ]
+    for (var i = ary.length - 1; i >= 0; i--) {
+      var key = ary[i]
+      if (iteratee(obj[key], key, obj) === false) {
+        break
+      }
+    }
+    return obj
+  }
+  ,forOwn: function(obj, iteratee) {
+    var hasown = Object.prototype.hasOwnProperty
+    for (var key in obj) {
+      if (hasown.call(obj, key)) {
+        if (iteratee(obj[key], key, obj) === false) {
+          break
+        }
+      }
+    }
+    return obj
+  }
+  ,forOwnRight: function(obj, iteratee) {
+    var hasown = Object.prototype.hasOwnProperty
+    var ary = []
+    for (var key in obj) {
+      if (hasown.call(obj, key)) {
+        ary.push(key)
+      }
+    }
+    for (var i = ary.length - 1; i >= 0; i--) {
+      var key = ary[i]
+      if (iteratee(obj[key], key, obj) === false) {
+        break
+      }
+    }
+    return obj
+  }
+  ,functions: function(obj) {
+    var ary = []
+    var hasown = Object.prototype.hasOwnProperty
+    for (var key in obj) {
+      if (hasown.call(obj, key)) {
+        if (typeof(obj[key]) == 'function') {
+          ary.push(key)
+        }
+      }
+    }
+    return ary
+  }
+  ,functionsIn: function(obj) {
+    var ary = []
+    for (var key in obj) {
+      if (typeof(obj[key]) == 'function') {
+        ary.push(key)
+      }
+    }
+    return ary
+  }
 }
