@@ -1749,8 +1749,10 @@ var love_my = {
   }
   ,isInteger: function(val) {
     if (typeof(val) == 'number') {
-      if (Math.round(val) === val) {
-        return true
+      if (val !== Infinity && val !== -Infinity) {
+        if (Math.round(val) === val) {
+          return true
+        }
       }
     }
     return false
@@ -1758,8 +1760,10 @@ var love_my = {
   ,isLength: function(val) {
     if (typeof(val) == 'number') {
       if (val >= 0) {
-        if (Math.round(val) === val) {
-          return true
+        if (val !== Infinity) {
+          if (Math.round(val) === val) {
+            return true
+          }
         }
       }
     }
@@ -1907,7 +1911,7 @@ var love_my = {
       } else if (a < -Number.MAX_VALUE) {
         return -Number.MAX_VALUE
       } else {
-        return a
+        return Math.trunc(a)
       }
     }
     return 0
