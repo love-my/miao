@@ -1674,7 +1674,7 @@ var love_my = {
     if (val === null) {
       return true
     }
-    if (val == 'object' || val == 'string') {
+    if (typeof(val) == 'object' || typeof(val) == 'string') {
       return false
     }
     return true
