@@ -1665,7 +1665,7 @@ var love_my = {
     return val.valueOf() === false || val.valueOf() === true
   }
   ,isDate: function(val) {
-    return typeof(a) === 'object' && Object.prototype.toString.call(val) === "[object Date]"
+    return typeof(val) === 'object' && Object.prototype.toString.call(val) === "[object Date]"
   }
   ,isElement: function(val) {
     return typeof(a) === 'object' && Object.prototype.toString.call(val) === "[object HTMLBodyElement]"
@@ -1674,7 +1674,7 @@ var love_my = {
     if (val === null) {
       return true
     }
-    if (a == 'object' || a == 'string') {
+    if (val == 'object' || val == 'string') {
       return false
     }
     return true
@@ -1733,4 +1733,5 @@ var love_my = {
     }
     return false
   }
+  ,
 }
