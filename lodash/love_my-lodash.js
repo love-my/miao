@@ -1770,7 +1770,7 @@ var love_my = {
   }
   ,isMatch: function(object, source) {
     for (var key in source) {
-      if (object[key] !== source[key]) {
+      if (!this.isEqual(object[key],source[key])) {
         return false
       }
     }
