@@ -2334,7 +2334,7 @@ var love_my = {
   ,invert: function(obj) {
     var o = {}
     for (var key in obj) {
-      o[obj[key]] = obj[key]
+      o[obj[key]] = key
     }
     return o
   }
@@ -2362,4 +2362,56 @@ var love_my = {
     var val = this.get(obj, path)
     return val[f](...args)
   }
+  ,keys: function(obj) {
+    return Object.keys(obj)
+  }
+  ,keysIn: function(obj) {
+    var ary = []
+    for (var key in obj) {
+      ary.push(key)
+    }
+    return ary
+  }
+  ,mapKeys: function(obj, iteratee) {
+    var o = {}
+    var okey
+    for (var key in obj) {
+      okey = iteratee(obj[key], key, obj)
+      o[okey] = obj[key]
+    }
+    return o
+  }
+  ,mapValues: function(obj, iteratee) {
+    var o = {}
+    var val
+    for (var key in obj) {
+      if (typeof(iteratee) == 'function') {
+        val = iteratee(obj[key])
+      } else if (typeof(iteratee) == 'string') {
+        val = obj[key][iteratee]
+      }
+      o[key] = val
+    }
+    return o
+  }
+  ,merge: function(obj, ...source) {
+    for (var i = 0; i < source.length; i++) {
+      var a = source[i]
+      for (var key in a) {
+        if (!(key in obj)) {
+          obj[key] = a[key]
+        } else {
+          var b = obj[key]
+          var c =a[key]
+          if (typeof(b) == typeof(c) && typeof(b) == 'object') {
+            this.merge(b, c)
+          } else {
+            b = c
+          }
+        }
+      }
+    }
+    return obj
+  }
+  ,
 }
