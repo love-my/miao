@@ -1011,12 +1011,10 @@ var love_my = {
     }
     path = ary
     for (var i = 0; i < path.length - 1; i++) {
-      if (+path[i + 1] >= 0) {
-        if (!pre[path[i]]) {
+      if (!pre[path[i]]) {
+        if (+path[i + 1] >= 0) {
           pre[path[i]] = []
-        }
-      } else {
-        if (!pre[path[i]]) {
+        } else {
           pre[path[i]] = {}
         }
       }
@@ -2412,6 +2410,143 @@ var love_my = {
       }
     }
     return obj
+  }
+  ,mergeWith: function(obj, source, customizer) {
+    var p = Array.from(arguments)
+    if (typeof(p[p.length - 1]) !== 'function') {
+      source = p.slice(1, -1)
+      return this.merge(obj, source)
+    } else {
+      customizer = p.pop()
+      source = p.slice(1)
+    }
+    for (var i = 0; i < source.length; i++) {
+      var a = source[i]
+      for (var key in a) {
+        if (key in obj) {
+          obj[key] = customizer(obj[key], a[key], key, obj, a)
+        } else {
+          obj[key] = a[key]
+        }
+      }
+    }
+    return obj
+  }
+  ,omit: function(obj, path) {
+    var o = {}
+    for (var key in obj) {
+      if (!(path.includes(key))) {
+        o[key] = obj[key]
+      }
+    }
+    return o
+  }
+  ,omitBy: function(obj, predicate) {
+    var o = {}
+    for (var key in obj) {
+      if (!predicate(obj[key], key)) {
+        o[key] = obj[key]
+      }
+    }
+    return o
+  }
+  ,pick: function(obj, path) {
+    var o = {}
+    for (var key in obj) {
+      if (path.includes(key)) {
+        o[key] = obj[key]
+      }
+    }
+    return o
+  }
+  ,pickBy: function(obj, predicate) {
+    var o = {}
+    for (var key in obj) {
+      if (predicate(obj[key], key)) {
+        o[key] = obj[key]
+      }
+    }
+    return o
+  }
+  ,result: function(obj, path, defaultvalue) {
+    var val = this.get(obj, path)
+    if (typeof(val) == 'function') {
+      return val()
+    } else if (val == undefined) {
+      if (typeof(defaultvalue) == 'function') {
+        return defaultvalue()
+      } else {
+        return defaultvalue
+      }
+    } else {
+      return val
+    }
+  }
+  ,setWith: function(obj, path, val, customizer) {
+    if (customizer == undefined || customizer() == undefined) {
+      return this.set(obj, path, val)
+    }
+    if (typeof(path) == 'string') {
+      path = path.split(/\[|\]\.|\]\[|\.|\]/)
+    }
+    var pre = obj
+    var ary = []
+    for (var i = 0; i < path.length; i++) {
+      if (path[i] !== '') {
+        ary.push(path[i])
+      }
+    }
+    path = ary
+    var i = 0
+    for (i = 0; i < path.length - 2; i++) {
+      if (!pre[path[i]]) {
+        if (+path[i + 1] >= 0) {
+          pre[path[i]] = []
+        } else {
+          pre[path[i]] = {}
+        }
+      }
+      pre = pre[path[i]]
+    }
+    pre[path[i]] = customizer()
+    pre = pre[path[i]]
+    pre[path[i + 1]] = val
+    return obj
+  }
+  ,toPairs: function(obj) {
+    var ary = []
+    if (this.isSet(obj)) {
+      for (var val of obj) {
+        ary.push([val, val])
+      }
+    } else if (this.isMap(obj)) {
+      for (var val of obj) {
+        ary.push(val)
+      }
+    } else {
+      var keys = Object.keys(obj)
+      for (var i = 0; i < keys.length; i++) {
+        ary.push(keys[i], obj[keys[i]])
+      }
+    }
+    return arys
+  }
+  ,toPairsIn: function(obj) {
+    var ary = []
+    if (this.isSet(obj)) {
+      for (var val of obj) {
+        ary.push([val, val])
+      }
+    } else if (this.isMap(obj)) {
+      for (var val of obj) {
+        ary.push(val)
+      }
+    } else {
+      for (var key in obj) {
+        ary.push(key, obj[key])
+      }
+    }
+    return arys
   }
   ,
 }
