@@ -2660,5 +2660,156 @@ var love_my = {
     }
     return s
   }
-  ,
+  ,endsWith: function(str, target, position = str.length) {
+    return str[position - 1] == target
+  }
+  ,escape: function(str) {
+    var s = ''
+    for (var i = 0; i < str.length; i++) {
+      var a = str[i]
+      if (a == '&') {
+        s += '&amp;'
+      } else if (a == '<') {
+        s += '&lt;'
+      } else if (a == '>') {
+        s += '&gt;'
+      } else if (a == '"') {
+        s += '&quot;'
+      } else if (a == "'") {
+        s += '&apos;'
+      } else {
+        s += a
+      }
+    }
+    return s
+  }
+  ,escapeRegExp: function(str) {
+    var s = ''
+    for (var i = 0; i < str.length; i++) {
+      var a = str[i]
+      if (a == '^' || a == '$' || a == '.' || a == '*' || a == '+' || a == '?' || a == '(' || a == ')' || a == '[' || a == ']' || a == '{' || a == '}' || a == '|') {
+        s += '\\' + a
+      } else {
+        s += a
+      }
+    }
+    return s
+  }
+  ,kebabCase: function(str = '') {
+    var p = str.split(/\s|\_/)
+    var reg = /[a-zA-Z]/
+    var reg1 = /[A-Z]/
+    var reg2 = /[a-z]/
+    var ary = []
+    var s = ''
+    for (var i = 0; i < p.length; i++) {
+      var a = p[i]
+      if (a !== '') {
+        s = ''
+        for (var j = 0; j < a.length; j++) {
+          var b = a[j]
+          if (reg.test(b)) {
+            if (reg1.test(b)) {
+              if (str[j - 1] !== undefined && reg2.test(str[j - 1])) {
+                ary.push(s.toLocaleLowerCase())
+                s = b
+              } else {
+                s += b
+              }
+            } else {
+              s += b
+            }
+          }
+        }
+        ary.push(s.toLocaleLowerCase())
+      }
+    }
+    return ary.join('-')
+  }
+  ,lowerCase: function(str = '') {
+    var p = str.split(/\-|\_/)
+    var reg = /[a-zA-Z]/
+    var reg1 = /[A-Z]/
+    var reg2 = /[a-z]/
+    var ary = []
+    var s = ''
+    for (var i = 0; i < p.length; i++) {
+      var a = p[i]
+      if (a !== '') {
+        s = ''
+        for (var j = 0; j < a.length; j++) {
+          var b = a[j]
+          if (reg.test(b)) {
+            if (reg1.test(b)) {
+              if (str[j - 1] !== undefined && reg2.test(str[j - 1])) {
+                ary.push(s.toLocaleLowerCase())
+                s = b
+              } else {
+                s += b
+              }
+            } else {
+              s += b
+            }
+          }
+        }
+        ary.push(s.toLocaleLowerCase())
+      }
+    }
+    return ary.join(' ')
+  }
+  ,lowerFirst: function(str = '') {
+    if (str == '') {
+      return str
+    }
+    var regU = /[A-Z]/
+    if (regU(str[0])) {
+      return str[0].toLocaleLowerCase() + str.slice(1)
+    }
+    return str
+  }
+  ,pad: function(str = '', length = 0, chars=' ') {
+    var s = str
+    if (length <= s.length) {
+      return s
+    }
+    var right = true
+    while (chars.length <= length - s.length) {
+      if (right) {
+        s = s + chars
+      } else {
+        s = chars + s
+      }
+      right = !right
+    }
+    for (var i = 0; i < length - s.length; i++) {
+      s += chars[i]
+    }
+    return s
+  }
+  ,padEnd: function(str = '', length = 0, chars = ' ') {
+    var s = str
+    if (length <= s.length) {
+      return s
+    }
+    while (chars.length <= length - s.length) {
+      s = s + chars
+    }
+    for (var i = 0; i < length - s.length; i++) {
+      s += chars[i]
+    }
+    return s
+  }
+  ,padStart: function(str = '', length = 0, chars = ' ') {
+    if (length <= str.length) {
+      return str
+    }
+    var s = ''
+    while (chars.length <= length - (s.length + str.length)) {
+      s = s + chars
+    }
+    for (var i = 0; i < length - (s.length + str.length); i++) {
+      s += chars[i]
+    }
+    return s + str
+  }
 }
