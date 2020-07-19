@@ -2526,7 +2526,7 @@ var love_my = {
     } else {
       var keys = Object.keys(obj)
       for (var i = 0; i < keys.length; i++) {
-        ary.push(keys[i], obj[keys[i]])
+        ary.push([keys[i], obj[keys[i]]])
       }
     }
     return ary
@@ -2543,7 +2543,7 @@ var love_my = {
       }
     } else {
       for (var key in obj) {
-        ary.push(key, obj[key])
+        ary.push([key, obj[key]])
       }
     }
     return ary
@@ -2615,9 +2615,10 @@ var love_my = {
     }
     var val = this.get(obj, path)
     this.setWith(obj, path, updater(val), customizer)
+    return obj
   }
   ,values: function(obj) {
-    return Object.valueOf(obj)
+    return Object.values(obj)
   }
   ,valuesIn: function(obj) {
     var ary = []
@@ -2762,7 +2763,7 @@ var love_my = {
       return str
     }
     var regU = /[A-Z]/
-    if (regU(str[0])) {
+    if (regU.test(str[0])) {
       return str[0].toLocaleLowerCase() + str.slice(1)
     }
     return str
@@ -2871,26 +2872,36 @@ var love_my = {
     var reg2 = /[a-z]/
     var ary = []
     var s = ''
-    for (var i = 0; i < p.length; i++) {
+    for (var i = p.length - 1; i >= 0; i--) {
       var a = p[i]
       if (a !== '') {
         s = ''
-        for (var j = 0; j < a.length; j++) {
+        for (var j = a.length - 1; j >= 0; j--) {
           var b = a[j]
           if (reg.test(b)) {
-            if (reg1.test(b)) {
-              if (s !== '') {
-                ary.push(s[0].toUpperCase() + s.slice(1))
+            if (reg2.test(b)) {
+              if (reg1.test(a[j + 1])) {
+                if (s !== '') {
+                  ary.unshift(s[0].toUpperCase() + s.slice(1))
+                  s = b
+                }
+              } else {
+                s = b + s
               }
-              s = b
             } else {
-              s += b
+              s = b + s
             }
           }
         }
-        ary.push(s[0].toUpperCase() + s.slice(1))
+        ary.unshift(s[0].toUpperCase() + s.slice(1))
       }
     }
     return ary.join(' ')
+  }
+  ,startsWith: function(str = '', target, position = 0) {
+    return str[position] == target
+  }
+  ,toLower: function(str = '') {
+
   }
 }
