@@ -2812,4 +2812,85 @@ var love_my = {
     }
     return s + str
   }
+  ,parseInt: function(str, radix = 10) {
+    return parseInt(str, radix)
+  }
+  ,repeat: function(str = '', n = 1) {
+    var s = ''
+    for (var i = 0; i < n; i++) {
+      s += str
+    }
+    return s
+  }
+  ,replace: function(str, pattern, replacement) {
+    pattern = pattern.replace(/\\/g, '\\\\')
+    var reg = new RegExp(pattern)
+    return str.replace(reg, replacement)
+  }
+  ,snakeCase: function(str = '') {
+    var p = str.split(/\s|\_/)
+    var reg = /[a-zA-Z]/
+    var reg1 = /[A-Z]/
+    var reg2 = /[a-z]/
+    var ary = []
+    var s = ''
+    for (var i = 0; i < p.length; i++) {
+      var a = p[i]
+      if (a !== '') {
+        s = ''
+        for (var j = 0; j < a.length; j++) {
+          var b = a[j]
+          if (reg.test(b)) {
+            if (reg1.test(b)) {
+              if (str[j - 1] !== undefined && reg2.test(str[j - 1])) {
+                ary.push(s.toLocaleLowerCase())
+                s = b
+              } else {
+                s += b
+              }
+            } else {
+              s += b
+            }
+          }
+        }
+        ary.push(s.toLocaleLowerCase())
+      }
+    }
+    return ary.join('_')
+  }
+  ,split: function(str = '', separator, limit) {
+    return str.split(separator).slice(0, limit)
+  }
+  ,startCase: function(str = '') {
+    if (str == '') {
+      return str
+    }
+    var p = str.split(/\-|\_/)
+    var reg = /[a-zA-Z]/
+    var reg1 = /[A-Z]/
+    var reg2 = /[a-z]/
+    var ary = []
+    var s = ''
+    for (var i = 0; i < p.length; i++) {
+      var a = p[i]
+      if (a !== '') {
+        s = ''
+        for (var j = 0; j < a.length; j++) {
+          var b = a[j]
+          if (reg.test(b)) {
+            if (reg1.test(b)) {
+              if (s !== '') {
+                ary.push(s[0].toUpperCase() + s.slice(1))
+              }
+              s = b
+            } else {
+              s += b
+            }
+          }
+        }
+        ary.push(s[0].toUpperCase() + s.slice(1))
+      }
+    }
+    return ary.join(' ')
+  }
 }
