@@ -2548,5 +2548,37 @@ var love_my = {
     }
     return arys
   }
+  ,transform: function(obj, iteratee, accumulator) {
+    if (Array.isArray(obj)) {
+      if (accumulator == undefined) {
+        accumulator = []
+      }
+      for (var i = 0; i < obj.length; i++) {
+        var a = iteratee(accumulator, obj[i], i, obj)
+        if (this.isBoolean(a)) {
+          if (a == false) {
+            break
+          }
+        } else if (a !== undefined) {
+          accumulator = a
+        }
+      }
+    } else if (typeof(obj) == 'object') {
+      if (accumulator == undefined) {
+        accumulator = {}
+      }
+      for (var key in obj) {
+        var a = iteratee(accumulator, obj[key], key, obj)
+        if (this.isBoolean(a)) {
+          if (a == false) {
+            break
+          }
+        } else if (a !== undefined) {
+          accumulator = a
+        }
+      }
+    }
+    return accumulator
+  }
   ,
 }
