@@ -1005,7 +1005,7 @@ var love_my = {
     var pre = obj
     var ary = []
     for (var i = 0; i < path.length; i++) {
-      if (path[i] !== undefined) {
+      if (path[i] !== '') {
         ary.push(path[i])
       }
     }
@@ -2126,7 +2126,7 @@ var love_my = {
       path = path.split(/\[|\]\.|\]\[|\.|\]/)
     }
     for (var i = 0; i < path.length; i++) {
-      if (path[i] !== undefined) {
+      if (path[i] !== '') {
         result = result[path[i]]
         if (result == undefined) {
           return defaultvalue
@@ -2303,5 +2303,63 @@ var love_my = {
       }
     }
     return ary
+  }
+  ,has: function(obj, path) {
+    var a = obj
+    var hasown = Object.prototype.hasOwnProperty
+    if (typeof(path) == 'string') {
+      path = path.split('.')
+    }
+    for (var i = 0; i < path.length; i++) {
+      if (!(hasown.call(a, path[i]))) {
+        return false
+      }
+      a = a[path[i]]
+    }
+    return true
+  }
+  ,hasIn: function(obj, path) {
+    var a = obj
+    if (typeof(path) == 'string') {
+      path = path.split('.')
+    }
+    for (var i = 0; i < path.length; i++) {
+      if (!(path[i] in a)) {
+        return false
+      }
+      a = a[path[i]]
+    }
+    return true
+  }
+  ,invert: function(obj) {
+    var o = {}
+    for (var key in obj) {
+      o[obj[key]] = obj[key]
+    }
+    return o
+  }
+  ,invertBy: function(obj, iteratee) {
+    var o = {}
+    var okey
+    for (var key in obj) {
+      if (iteratee !== undefined) {
+        okey = iteratee(obj[key])
+      } else {
+        okey = obj[key]
+      }
+      if (okey in o) {
+        o[okey].push(key)
+      } else {
+        o[okey] = [key]
+      }
+    }
+    return o
+  }
+  ,invoke: function(obj, path, ...args) {
+    var ary = path.split('.')
+    var f = ary.pop()
+    path = ary.join('.')
+    var val = this.get(obj, path)
+    return val[f](...args)
   }
 }
