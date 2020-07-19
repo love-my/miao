@@ -2529,7 +2529,7 @@ var love_my = {
         ary.push(keys[i], obj[keys[i]])
       }
     }
-    return arys
+    return ary
   }
   ,toPairsIn: function(obj) {
     var ary = []
@@ -2546,7 +2546,7 @@ var love_my = {
         ary.push(key, obj[key])
       }
     }
-    return arys
+    return ary
   }
   ,transform: function(obj, iteratee, accumulator) {
     if (Array.isArray(obj)) {
@@ -2579,6 +2579,86 @@ var love_my = {
       }
     }
     return accumulator
+  }
+  ,unset: function(obj, path) {
+    var pre = obj
+    if (typeof(path) == 'string') {
+      var p = path.split(/\[|\]\[|\]\.|\]|\./)
+      var ary = []
+      for (var i = 0; i < p.length; i++) {
+        if (p[i] !== '') {
+          ary.push(p[i])
+        }
+      }
+      path = ary
+    }
+    for (var i = 0; i < path.length - 1; i++) {
+      if (pre[path[i]] == undefined) {
+        return false
+      }
+      pre = pre[path[i]]
+    }
+    if (pre[path[i]] == undefined) {
+      return false
+    }
+    delete pre[path[i]]
+    return true
+  }
+  ,update: function(obj, path, updater) {
+    var val = this.get(obj, path)
+    this.set(obj, path, updater(val))
+    return obj
+  }
+  ,updateWith: function(obj, path, updater, customizer) {
+    if (customizer == undefined) {
+      return this.update(obj, path, updater)
+    }
+    var val = this.get(obj, path)
+    this.setWith(obj, path, updater(val), customizer)
+  }
+  ,values: function(obj) {
+    return Object.valueOf(obj)
+  }
+  ,valuesIn: function(obj) {
+    var ary = []
+    for (var key in obj) {
+      ary.push(obj[key])
+    }
+    return ary
+  }
+  ,camelCase: function(str) {
+    var s = str.split(/\s|\-|\_/)
+    var c = 0
+    for (var i = 0; i < s.length; i++) {
+      if (s[i] !== '') {
+        if (c == 0) {
+          s[i] = s[i].toLowerCase()
+          c++
+        } else {
+          s[i] = s[i][0].toUpperCase() + s[i].slice(1).toLowerCase()
+        }
+      }
+    }
+    return s.join('')
+  }
+  ,capitalize: function(str) {
+    var reg1 = /[a-z]/
+    var reg2 = /[A-Z]/
+    var s = ''
+    for (var i = 0; i < str.length; i++) {
+      if (i == 0) {
+        if (reg1.test(str[i])) {
+          s += str[i].toUpperCase()
+        } else {
+          s += str[i]
+        }
+      } else if (reg2.test(str[i])) {
+        s += str[i].toLowerCase()
+      } else {
+        s += str[i]
+      }
+    }
+    return s
   }
   ,
 }
