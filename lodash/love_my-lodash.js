@@ -2925,30 +2925,30 @@ var love_my = {
     return s
   }
   ,trim: function(str = '', chars = '\\s') {
-    var s = new RegExp(chars)
+    var reg = new RegExp(chars)
     var c = str.length
     for (var i = 0; i < c; i++) {
-      if (!s.test(str[i])) {
+      if (!reg.test(str[i])) {
         s += str[i]
       }
     }
     return s
   }
   ,trimEnd: function(str = '', chars = '\\s') {
-    var s = new RegExp(chars)
+    var reg = new RegExp(chars)
     var c = str.length
     for (var i = c - 1; i >= 0; i--) {
-      if (!s.test(str[i])) {
+      if (!reg.test(str[i])) {
         break
       }
     }
     return str.slice(0, i + 1)
   }
   ,trimStart: function(str = '', chars = '\\s') {
-    var s = new RegExp(chars)
+    var reg = new RegExp(chars)
     var c = str.length
     for (var i = 0; i < c; i++) {
-      if (!s.test(str[i])) {
+      if (!reg.test(str[i])) {
         break
       }
     }
