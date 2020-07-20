@@ -3077,4 +3077,78 @@ var love_my = {
     }
     return ary
   }
+  ,bindAll: function(obj, method) {
+    addEventListener(method.toString(), obj[method.toString()])
+  }
+  ,defaultTo: function(val, defaultvalue) {
+    if (val !== val || val == null || val == undefined) {
+      return defaultvalue
+    }
+    return val
+  }
+  ,range: function(start = 0, end, step = 1) {
+    var ary = []
+    var p = Array.from(arguments)
+    if (p.length < 3) {
+      if (p.length == 1) {
+        start = 0
+        end = p[0]
+      }
+      if (start < end) {
+        step = 1
+      } else if (start > end) {
+        step = -1
+      }
+    }
+    if (start > end && step < 0) {
+      for (var i = start; i > end; i += step) {
+        ary.push(i)
+      }
+    } else if (start < end) {
+      if (step == 0) {
+        for (var i = start; i < end; i++) {
+          ary.push(start)
+        }
+      } else if (step > 0) {
+        for (var i = start; i < end; i += step) {
+          ary.push(i)
+        }
+      }
+    }
+    return ary
+  }
+  ,rangeRight: function(start = 0, end, step = 1) {
+    var ary = []
+    var p = Array.from(arguments)
+    if (p.length < 3) {
+      if (p.length == 1) {
+        start = 0
+        end = p[0]
+      }
+      if (start < end) {
+        step = 1
+      } else if (start > end) {
+        step = -1
+      }
+    }
+    if (start > end && step < 0) {
+      for (var i = start; i > end; i += step) {
+        ary.unshift(i)
+      }
+    } else if (start < end) {
+      if (step == 0) {
+        for (var i = start; i < end; i++) {
+          ary.unshift(start)
+        }
+      } else if (step > 0) {
+        for (var i = start; i < end; i += step) {
+          ary.unshift(i)
+        }
+      }
+    }
+    return ary
+  }
+  ,mixin: function(obj, source, options = {}) {
+    
+  }
 }
