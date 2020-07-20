@@ -2917,36 +2917,38 @@ var love_my = {
     var reg = /[a-z]/
     for (var i = 0; i < str.length; i++) {
       if (reg.test(str[i])) {
-        s += str[i].toLowerCase()
+        s += str[i].toUpperCase()
       } else {
         s += str[i]
       }
     }
     return s
   }
-  ,trim: function(str = '', chars = ' ') {
-    var s = ''
+  ,trim: function(str = '', chars = '\\s') {
+    var s = new RegExp(chars)
     var c = str.length
     for (var i = 0; i < c; i++) {
-      if (!(chars.includes(str[i]))) {
+      if (!s.test(str[i])) {
         s += str[i]
       }
     }
     return s
   }
-  ,trimEnd: function(str = '', chars = ' ') {
+  ,trimEnd: function(str = '', chars = '\\s') {
+    var s = new RegExp(chars)
     var c = str.length
     for (var i = c - 1; i >= 0; i--) {
-      if (!(chars.includes(str[i]))) {
+      if (!s.test(str[i])) {
         break
       }
     }
     return str.slice(0, i + 1)
   }
-  ,trimStart: function(str = '', chars = ' ') {
+  ,trimStart: function(str = '', chars = '\\s') {
+    var s = new RegExp(chars)
     var c = str.length
     for (var i = 0; i < c; i++) {
-      if (!(chars.includes(str[i]))) {
+      if (!s.test(str[i])) {
         break
       }
     }
