@@ -3077,8 +3077,10 @@ var love_my = {
     }
     return ary
   }
-  ,bindAll: function(obj, method) {
-    addEventListener(method.toString(), obj[method.toString()])
+  ,bindAll: function(obj, ...method) {
+    for (var i = 0; i < method.length; i++) {
+      addEventListener(method[i], obj[method[i]])
+    }
   }
   ,defaultTo: function(val, defaultvalue) {
     if (val !== val || val == null || val == undefined) {
@@ -3149,6 +3151,173 @@ var love_my = {
     return ary
   }
   ,mixin: function(obj, source, options = {}) {
-    
+    var p = Array.from(arguments)
+    if (p.length == 1) {
+      obj = window
+      source = p[0]
+      options['chain'] = true
+    }
+    if (p.length == 2) {
+      obj = window
+      source = p[0]
+      options = p[1]
+    }
+    var c = options.chain
+    for (var key in source) {
+      var a = source[key]
+      if (c == true) {
+        obj[key] = a
+      } else {
+        Object.defineProperty(obj, key, {
+          value: a,
+          enumerable: false
+        })
+      }
+    }
   }
+  ,times: function(n, iteratee) {
+    var ary = []
+    for (var i = 0; i < n; i++) {
+      ary.push(iteratee(i))
+    }
+    return ary
+  }
+  ,toPath: function(val) {
+    var ary = []
+    var ary2 = val.split(/\[|\]\[|\]\.|\]|\./)
+    for (var val of ary2) {
+      if (val !== '') {
+        ary.push(val)
+      }
+    }
+    return ary
+  }
+  ,uniqueId: function(pre = '') {
+    if (this.id == undefined) {
+      this.id = Math.floor(Math.random() * 10)
+    }
+    return pre + this.id++
+  }
+  ,cloneDeep: function(val) {
+    var result
+    if (Array.isArray(val)) {
+      result = []
+      for (var i = 0; i < val.length; i++) {
+        result.push(this.cloneDeep(val[i]))
+      }
+    } else if (typeof(val) == 'object') {
+      result = {}
+      for (var key in val) {
+        result[key] = this.cloneDeep(val[key])
+      }
+    } else {
+      result = val
+    }
+    return result
+  }
+  ,identity: function(...val) {
+    return val[0]
+  }
+  ,pullAt: function(array, indexs) {
+    var ary = []
+    var result = []
+    for (var i = 0; i < array.length; i++) {
+      if (indexs.includes(i)) {
+        result.push(array[i])
+      } else {
+        ary.push(array[i])
+      }
+    }
+    array = ary
+    return result
+  }
+  ,matches: function(source) {
+    return function(arg) {
+      for (var key in source) {
+        if (arg[key] !== source[key]) {
+          return false
+        }
+      }
+      return true
+    }
+  }
+  ,property: function(path) {
+    return function(arg) {
+      return this.get(arg, path)
+    }
+  }
+  ,ary: function(f, n = f.length) {
+    return function(...args) {
+      return f(...args.slice(0, n))
+    }
+  }
+  ,unary: function(f) {
+    return function(...args) {
+      return f(args[0])
+    }
+  }
+  ,negate: function(f) {
+    return function(arg) {
+      if (f(arg)) {
+        return false
+      }
+      return true
+    }
+  }
+  ,once: function(f) {
+    return function(...args) {
+      if (this.once == undefined) {
+        this.once = 1
+        f(...args)
+      }
+    }
+  }
+  ,spread: function(f, start = 0) {
+    return function(args) {
+      if (start == 0) {
+        return f(...args)
+      }
+      return f(args.toString())
+    }
+  }
+  ,curry: function(f, arity = f.length) {
+    function ret(arity, args, func) {
+      if (arity <= args.length) {
+        return func(...args)
+      } else {
+        var f = func.bind(null, ...args)
+        return function (...args2) {
+          return ret(arity - args.length, args2, f)
+        }
+      }
+    }
+    return function(...argums) {
+      return ret(arity, argums, f)
+    }
+  }
+  ,memoize: memorize()
 }
+
+var cache = new Map()
+function memorize(func) {
+  function f(func, cache, o) {
+    var ary = []
+    for (var key in o) {
+      if (cache.has(key)) {
+        ary.push(cache.get(key))
+      } else {
+        cache.set(key, o[key])
+        ary.push(o[key])
+      }
+    }
+    return ary
+  }
+  Object.defineProperty(ff, 'cache', {
+    value: cache
+  })
+  function ff(o) {
+    return f(func, cache, o)
+  }
+  return ff
+}
+
