@@ -2712,7 +2712,7 @@ var love_my = {
           if (reg.test(b)) {
             if (reg1.test(b)) {
               if (str[j - 1] !== undefined && reg2.test(str[j - 1])) {
-                ary.push(s.toLocaleLowerCase())
+                ary.push(s.toLowerCase())
                 s = b
               } else {
                 s += b
@@ -2722,7 +2722,7 @@ var love_my = {
             }
           }
         }
-        ary.push(s.toLocaleLowerCase())
+        ary.push(s.toLowerCase())
       }
     }
     return ary.join('-')
@@ -2743,7 +2743,7 @@ var love_my = {
           if (reg.test(b)) {
             if (reg1.test(b)) {
               if (str[j - 1] !== undefined && reg2.test(str[j - 1])) {
-                ary.push(s.toLocaleLowerCase())
+                ary.push(s.toLowerCase())
                 s = b
               } else {
                 s += b
@@ -2753,7 +2753,7 @@ var love_my = {
             }
           }
         }
-        ary.push(s.toLocaleLowerCase())
+        ary.push(s.toLowerCase())
       }
     }
     return ary.join(' ')
@@ -2764,7 +2764,7 @@ var love_my = {
     }
     var regU = /[A-Z]/
     if (regU.test(str[0])) {
-      return str[0].toLocaleLowerCase() + str.slice(1)
+      return str[0].toLowerCase() + str.slice(1)
     }
     return str
   }
@@ -2829,7 +2829,7 @@ var love_my = {
     return str.replace(reg, replacement)
   }
   ,snakeCase: function(str = '') {
-    var p = str.split(/\s|\_/)
+    var p = str.split(/\s|\-/)
     var reg = /[a-zA-Z]/
     var reg1 = /[A-Z]/
     var reg2 = /[a-z]/
@@ -2844,7 +2844,7 @@ var love_my = {
           if (reg.test(b)) {
             if (reg1.test(b)) {
               if (str[j - 1] !== undefined && reg2.test(str[j - 1])) {
-                ary.push(s.toLocaleLowerCase())
+                ary.push(s.toLowerCase())
                 s = b
               } else {
                 s += b
@@ -2854,7 +2854,7 @@ var love_my = {
             }
           }
         }
-        ary.push(s.toLocaleLowerCase())
+        ary.push(s.toLowerCase())
       }
     }
     return ary.join('_')
@@ -2902,6 +2902,134 @@ var love_my = {
     return str[position] == target
   }
   ,toLower: function(str = '') {
-
+    var s = ''
+    var reg = /A-Z/
+    for (var i = 0; i < str.length; i++) {
+      if (reg.test(str[i])) {
+        s += str[i].toLowerCase()
+      } else {
+        s += str[i]
+      }
+    }
+    return s
   }
+  ,toUpper: function(str = '') {
+    var s = ''
+    var reg = /a-z/
+    for (var i = 0; i < str.length; i++) {
+      if (reg.test(str[i])) {
+        s += str[i].toLowerCase()
+      } else {
+        s += str[i]
+      }
+    }
+    return s
+  }
+  ,trim: function(str = '', chars = ' ') {
+    var s = ''
+    for (var i = 0; i < str.length; i++) {
+      if (!(chars.includes(str[i]))) {
+        s += str[i]
+      }
+    }
+    return s
+  }
+  ,trimEnd: function(str = '', chars = ' ') {
+    for (var i = str.length - 1; i >= 0; i--) {
+      if (!(chars.includes(str[i]))) {
+        break
+      }
+    }
+    return str.slice(0, i + 1)
+  }
+  ,trimStart: function(str = '', chars = ' ') {
+    for (var i = 0; i < str.length; i++) {
+      if (!(chars.includes(str[i]))) {
+        break
+      }
+    }
+    return str.slice(i)
+  }
+  ,truncate: function(str = '', options = {}) {
+    if (options['length'] == undefined) {
+      options['length'] = 30
+    }
+    if (options['omission'] == undefined) {
+      options['omission'] = '...'
+    }
+    if (options['separator'] == undefined) {
+      options['separator'] = ''
+    }
+    if (str.length <= options['length']) {
+      return str
+    }
+    var count = 0
+    var s = str.split(options['separator'])
+    var result = ''
+    var length = options['length'] - options['omission'].length
+    for (var i = 0; i < s.length; i++) {
+      if (count + s[i].length <= length) {
+        result += s[i]
+        count += s[i].length
+      }
+    }
+    return result + options['omission']
+  }
+  ,unescape: function(str = '') {
+    return str.replace(/(\&amp;|\&lt;|\&gt;|\&quot;|\&#39;)/g, (all, a) => {
+      if (a == '&amp;') {
+        return '&'
+      } else if (a == '&lt;') {
+        return '<'
+      } else if (a == '&gt;') {
+        return '>'
+      } else if (a == '&quot;') {
+        return '"'
+      } else if (a == '&#39;') {
+        return "'"
+      }
+    })
+  }
+  ,upperCase: function(str = '') {
+    var p = str.split(/\-|\_/)
+    var reg = /[a-zA-Z]/
+    var reg1 = /[A-Z]/
+    var reg2 = /[a-z]/
+    var ary = []
+    var s = ''
+    for (var i = 0; i < p.length; i++) {
+      var a = p[i]
+      if (a !== '') {
+        s = ''
+        for (var j = 0; j < a.length; j++) {
+          var b = a[j]
+          if (reg.test(b)) {
+            if (reg1.test(b)) {
+              if (str[j - 1] !== undefined && reg2.test(str[j - 1])) {
+                ary.push(s.toUpperCase())
+                s = b
+              } else {
+                s += b
+              }
+            } else {
+              s += b
+            }
+          }
+        }
+        ary.push(s.toUpperCase())
+      }
+    }
+    return ary.join(' ')
+  }
+  ,upperFirst: function(str = '') {
+    if (str == '') {
+      return str
+    }
+    var regU = /[a-z]/
+    if (regU.test(str[0])) {
+      return str[0].toUpperCase() + str.slice(1)
+    }
+    return str
+  }
+  
 }
