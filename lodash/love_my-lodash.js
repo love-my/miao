@@ -2925,7 +2925,7 @@ var love_my = {
     return s
   }
   ,trim: function(str = '', chars = '\\s') {
-    var reg = new RegExp(chars)
+    var reg = new RegExp('[' + chars + ']')
     var s = ''
     var c = str.length
     for (var i = 0; i < c; i++) {
@@ -2936,7 +2936,7 @@ var love_my = {
     return s
   }
   ,trimEnd: function(str = '', chars = '\\s') {
-    var reg = new RegExp(chars)
+    var reg = new RegExp('[' + chars + ']')
     var s = ''
     var c = str.length
     for (var i = c - 1; i >= 0; i--) {
@@ -2947,7 +2947,7 @@ var love_my = {
     return str.slice(0, i + 1)
   }
   ,trimStart: function(str = '', chars = '\\s') {
-    var reg = new RegExp(chars)
+    var reg = new RegExp('[' + chars + ']')
     var s = ''
     var c = str.length
     for (var i = 0; i < c; i++) {
