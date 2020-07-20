@@ -3052,5 +3052,24 @@ var love_my = {
     }
     return str
   }
-  
+  ,words: function(str = '', pattern) {
+    if (pattern == undefined) {
+      pattern = /^\d+|[a-zA-Z]+$/
+    }
+    var s = ''
+    var ary = []
+    for (var i = 0; i < str.length; i++) {
+      s += str[i]
+      if (!pattern.test(s)) {
+        if (s.length > 1) {
+          ary.push(s.slice(0, -1))
+        }
+        s = ''
+      }
+    }
+    if (s !== '') {
+      ary.push(s)
+    }
+    return ary
+  }
 }
