@@ -2824,7 +2824,6 @@ var love_my = {
     return s
   }
   ,replace: function(str, pattern, replacement) {
-    pattern = pattern.replace(/\\/g, '\\\\')
     var reg = new RegExp(pattern)
     return str.replace(reg, replacement)
   }
@@ -2903,7 +2902,7 @@ var love_my = {
   }
   ,toLower: function(str = '') {
     var s = ''
-    var reg = /A-Z/
+    var reg = /[A-Z]/
     for (var i = 0; i < str.length; i++) {
       if (reg.test(str[i])) {
         s += str[i].toLowerCase()
@@ -2915,7 +2914,7 @@ var love_my = {
   }
   ,toUpper: function(str = '') {
     var s = ''
-    var reg = /a-z/
+    var reg = /[a-z]/
     for (var i = 0; i < str.length; i++) {
       if (reg.test(str[i])) {
         s += str[i].toLowerCase()
@@ -2927,7 +2926,8 @@ var love_my = {
   }
   ,trim: function(str = '', chars = ' ') {
     var s = ''
-    for (var i = 0; i < str.length; i++) {
+    var c = str.length
+    for (var i = 0; i < c; i++) {
       if (!(chars.includes(str[i]))) {
         s += str[i]
       }
@@ -2935,7 +2935,8 @@ var love_my = {
     return s
   }
   ,trimEnd: function(str = '', chars = ' ') {
-    for (var i = str.length - 1; i >= 0; i--) {
+    var c = str.length
+    for (var i = c - 1; i >= 0; i--) {
       if (!(chars.includes(str[i]))) {
         break
       }
@@ -2943,7 +2944,8 @@ var love_my = {
     return str.slice(0, i + 1)
   }
   ,trimStart: function(str = '', chars = ' ') {
-    for (var i = 0; i < str.length; i++) {
+    var c = str.length
+    for (var i = 0; i < c; i++) {
       if (!(chars.includes(str[i]))) {
         break
       }
@@ -2964,14 +2966,33 @@ var love_my = {
       return str
     }
     var count = 0
-    var s = str.split(options['separator'])
+    var reg
+    if (typeof(options['separator']) == 'string') {
+      reg = new RegExp('(' + options['separator'] + ')')
+    } else {
+      var r = options['separator'].toString().split(/(?<!\\)\//)
+      var rstr = '('+ r[1] + ')'
+      if (r[2] !== '') {
+        rstr += r[2]
+      }
+      reg = new RegExp(rstr)
+    }
+    var s = str.split(reg)
     var result = ''
     var length = options['length'] - options['omission'].length
-    for (var i = 0; i < s.length; i++) {
-      if (count + s[i].length <= length) {
-        result += s[i]
-        count += s[i].length
+    for (var i = 0; i < s.length; i += 2) {
+      if (i == 0) {
+        if (count + s[i].length <= length) {
+          result += s[i]
+          count += s[i].length
+        }
+      } else {
+        if (count + s[i - 1].length + s[i].length <= length) {
+          result += s[i - 1] + s[i]
+          count += s[i - 1].length + s[i].length
+        }
       }
+      
     }
     return result + options['omission']
   }
