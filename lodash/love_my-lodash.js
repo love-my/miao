@@ -3077,8 +3077,11 @@ var love_my = {
     }
     return ary
   }
-  ,bindAll: function(obj, ...method) {
-    for (var i = 0; i < method.length; i++) {
+  ,bindAll: function(obj, method) {
+    if (typeof(method) == 'string') {
+      method = [method]
+    }
+    for (let i = 0; i < method.length; i++) {
       addEventListener(method[i], obj[method[i]])
     }
   }
@@ -3266,11 +3269,13 @@ var love_my = {
     }
   }
   ,once: function(f) {
+    var result
     return function(...args) {
       if (this.once == undefined) {
         this.once = 1
-        return f(...args)
+        result = f(...args)
       }
+      return result
     }
   }
   ,spread: function(f, start = 0) {
@@ -3371,9 +3376,8 @@ var love_my = {
     }
   }
   ,propertyOf: function(obj) {
-    var p = this
     return function(path) {
-      return p.get(obj, path)
+      return this.get(obj, path)
     }
   }
   ,
