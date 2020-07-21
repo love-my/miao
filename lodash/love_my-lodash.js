@@ -3205,7 +3205,7 @@ var love_my = {
       for (var i = 0; i < val.length; i++) {
         result.push(this.cloneDeep(val[i]))
       }
-    } else if (typeof(val) == 'object') {
+    } else if (typeof(val) == 'object' && !Object.prototype.toString.call(val).includes('RegExp')) {
       result = {}
       for (var key in val) {
         result[key] = this.cloneDeep(val[key])
@@ -3268,7 +3268,7 @@ var love_my = {
     return function(...args) {
       if (this.once == undefined) {
         this.once = 1
-        f(...args)
+        return f(...args)
       }
     }
   }
@@ -3282,6 +3282,16 @@ var love_my = {
   }
   ,curry: function(f, arity = f.length) {
     function ret(arity, args, func) {
+      var ary = []
+      if (this._ == undefined) {
+        this._ = undefined
+      }
+      for (var val of args) {
+        if (val !== _) {
+          ary.push(val)
+        }
+      }
+      args = ary
       if (arity <= args.length) {
         return func(...args)
       } else {
@@ -3295,29 +3305,78 @@ var love_my = {
       return ret(arity, argums, f)
     }
   }
-  ,memoize: memorize()
+  ,memoize: function(func, resolver) {
+    var p = new Map()
+    if (resolver == undefined) {
+      resolver = it => it
+    }
+    function f(obj) {
+      f.cache = p
+      if (!p.has(obj)) {
+        p.set(obj, resolver(func(obj)))
+      }
+      return p.get(obj)
+    }
+    return f
+  }
+  ,flip: function(f) {
+    return function(...args) {
+      return f(...args.reverse())
+    }
+  }
+  ,conforms: function(source) {
+    return function(arg) {
+      for (var key in source) {
+        if (arg[key] !== source[key]) {
+          return false
+        }
+      }
+      return true
+    }
+  }
+  ,constant: function(val) {
+    return function() {
+      return val
+    }
+  }
+  ,flow: function(f) {
+    if (typeof(f) == 'function') {
+      f = [f]
+    }
+    return function(...args) {
+      var val = args
+      for (var i = 0; i < f.length; i++) {
+        val = [f[i](...val)]
+      }
+      return val[0]
+    }
+  }
+  ,method: function(path, ...args) {
+    return function(obj) {
+      return this.get(obj, path)(...args)
+    }
+  }
+  ,methodOf: function(obj, ...args) {
+    return function(path) {
+      return this.get(obj, path)(...args)
+    }
+  }
+  ,nthArg: function(n = 0) {
+    return function(...args) {
+      if (n >= 0) {
+        return args[n]
+      }
+      return args[args.length + n]
+    }
+  }
+  ,propertyOf: function(obj) {
+    return function(path) {
+      return this.get(obj, path)
+    }
+  }
+  ,
 }
 
-var cache = new Map()
-function memorize(func) {
-  function f(func, cache, o) {
-    var ary = []
-    for (var key in o) {
-      if (cache.has(key)) {
-        ary.push(cache.get(key))
-      } else {
-        cache.set(key, o[key])
-        ary.push(o[key])
-      }
-    }
-    return ary
-  }
-  Object.defineProperty(ff, 'cache', {
-    value: cache
-  })
-  function ff(o) {
-    return f(func, cache, o)
-  }
-  return ff
-}
+
+
 
