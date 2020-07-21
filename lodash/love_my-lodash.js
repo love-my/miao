@@ -3174,6 +3174,7 @@ var love_my = {
         })
       }
     }
+    return obj
   }
   ,times: function(n, iteratee) {
     var ary = []
@@ -3327,7 +3328,7 @@ var love_my = {
   ,conforms: function(source) {
     return function(arg) {
       for (var key in source) {
-        if (arg[key] !== source[key]) {
+        if (!source[key](arg[key])) {
           return false
         }
       }
@@ -3370,8 +3371,9 @@ var love_my = {
     }
   }
   ,propertyOf: function(obj) {
+    var p = this
     return function(path) {
-      return this.get(obj, path)
+      return p.get(obj, path)
     }
   }
   ,
