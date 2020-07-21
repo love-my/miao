@@ -3271,8 +3271,8 @@ var love_my = {
   ,once: function(f) {
     var result
     return function(...args) {
-      if (this.once == undefined) {
-        this.once = 1
+      if (this.one == undefined) {
+        this.one = 1
         result = f(...args)
       }
       return result
