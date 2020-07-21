@@ -3377,10 +3377,15 @@ var love_my = {
   }
   ,propertyOf: function(obj) {
     return function(path) {
-      return this.get(obj, path)
+      return love_my.get(obj, path)
     }
   }
-  ,
+  ,parseJson: function(val) {
+    return JSON.parse(val)
+  }
+  ,stringifyJson: function(val) {
+    return JSON.stringify(val)
+  }
 }
 
 
