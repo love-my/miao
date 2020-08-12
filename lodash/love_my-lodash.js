@@ -2401,7 +2401,7 @@ var love_my = {
         } else {
           var b = obj[key]
           var c =a[key]
-          if (typeof(b) == typeof(c) && typeof(b) == 'object') {
+          if (typeof(b) == typeof(c) && typeof(b) == 'object' && !Array.isArray(b)) {
             this.merge(b, c)
           } else {
             b = c
