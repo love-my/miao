@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      transition: 2s;
+      opacity: 0;
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt voluptatum aliquam facere reprehenderit, ratione
+    ex nemo? Quas animi explicabo alias, tempora aut repudiandae corrupti quisquam velit doloremque illo veniam ea.
+  </p>
+  <script>
+    window.addEventListener('keydown', function (e) {
+      if (e.keyCode == 86) {
+        document.body.style.backgroundColor = '#' + Math.random().toString(16).slice(2, 5)
+        document.body.style.opacity = '1'
+      }
+    })
+    window.addEventListener('keyup', function (e) {
+      if (e.keyCode == 86) {
+        document.body.style.backgroundColor = 'white'
+      }
+    })
+  </script>
+</body>
+
+</html>

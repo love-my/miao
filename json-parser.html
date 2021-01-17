@@ -1,0 +1,137 @@
+<script>
+  var str = '[111,222,{"a":3},{"b":[[[["[5]"]]]],"c":"fooobar","d":[1,flase,[null,4,{"x":1,"y":2}]]}]'
+
+  var i = 0
+
+  // 递归下降
+
+  function parseValue() {
+    if (str[i] === '[') {
+      return parseArray()
+    }
+    if (str[i] === '{') {
+      return parseObject()
+    }
+    if (str[i] === '"') {
+      return parseString()
+    }
+    if (str[i] === 't') {
+      return parseTrue()
+    }
+    if (str[i] === 'f') {
+      return parseFalse()
+    }
+    if (str[i] === 'n') {
+      return parseNull()
+    }
+    return parseNumber()
+  }
+
+  function parseArray() {
+    // [111,"foo",true]
+    // []
+    var result = []
+    i++ // skip '['
+
+    while (str[i] !== ']') {
+      var value = parseValue()
+      result.push(value)
+      if (str[i] === ',') {
+        i++ // skip ','
+      }
+    }
+
+    i++ // skip ']'
+    return result
+  }
+
+  function parseObject() {
+    var result = {}
+    i++ // skip '{'
+
+    while (str[i] !== '}') {
+      var key = parseString()
+      i++ // skip ':'
+      var value = parseValue()
+
+      result[key] = value
+
+      if (str[i] === ',') {
+        i++ // skip ','
+      }
+    }
+    i++ // skip '}'
+    return result
+  }
+
+  function parseString() {
+    // "foobar"
+    i++ // skip start '"'
+    var result = ''
+    while (str[i] !== '"') {
+      result += str[i++]
+    }
+    i++ // skip end '"'
+    return result
+  }
+
+  function parseNumber() {
+    // -353.43e-305
+    // .3
+    // .3e5
+    var numStr = ''
+    while (isNumberDigit(str[i])) {
+      numStr += str[i++]
+    }
+    return parseInt(numStr)
+  }
+
+  function isNumberDigit(c) {
+    var code = c.charCodeAt(0)
+    var code0 = '0'.charCodeAt(0)
+    var code9 = '9'.charCodeAt(0)
+    return code >= code0 && code <= code9
+  }
+
+  function parseTrue() {
+    i += 4
+    return true
+  }
+  function parseFalse() {
+    i += 5
+    return false
+  }
+  function parseNull() {
+    i += 4
+    return null
+  }
+
+  function ParseJSON(input) {
+    //TODO：实现ParseJSON函数使其能够解析一个json字符串到一个js值。
+    str = input
+    i = 0
+    return parseValue()
+  }
+
+  // var data = ParseJSON(jsonText)
+
+
+  1(2(4)(5))(3(6()(0))())
+
+
+  "|(&(t,f),f)"   -> false
+  "|(|(f,t),&(f,f))"
+  "(3 + (2 * 5)) + 3"
+
+  function calc(root) {
+    if (root.val === '+') {
+      return calc(root.left) + calc(root.right)
+    }
+    else if (root.val === '-') {
+      return calc(root.left) - calc(root.right)
+    }
+    else if (typeof root.val === 'number') {
+      return root.val
+    }
+  }
+</script>
